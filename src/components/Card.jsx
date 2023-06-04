@@ -7,6 +7,7 @@ const pictures = { 1: pic1, 2: pic2 };
 export default function Card(props) {
   const onClose = () => {
     window.alert('Emulamos que se cierra la card');
+    console.log(pictures)
   };
 
   return (
