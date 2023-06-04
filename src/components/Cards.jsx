@@ -1,21 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Card from './Card';
-import '../Container.css';
+import '../styles/Container.css';
 
 export default function Cards(props) {
   const [currentCard, setCurrentCard] = useState(0);
+  const [canChangeCard, setCanChangeCard] = useState(true);
 
-  const goToPreviousCard = () => {
-    if (currentCard > 0) {
+  const goToPreviousCard = useCallback(() => {
+    if (currentCard > 0 && canChangeCard) {
       setCurrentCard(currentCard - 1);
+      setCanChangeCard(false);
     }
-  };
+  }, [currentCard, canChangeCard]);
 
-  const goToNextCard = () => {
-    if (currentCard < props.characters.length - 1) {
+  const goToNextCard = useCallback(() => {
+    if (currentCard < props.characters.length - 1 && canChangeCard) {
       setCurrentCard(currentCard + 1);
+      setCanChangeCard(false);
     }
-  };
+  }, [currentCard, canChangeCard, props.characters.length]);
+
+  const handleScroll = useCallback(
+    (event) => {
+      const direction = event.deltaY > 0 ? 'down' : 'up';
+
+      if (direction === 'down') {
+        goToNextCard();
+      } else {
+        goToPreviousCard();
+      }
+    },
+    [goToNextCard, goToPreviousCard]
+  );
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCanChangeCard(true);
+    }, 100); // Tiempo mínimo entre cambios de tarjeta en milisegundos
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [canChangeCard]);
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleScroll);
+
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <div>
@@ -25,10 +59,8 @@ export default function Cards(props) {
         ))}
       </div>
       <div className="arrows">
-        <span className="arrow prev left" onClick={goToPreviousCard}>
-        </span>
-        <span className="arrow next right" onClick={goToNextCard}>
-        </span>
+        <span className="arrow prev left" onClick={goToPreviousCard}></span>
+        <span className="arrow next right" onClick={goToNextCard}></span>
       </div>
     </div>
   );

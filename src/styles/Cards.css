@@ -22,6 +22,9 @@
   max-width: 30%;
   height: 680px;
   display: none;
+  @media only screen and (max-width: 500px) {
+    max-width: 95%;
+  }
 }
 
 .card.visible {
@@ -129,26 +132,26 @@ img {
 
 .rick:hover {
   transform: scale(1.1);
-  content: url("./images/rickand-morty-rick.gif"); 
+  content: url("../images/rickand-morty-rick.gif"); 
 }
 
 .morty:hover {
   transform: scale(1.1);
-  content: url("./images/morty.gif"); 
+  content: url("../images/morty.gif"); 
 }
 
 .summer:hover {
   transform: scale(1.1);
-  content: url("./images/rickand-morty-rick.gif"); 
+  content: url("../images/rickand-morty-rick.gif"); 
 }
 
 .beth:hover {
   transform: scale(1.1);
-  content: url("./images/rickand-morty-rick.gif"); 
+  content: url("../images/rickand-morty-rick.gif"); 
 }
 
 .jerry:hover {
   transform: scale(1.1);
-  content: url("./images/rickand-morty-rick.gif"); 
+  content: url("../images/rickand-morty-rick.gif"); 
 }
 

@@ -23,7 +23,7 @@ export default [
          name: 'unknown',
          url: '',
       },
-      image: '/static/media/morty.cd6ae51e531c2a09cb77.png',
+      image: "/static/media/morty.6e5eea7318799714c4ad.png",
    },
    {
       id: 3,

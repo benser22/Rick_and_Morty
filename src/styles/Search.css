@@ -1,0 +1,77 @@
+/* Add a black background color to the top navigation bar */
+.search_style {
+  overflow: hidden;
+  float: inline-start;
+  display: flex;
+  justify-content: right;
+  text-align: center;
+  align-content: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 10px #000000;
+  background-color: #2a0d5c;
+  color: #fff;
+}
+
+/* Change the color of links on hover */
+.search_style:hover {
+  background-color: #48179d;
+}
+
+/* Style the "active" element to highlight the current page */
+.search_style.active {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.search_style input {
+  /* float: right; */
+  padding: 6px;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.search_button {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  line-height: 16px;
+  padding: 6px;
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-image: linear-gradient(
+    to right,
+    #1319aa 0%,
+    #090c56 50%,
+    #050630 100%
+  );
+  box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+  border: 2px solid rgb(28, 110, 164);
+  display: inline-block;
+}
+.search_button:hover {
+  background-image: linear-gradient(
+    to right,
+    #1920de 0%,
+    #10159f 50%,
+    #10127e 100%
+  );
+}
+.search_button:active {
+  background: #1319aa;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
+  box-shadow: rgb(94, 95, 95) 1px 1px 1px 1px;
+  transition: transform 0.3s, filter 0.3s; 
+
+}
+

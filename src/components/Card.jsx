@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Cards.css';
+import '../styles/Cards.css';
+
 import pic1 from '../images/rickand-morty-rick.png';
 import pic2 from '../images/morty.png';
 const pictures = { 1: pic1, 2: pic2 };

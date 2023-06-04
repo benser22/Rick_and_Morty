@@ -1,4 +1,4 @@
-import './App.css';
+import '../src/styles/App.css';
 import Cards from './components/Cards.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import characters from './data.js';
