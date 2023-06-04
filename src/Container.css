@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%; /* Ajusta la altura del contenedor según tus necesidades */
+  position: relative;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  left: 0;
+  right: 0;
+}
+
+.arrow {
+  font-size: 24px;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transition: transform 0.3s, filter 0.3s; /* Agrega una transición */
+  background-color: transparent; /* Establece el fondo como transparente */
+}
+
+.arrow.next {
+  margin-right: 0;
+}
+
+.right {
+  border-width: 50px 0 50px 60px; /* Ajusta los bordes */
+  border-color: transparent transparent transparent #1319aa; /* Ajusta los colores */
+  filter: drop-shadow(
+    -10px 0 5px rgba(0, 0, 0, 1)
+  ); /* Añade una sombra a la izquierda */
+}
+
+.left {
+  border-width: 50px 60px 50px 0; /* Ajusta los bordes */
+  border-color: transparent #1319aa transparent transparent; /* Ajusta los colores */
+  filter: drop-shadow(
+    10px 0 5px rgba(0, 0, 0, 1)
+  ); /* Añade una sombra a la derecha */
+}
+
+.arrow:hover {
+  transform: scale(1.1); /* Aplica una escala para el efecto de iluminación */
+}
+.arrow:active {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7));
+  }

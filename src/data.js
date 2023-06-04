@@ -1,31 +1,20 @@
-export const Rick = {
-   id: 1,
-   name: 'Rick Sanchez',
-   status: 'Alive',
-   species: 'Human',
-   gender: 'Male',
-   origin: {
-      name: 'Earth (C-137)',
-      url: 'https://rickandmortyapi.com/api/location/1',
-   },
-   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-};
-
 export default [
-   {
+   {  
       id: 1,
       name: 'Rick Sanchez',
+      cla: "rick",
       status: 'Alive',
       species: 'Human',
       gender: 'Male',
       origin: {
          name: 'Earth (C-137)',
-         url: 'https://rickandmortyapi.com/api/location/1',
+         url: '',
       },
-      image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+      image: "/static/media/rickand-morty-rick.b8410115f416c5fd004a.png",
    },
    {
       id: 2,
+      cla: "morty",
       name: 'Morty Smith',
       status: 'Alive',
       species: 'Human',
@@ -34,10 +23,11 @@ export default [
          name: 'unknown',
          url: '',
       },
-      image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+      image: '/static/media/morty.cd6ae51e531c2a09cb77.png',
    },
    {
       id: 3,
+      cla: "summer",
       name: 'Summer Smith',
       status: 'Alive',
       species: 'Human',
@@ -50,6 +40,7 @@ export default [
    },
    {
       id: 4,
+      cla: "beth",
       name: 'Beth Smith',
       status: 'Alive',
       species: 'Human',
@@ -62,6 +53,7 @@ export default [
    },
    {
       id: 5,
+      cla: "jerry",
       name: 'Jerry Smith',
       status: 'Alive',
       species: 'Human',
