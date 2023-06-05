@@ -1,4 +1,4 @@
-import { pictures } from './components/Card.jsx';
+import { pictures, gifs } from './components/Card.jsx';
 
 const data = [
    {  
@@ -13,6 +13,7 @@ const data = [
          url: '',
       },
       image: pictures["1"],
+      gif: gifs["1"]
    },
    {
       id: 2,
@@ -26,6 +27,8 @@ const data = [
          url: '',
       },
       image: pictures["2"],
+      gif: gifs["2"]
+
    },
    {
       id: 3,
@@ -39,6 +42,8 @@ const data = [
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: pictures["3"],
+      gif: gifs["3"]
+
    },
    {
       id: 4,
@@ -52,6 +57,8 @@ const data = [
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: pictures["4"],
+      gif: gifs["4"]
+
    },
    {
       id: 5,
@@ -65,6 +72,8 @@ const data = [
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: pictures["5"],
+      gif: gifs["5"]
+
    },
 ];
 

@@ -40,6 +40,8 @@
   transform: translateY(-5px);
   -webkit-box-shadow: 2px 2px 20px 5px #a19e9e;
   box-shadow: 2px 2px 20px 5px #c8c8c8;
+  transition: background-color 3s;
+
 }
 
 .card:before {
@@ -59,7 +61,8 @@
   );
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s ease-in-out;
+
 }
 
 .card:hover:before {
@@ -150,3 +153,4 @@
     text-align: justify;
   }
 }
+
