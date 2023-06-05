@@ -10,10 +10,9 @@
   .container {
     display: inline-block;
     padding: 10px;
-    width: 100%; /* Cambiado de 310% a 100% */
-    overflow-x: auto; /* Añadido para permitir desplazamiento horizontal */
-    white-space: nowrap; /* Añadido para evitar el salto de línea */
-    height: auto; /* Ajusta la altura según tus necesidades o elimina la propiedad para que se ajuste automáticamente */
+    width: 100%; 
+    overflow-x: auto;
+    white-space: nowrap; 
   }
 }
 

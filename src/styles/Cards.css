@@ -23,7 +23,7 @@
   height: 680px;
   display: none;
   @media only screen and (max-width: 500px) {
-    height: 480px; /* Altura reducida para dispositivos móviles */
+    height: 500px; /* Altura reducida para dispositivos móviles */
     max-width: 95%;
     display: flex;
     justify-content: center;

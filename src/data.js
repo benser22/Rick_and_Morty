@@ -1,3 +1,5 @@
+import { pictures } from './components/Card.jsx';
+
 const data = [
    {  
       id: 1,
@@ -10,7 +12,7 @@ const data = [
          name: 'Earth (C-137)',
          url: '',
       },
-      image: "/static/media/rickand-morty-rick.b8410115f416c5fd004a.png",
+      image: pictures["1"],
    },
    {
       id: 2,
@@ -23,7 +25,7 @@ const data = [
          name: 'unknown',
          url: '',
       },
-      image: "/static/media/morty.6e5eea7318799714c4ad.png",
+      image: pictures["2"],
    },
    {
       id: 3,
@@ -36,7 +38,7 @@ const data = [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: '/static/media/summer.02695197f2ca6ad0d5b8.png',
+      image: pictures["3"],
    },
    {
       id: 4,
@@ -49,7 +51,7 @@ const data = [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: '/static/media/beth.5b69d3155b00652bdb09.png',
+      image: pictures["4"],
    },
    {
       id: 5,
@@ -62,7 +64,7 @@ const data = [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: '/static/media/jerry.1eb865b035b80501d804.png',
+      image: pictures["5"],
    },
 ];
 

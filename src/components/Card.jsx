@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../styles/Cards.css';
-import '../styles/Profiles.css';
+import '../styles/Profiles.css'
 
 import pic1 from '../images/rickand-morty-rick.png';
 import pic2 from '../images/morty.png';
+import pic3 from '../images/summer.png';
+import pic4 from '../images/beth.png';
+import pic5 from '../images/jerry.png';
 
-const pictures = { 1: pic1, 2: pic2 };
+const pictures = { "1": pic1, "2": pic2, "3": pic3, "4": pic4, "5": pic5};
 
 export default function Card(props) {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      setIsImageLoaded(true);
-    };
-    img.src = props.image;
-  }, [props.image]);
-
   const onClose = () => {
     window.alert('Emulamos que se cierra la card');
-    console.log(pictures);
+    console.log(pictures)
   };
 
   return (
@@ -43,15 +36,13 @@ export default function Card(props) {
       <h2 className="property">
         Origin: <span className="value">{props.origin.name}</span>
       </h2>
-      <div className="image-container">
-        {isImageLoaded ? (
-          <img
-            className={props.cla}
-            src={props.image}
-            alt={'Imagen de ' + props.name}
-          />
-        ) : null}
-      </div>
+      <img
+        className={props.cla}
+        src={props.image}
+        alt={'Imagen de ' + props.name}
+      />
     </div>
   );
 }
+
+export { pictures };
