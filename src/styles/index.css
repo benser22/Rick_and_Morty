@@ -1,0 +1,8 @@
+body {
+    background-image: url("/src/images/rick-and-morty-wall.jpg");
+    background-size: cover;
+    @media only screen and (max-width: 576px) {
+        background-image: url("/src/images/rick-and-morty-wall-cel.jpg");
+     }
+  }
+  

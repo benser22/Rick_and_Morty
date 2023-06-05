@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Card from './Card';
 import '../styles/Container.css';
+import summer from "../images/summer.png"
+import beth from "../images/beth.png"
+import jerry from "../images/jerry.png"
+
+console.log(summer, beth, jerry);
 
 export default function Cards(props) {
   const [currentCard, setCurrentCard] = useState(0);

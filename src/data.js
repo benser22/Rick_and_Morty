@@ -36,7 +36,7 @@ export default [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
+      image: '/static/media/summer.02695197f2ca6ad0d5b8.png',
    },
    {
       id: 4,
@@ -49,7 +49,7 @@ export default [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg',
+      image: '/static/media/beth.5b69d3155b00652bdb09.png',
    },
    {
       id: 5,
@@ -62,6 +62,6 @@ export default [
          name: 'Earth (Replacement Dimension)',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
-      image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg',
+      image: '/static/media/jerry.1eb865b035b80501d804.png',
    },
 ];

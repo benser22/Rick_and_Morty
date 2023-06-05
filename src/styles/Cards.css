@@ -23,7 +23,12 @@
   height: 680px;
   display: none;
   @media only screen and (max-width: 500px) {
+    height: 480px; /* Altura reducida para dispositivos móviles */
     max-width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
   }
 }
 
@@ -132,31 +137,31 @@ img {
 }
 
 .rick:hover {
-  transition: 1px;
+  transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
   content: url("../images/rickand-morty-rick.gif");
 }
 
 .morty:hover {
-  transition: 1px;
+  transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
   content: url("../images/morty.gif");
 }
 
 .summer:hover {
-  transition: 1px;
+  transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
-  content: url("../images/rickand-morty-rick.gif");
+  content: url("../images/summer.gif");
 }
 
 .beth:hover {
-  transition: 1px;
+  transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
-  content: url("../images/rickand-morty-rick.gif");
+  content: url("../images/beth.gif");
 }
 
 .jerry:hover {
-  transition: 1px;
+  transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
-  content: url("../images/rickand-morty-rick.gif");
+  content: url("../images/jerry.gif");
 }
