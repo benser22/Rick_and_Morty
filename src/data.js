@@ -1,4 +1,4 @@
-export default [
+const data = [
    {  
       id: 1,
       name: 'Rick Sanchez',
@@ -65,3 +65,5 @@ export default [
       image: '/static/media/jerry.1eb865b035b80501d804.png',
    },
 ];
+
+export default data;

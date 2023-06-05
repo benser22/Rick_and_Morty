@@ -38,8 +38,8 @@
 
 .card:hover {
   transform: translateY(-5px);
-  -webkit-box-shadow: 5px 5px 20px 5px #000000;
-  box-shadow: 5px 5px 20px 5px #000000;
+  -webkit-box-shadow: 2px 2px 20px 5px #a19e9e;
+  box-shadow: 2px 2px 20px 5px #c8c8c8;
 }
 
 .card:before {
@@ -67,14 +67,39 @@
 }
 
 .close-button {
-  background-color: transparent;
-  border: none;
-  color: #999;
-  font-size: 20px;
   position: absolute;
   top: 10px;
   right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
   cursor: pointer;
+}
+
+.close-button:before,
+.close-button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #dedede;
+  transform-origin: center;
+}
+
+.close-button:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close-button:hover:before,
+.close-button:hover:after {
+  background-color: #999;
 }
 
 .name {
@@ -124,44 +149,4 @@
     font-size: 14px;
     text-align: justify;
   }
-}
-
-img {
-  width: auto;
-  max-height: 35%;
-  margin-top: 20px;
-  border-radius: 6px;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
-  transition: transform 0.3s ease-in-out;
-}
-
-.rick:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  content: url("../images/rickand-morty-rick.gif");
-}
-
-.morty:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  content: url("../images/morty.gif");
-}
-
-.summer:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  content: url("../images/summer.gif");
-}
-
-.beth:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  content: url("../images/beth.gif");
-}
-
-.jerry:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  content: url("../images/jerry.gif");
 }

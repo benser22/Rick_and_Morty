@@ -1,0 +1,52 @@
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-in.loaded {
+  opacity: 1;
+}
+
+.placeholder {
+  background-color: #ccc;
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+img {
+  margin-top: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 20px 5px #000000;
+  box-shadow: 5px 5px 20px 5px #000000;
+  transition: transform 0.5s ease-in-out;
+}
+
+.rick:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  content: url("../images/rickand-morty-rick.gif");
+}
+
+.morty:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  content: url("../images/morty.gif");
+}
+
+.summer:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  content: url("../images/summer.gif");
+}
+
+.beth:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  content: url("../images/beth.gif");
+}
+
+.jerry:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  content: url("../images/jerry.gif");
+}
