@@ -47,7 +47,7 @@ export default function Card(props) {
       <h2 className="property">
         Origin: <span className="value">{props.origin.name}</span>
       </h2>
-      <img className={props.cla} src={myroot} alt={"Imagen de " + props.name} />
+      <img className={props.cla} src={myroot} alt={"Imagen de " + props.name} width="220" height="213"/>
     </div>
   );
 }
