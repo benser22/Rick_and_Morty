@@ -15,11 +15,6 @@
   transform: scale(1.1);
 }
 
-.invisible {
-  max-width: 28%;
-  overflow: hidden;
-}
-
 .closed-card {
-  width: 95%;
+  height: 600px;
 }

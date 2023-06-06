@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Card/Cards.css";
 import "../Card/Profiles.css";
 import { pictures, gifs, closedcard } from "../Pictures";
+import Modal from "../Modal/Modal";
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);
@@ -21,27 +22,27 @@ export default function Card(props) {
   const onClose = () => {
     if (props.inFocus) {
       setVisibility(false);
-      window.alert(`${props.name} ahora estará invisible`);
+    }
+  };
+
+  const onOpen = () => {
+    if (props.inFocus) {
+      setVisibility(true);
     }
   };
 
   if (!visibility && props.inFocus) {
     return (
-      <div className={`${props.inFocus ? "invisible" : ""}`}>
-        {<img src={closedcard} className="closed-card" alt={props.name}></img>}
+      <div className={`${props.inFocus ? "invisible" : ""}`} onClick={onOpen}>
+        <Modal title={props.name} />
+        <img src={closedcard} className="closed-card" alt={props.name}></img>
       </div>
     );
   }
 
   return (
-    <div
-      className={`card ${props.inFocus ? "visible" : ""} ${
-        isHovered ? "hovered" : ""
-      }`}
-    >
-      <button className="close-button" onClick={onClose}>
-        X
-      </button>
+    <div className={`card ${props.inFocus ? "visible" : ""} ${isHovered ? "hovered" : ""}`}>
+      <button className="close-button" onClick={onClose}></button>
       <h2 className="name">
         <span className="value">{props.name}</span>
       </h2>
