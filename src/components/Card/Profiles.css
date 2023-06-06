@@ -1,4 +1,4 @@
-img {
+.characters {
   margin-top: 20px;
   border-radius: 20px;
   -webkit-box-shadow: 5px 5px 20px 5px #000000;
@@ -10,7 +10,16 @@ img {
   }
 }
 
-img:hover {
+.characters:hover {
   transition: transform 0.5s ease-in-out;
   transform: scale(1.1);
+}
+
+.invisible {
+  max-width: 28%;
+  overflow: hidden;
+}
+
+.closed-card {
+  width: 95%;
 }

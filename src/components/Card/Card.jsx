@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../Card/Cards.css";
 import "../Card/Profiles.css";
-import { pictures, gifs } from "../Pictures";
+import { pictures, gifs, closedcard } from "../Pictures";
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);
   const [isHovered, setIsHovered] = useState(false);
+  const [visibility, setVisibility] = useState(true);
 
   const handleHover = () => {
     setIsHovered(true);
@@ -18,16 +19,25 @@ export default function Card(props) {
   };
 
   const onClose = () => {
-    window.alert("Emulamos cierre de carta");
+    if (props.inFocus) {
+      setVisibility(false);
+      window.alert(`${props.name} ahora estará invisible`);
+    }
   };
+
+  if (!visibility && props.inFocus) {
+    return (
+      <div className={`${props.inFocus ? "invisible" : ""}`}>
+        {<img src={closedcard} className="closed-card" alt={props.name}></img>}
+      </div>
+    );
+  }
 
   return (
     <div
-      className={`card ${props.isVisible ? "visible" : ""} ${
+      className={`card ${props.inFocus ? "visible" : ""} ${
         isHovered ? "hovered" : ""
       }`}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
     >
       <button className="close-button" onClick={onClose}>
         X
@@ -47,7 +57,15 @@ export default function Card(props) {
       <h2 className="property">
         Origin: <span className="value">{props.origin.name}</span>
       </h2>
-      <img className={props.cla} src={myroot} alt={"Imagen de " + props.name} width="220" height="213"/>
+      <img
+        className="characters"
+        src={myroot}
+        alt={"Imagen de " + props.name}
+        width="220"
+        height="213"
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeave}
+      />
     </div>
   );
 }

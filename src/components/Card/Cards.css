@@ -1,10 +1,12 @@
 .card {
-  background: -webkit-linear-gradient(-25deg,
-      #4b5aa5 0%,
-      rgb(3, 3, 135) 25%,
-      #16035b 50%,
-      rgb(2, 2, 55) 75%,
-      #000000 100%);
+  background: -webkit-linear-gradient(
+    -25deg,
+    #4b5aa5 0%,
+    rgb(3, 3, 135) 25%,
+    #16035b 50%,
+    rgb(2, 2, 55) 75%,
+    #000000 100%
+  );
   border: 1px solid #e1e8ed;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -21,8 +23,6 @@
   height: 680px;
   display: none;
 
-  /* Resto de estilos... */
-
   @media only screen and (max-width: 500px) {
     height: 500px;
     max-width: 95%;
@@ -32,8 +32,6 @@
     margin-bottom: 20px;
   }
 }
-
-
 
 /* 
 .card:hover {

@@ -40,7 +40,7 @@ export default function Cards(props) {
     <div>
       <div className="container">
         {props.characters.map((element, index) => (
-          <Card {...element} key={element.id} isVisible={index === currentCard} />
+          <Card {...element} key={element.id} inFocus={index === currentCard} />
         ))}
       </div>
       <div className="arrows">
