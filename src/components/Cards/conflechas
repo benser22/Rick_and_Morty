@@ -1,0 +1,46 @@
+.arrow {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.3s, filter 0.3s; 
+}
+
+.arrow.next {
+  margin-right: 0;
+  background-image: url(path/to/right-arrow.png); /* Reemplaza "path/to/right-arrow.png" con la ruta a tu imagen de flecha derecha */
+}
+
+.right {
+  margin-left: 15%;
+  border-width: 0;
+  filter: drop-shadow(-10px 0 5px rgba(0, 0, 0, 1));
+}
+
+.arrow.next:hover {
+  transform: scale(1.1); 
+}
+
+.arrow.next:active {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(96, 97, 97, 0.7));
+}
+
+.arrow.prev {
+  background-image: url(path/to/left-arrow.png); /* Reemplaza "path/to/left-arrow.png" con la ruta a tu imagen de flecha izquierda */
+}
+
+.left {
+  border-width: 0; 
+  filter: drop-shadow(10px 0 5px rgba(0, 0, 0, 1)); 
+}
+
+.arrow.prev:hover {
+  transform: scale(1.1); 
+}
+
+.arrow.prev:active {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(96, 97, 97, 0.7));
+}

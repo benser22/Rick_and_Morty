@@ -1,24 +1,10 @@
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
-}
-
-.fade-in.loaded {
-  opacity: 1;
-}
-
-.placeholder {
-  background-color: #ccc;
-  aspect-ratio: 1;
-  width: 100%;
-}
-
 img {
   margin-top: 20px;
   border-radius: 20px;
   -webkit-box-shadow: 5px 5px 20px 5px #000000;
   box-shadow: 5px 5px 20px 5px #000000;
   transition: transform 0.5s ease-in-out;
+
   @media only screen and (max-width: 500px) {
     margin-bottom: 15px;
   }

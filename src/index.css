@@ -1,8 +1,8 @@
 body {
-    background-image: url("/src/images/wallram.jpg");
+    background-image: url("/src/assets/images/wallram.jpg");
     background-size: cover;
     @media only screen and (max-width: 500px) {
-        background-image: url("/src/images/wallphone.jpg");
+        background-image: url("/src/assets/images/wallphone.jpg");
         background-position: center;
         background-size: 100% auto;
     }

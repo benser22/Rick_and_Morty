@@ -1,12 +1,10 @@
 .card {
-  background: -webkit-linear-gradient(
-    -25deg,
-    #4b5aa5 0%,
-    rgb(3, 3, 135) 25%,
-    #16035b 50%,
-    rgb(2, 2, 55) 75%,
-    #000000 100%
-  );
+  background: -webkit-linear-gradient(-25deg,
+      #4b5aa5 0%,
+      rgb(3, 3, 135) 25%,
+      #16035b 50%,
+      rgb(2, 2, 55) 75%,
+      #000000 100%);
   border: 1px solid #e1e8ed;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -22,8 +20,11 @@
   max-width: 30%;
   height: 680px;
   display: none;
+
+  /* Resto de estilos... */
+
   @media only screen and (max-width: 500px) {
-    height: 500px; /* Altura reducida para dispositivos móviles */
+    height: 500px;
     max-width: 95%;
     display: flex;
     justify-content: center;
@@ -32,42 +33,30 @@
   }
 }
 
-.card.visible {
-  display: flex; /* Muestra la carta cuando tiene la clase "visible" */
-}
 
+
+/* 
 .card:hover {
   transform: translateY(-5px);
   -webkit-box-shadow: 2px 2px 20px 5px #a19e9e;
   box-shadow: 2px 2px 20px 5px #c8c8c8;
-  transition: background-color 3s;
-
-}
-
+  transition: transform 1s, box-shadow 1s, -webkit-box-shadow 1s;
+} */
+/* 
 .card:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: -webkit-linear-gradient(
-    -10deg,
-    #020f44 0%,
-    rgb(63, 63, 177) 25%,
-    #341b8b 50%,
-    rgb(33, 33, 152) 75%,
-    #170362 100%
-  );
   opacity: 0;
   z-index: -1;
   transition: opacity 1s ease-in-out;
 
-}
-
+} */
+/* 
 .card:hover:before {
   opacity: 1;
-}
+} */
 
 .close-button {
   position: absolute;
@@ -111,8 +100,9 @@
   text-align: center;
   color: #ffffff;
   text-shadow: 1px 3px 0 #969696, 1px 8px 5px #aba8a8;
+
   @media only screen and (max-width: 500px) {
-    font-size: 30px; /* Tamaño de fuente más pequeño para pantallas más pequeñas */
+    font-size: 30px;
   }
 }
 
@@ -148,9 +138,9 @@
   color: #000000;
   text-shadow: 4px 3px 0 #3c3c3c;
   color: #e5e5e5;
+
   @media only screen and (max-width: 500px) {
     font-size: 14px;
     text-align: justify;
   }
 }
-

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../styles/Cards.css";
-import "../styles/Profiles.css";
-import { pictures, gifs } from "./Pictures";
+import "../Card/Cards.css";
+import "../Card/Profiles.css";
+import { pictures, gifs } from "../Pictures";
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);

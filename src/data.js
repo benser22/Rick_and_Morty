@@ -1,4 +1,4 @@
-import { pictures, gifs } from './components/Card.jsx';
+import { pictures, gifs } from './components/Card/Card.jsx';
 
 const data = [
    {  

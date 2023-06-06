@@ -1,4 +1,4 @@
-import "../styles/Search.css";
+import "../SearchBar/Search.css";
 
 export default function SearchBar(props) {
   return (
