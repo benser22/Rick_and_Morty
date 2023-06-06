@@ -1,0 +1,52 @@
+.modal {
+  padding: 2px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: fixed;
+  top: -30vh; /* Inicialmente, el modal estará fuera de la pantalla */
+  left: 0;
+  height: 30vh;
+  width: 100vw;
+  transition: top 1s; /* La transición durará 1 segundo */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modal.show {
+  top: 0; /* Al agregar la clase 'show', el modal se moverá hacia la parte superior */
+  transition: top 1s; /* Asegúrate de mantener la misma duración de transición aquí */
+}
+
+.mybutton {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: 16px;
+  padding: 6px;
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-image: linear-gradient(
+    to right,
+    rgb(48, 28, 164) 0%,
+    rgb(35, 91, 203) 50%,
+    rgb(54, 20, 117) 100%
+  );
+  box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+  border: 2px solid rgb(28, 110, 164);
+  display: inline-block;
+}
+
+.mybutton:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.mybutton:active {
+  background: #1319aa;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
+  box-shadow: rgb(94, 95, 95) 1px 1px 1px 1px;
+  transform: scale(1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
