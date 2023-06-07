@@ -33,8 +33,10 @@ export default function Card(props) {
 
   if (!visibility && props.inFocus) {
     return (
-      <div className={`${props.inFocus ? "invisible" : ""}`}>
-        <Modal title={props.name} txtbutton="Habilitar Carta" openCard={onOpen} msg="Carta cerrada virtualmente" animation={true}/>
+      <div>
+        <>
+        <Modal myroot={myroot} title={props.name} txtbutton="Habilitar Carta" openCard={onOpen} msg="Carta cerrada virtualmente" animation={true}/>
+        </>
         <img src={closedcard} className="closed-card" alt={props.name}></img>
       </div>
     );

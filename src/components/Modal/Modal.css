@@ -5,7 +5,7 @@
   position: fixed;
   top: -30vh; /* Inicialmente, el modal estará fuera de la pantalla */
   left: 0;
-  height: 30vh;
+  height: 35vh;
   width: 100vw;
   transition: top 1s; 
   transition: transform 0.3s, box-shadow 0.3s;
@@ -51,8 +51,12 @@
   margin-top: 5px;
   @media only screen and (max-width: 500px) {
     margin-top: 5px;
-    
   }
 }
 
+.erased {
+  margin-top: 1%;
+  border-radius: 8px;
+  filter: grayscale(100%);
+}
 
