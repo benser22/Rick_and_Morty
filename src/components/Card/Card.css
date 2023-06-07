@@ -1,6 +1,6 @@
 .card {
   background: -webkit-linear-gradient(
-    -45deg,
+    -25deg,
     #4b5aa5 0%,
     rgb(3, 3, 135) 25%,
     #16035b 50%,
@@ -24,8 +24,8 @@
   display: none;
 
   @media only screen and (max-width: 500px) {
-    height: 500px;
-    max-width: 95%;
+    height: 510px;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +55,42 @@
 .card:hover:before {
   opacity: 1;
 } */
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.close-button:before,
+.close-button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #dedede;
+  transform-origin: center;
+}
+
+.close-button:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close-button:hover:before,
+.close-button:hover:after {
+  background-color: #999;
+}
 
 .name {
   font-size: 40px;
