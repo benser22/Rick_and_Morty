@@ -1,4 +1,3 @@
-/* Add a black background color to the top navigation bar */
 .search_style {
   overflow: hidden;
   float: inline-start;
@@ -12,24 +11,16 @@
   margin-bottom: 20px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 10px #000000;
-  background-color: #2a0d5c;
+  background-color: #16035b;
   color: #fff;
 }
 
-/* Change the color of links on hover */
 .search_style:hover {
-  background-color: #48179d;
+  background-color: rgb(3, 3, 135);
 }
 
-/* Style the "active" element to highlight the current page */
-.search_style.active {
-  background-color: #2196f3;
-  color: white;
-}
 
-/* Style the search box inside the navigation bar */
 .search_style input {
-  /* float: right; */
   padding: 6px;
   border-radius: 8px;
   margin-top: 8px;

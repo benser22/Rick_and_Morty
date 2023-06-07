@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Card/Cards.css";
+import "../Card/Card.css";
 import "../Card/Profiles.css";
 import { pictures, gifs, closedcard } from "../Pictures";
 import Modal from "../Modal/Modal";
@@ -42,7 +42,7 @@ export default function Card(props) {
 
   return (
     <div className={`card ${props.inFocus ? "visible" : ""} ${isHovered ? "hovered" : ""}`}>
-      <button className="close-button" onClick={onClose}></button>
+      <button className="mybutton rig" onClick={onClose}> X </button>
       <h2 className="name">
         <span className="value">{props.name}</span>
       </h2>
