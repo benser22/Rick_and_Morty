@@ -7,16 +7,15 @@ export default function Cards(props) {
 
   const goToPreviousCard = () => {
     setCurrentCard((prevCurrentCard) =>
-      prevCurrentCard === 0 ? (props.characters.length - 1) : prevCurrentCard - 1
-    );
-  };
-  
-  const goToNextCard = () => {
-    setCurrentCard((prevCurrentCard) =>
-      prevCurrentCard === (props.characters.length - 1) ? 0 : prevCurrentCard + 1
+      prevCurrentCard === 0 ? props.characters.length - 1 : prevCurrentCard - 1
     );
   };
 
+  const goToNextCard = () => {
+    setCurrentCard((prevCurrentCard) =>
+      prevCurrentCard === props.characters.length - 1 ? 0 : prevCurrentCard + 1
+    );
+  };
 
   const handleScroll = (event) => {
     const direction = event.deltaY > 0 ? "down" : "up";
@@ -44,17 +43,25 @@ export default function Cards(props) {
             {...element}
             key={element.id}
             inFocus={index === currentCard}
-            prevCard={(index === currentCard - 1) || (currentCard === 0 && index === props.characters.length - 1)}
-            nextCard={(index === currentCard + 1) || (currentCard === props.characters.length - 1 && index === 0)}
-            goToNextCard={goToNextCard} goToPreviousCard={goToPreviousCard}
+            prevCard={
+              index === currentCard - 1 ||
+              (currentCard === 0 && index === props.characters.length - 1)
+            }
+            nextCard={
+              index === currentCard + 1 ||
+              (currentCard === props.characters.length - 1 && index === 0)
+            }
+            goToNextCard={goToNextCard}
+            goToPreviousCard={goToPreviousCard}
             // onClick={() => chooseCard(index)
           />
+          
         ))}
       </div>
-      <div className="arrows">
-        {/* <span className="arrow prev left" onClick={goToPreviousCard}></span>
+      {/* <div className="arrows"> */}
+      {/* <span className="arrow prev left" onClick={goToPreviousCard}></span>
         <span className="arrow next right" onClick={goToNextCard}></span> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }

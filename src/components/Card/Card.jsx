@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../Card/Card.css";
-import "../Card/Profiles.css";
 import "../Modal/Modal.css";
 import { pictures, gifs } from "../Pictures";
+import styles from "./FootCard.module.css";
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);
@@ -37,7 +37,6 @@ export default function Card(props) {
     } else {
       props.goToPreviousCard();
     }
-   
   };
 
   return (
@@ -68,8 +67,12 @@ export default function Card(props) {
       <h2 className="property">
         Origin: <span className="value">{props.origin.name}</span>
       </h2>
+      <div className={styles.cont}>
+      <span className={`${styles.prev} ${props.inFocus ? "" : styles.empty}`} onClick={props.goToPreviousCard}>
+        {" "}
+      </span>
       <img
-        className="characters"
+        className={styles.characters}
         src={myroot}
         alt={"Imagen de " + props.name}
         width="220"
@@ -77,6 +80,11 @@ export default function Card(props) {
         onMouseEnter={handleHover}
         onMouseLeave={handleLeave}
       />
+      <span className={`${styles.next} ${props.inFocus ? "" : styles.empty}`} onClick={props.goToNextCard}>
+        {" "}
+      </span>
+
+      </div>
     </div>
   );
 }
