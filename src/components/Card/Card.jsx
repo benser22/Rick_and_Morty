@@ -5,7 +5,6 @@ import styles from './Card.module.css';
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);
-  const [mygif] = useState(props.gifs);
   const [isHovered, setIsHovered] = useState(false);
   const [visibility, setVisibility] = useState(true);
 
@@ -84,7 +83,7 @@ export default function Card(props) {
         <span
           className={`${foot.next} ${props.inFocus ? "" : foot.empty}`}
           onClick={props.goToNextCard}
-        ></span>
+        > </span>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import "../SearchBar/Search.css";
-import ramtitle from '../../assets/images/titleBar.png'
+import ramtitle from '../../assets/images/title.webp'
 
 console.log(ramtitle);
 export default function SearchBar(props) {

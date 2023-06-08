@@ -3,6 +3,7 @@
 }
 
 .card {
+  cursor: default;
   background: -webkit-linear-gradient(
     -25deg,
     #4b5aa5 0%,
@@ -64,6 +65,7 @@
 }
 
 .visible:hover {
+  
   box-shadow: 2px 2px 20px 5px #c8c8c8;
 }
 
