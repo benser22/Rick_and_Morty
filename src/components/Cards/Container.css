@@ -3,11 +3,6 @@
   /* Muestra la carta cuando tiene la clase "visible" */
 }
 
-.card:hover {
-  box-shadow: 2px 0px 20px 5px #c8c8c8;
-  transition: box-shadow 1s, transform 1s;
-}
-
 .container {
   display: flex;
   justify-content: center;
