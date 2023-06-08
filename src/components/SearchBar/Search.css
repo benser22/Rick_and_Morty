@@ -1,18 +1,19 @@
 .search_style {
-  overflow: hidden;
   float: inline-start;
   display: flex;
-  justify-content: right;
-  text-align: center;
-  align-content: center;
-  padding: 14px 16px;
+  align-items: center; 
+  justify-content: space-between;
+  padding: 14px;
   text-decoration: none;
   font-size: 17px;
+  max-height: 30px;
   margin-bottom: 20px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 10px #000000;
   background-color: #16035b;
   color: #fff;
+  margin-inline: 3px;
+
 }
 
 .search_style:hover {
@@ -23,7 +24,17 @@
 .search_style input {
   padding: 6px;
   border-radius: 8px;
-  margin-top: 8px;
-  margin-right: 16px;
   font-size: 17px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+
+.imageBar {
+  max-height: 50px;
+  margin-left: 2%;
+  transition: filter 0.3s ease-in-out; 
+}
+.imageBar:hover{
+  filter: brightness(130%);
 }
