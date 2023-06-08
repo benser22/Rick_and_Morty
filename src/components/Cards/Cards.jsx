@@ -1,51 +1,59 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Card from '../Card/Card';
-import '../Cards/Container.css';
+import React, { useState, useEffect } from "react";
+import Card from "../Card/Card";
+import "../Cards/Container.css";
 
 export default function Cards(props) {
   const [currentCard, setCurrentCard] = useState(0);
 
-  const goToPreviousCard = useCallback(() => {
-    setCurrentCard((prevCurrentCard) => Math.max(prevCurrentCard - 1, 0));
-  }, []);
-
-  const goToNextCard = useCallback(() => {
+  const goToPreviousCard = () => {
     setCurrentCard((prevCurrentCard) =>
-      Math.min(prevCurrentCard + 1, props.characters.length - 1)
+      prevCurrentCard === 0 ? (props.characters.length - 1) : prevCurrentCard - 1
     );
-  }, [props.characters.length]);
+  };
+  
+  const goToNextCard = () => {
+    setCurrentCard((prevCurrentCard) =>
+      prevCurrentCard === (props.characters.length - 1) ? 0 : prevCurrentCard + 1
+    );
+  };
 
-  const handleScroll = useCallback(
-    (event) => {
-      const direction = event.deltaY > 0 ? 'down' : 'up';
 
-      if (direction === 'down') {
-        goToNextCard();
-      } else {
-        goToPreviousCard();
-      }
-    },
-    [goToNextCard, goToPreviousCard]
-  );
+  const handleScroll = (event) => {
+    const direction = event.deltaY > 0 ? "down" : "up";
+
+    if (direction === "down") {
+      goToNextCard();
+    } else {
+      goToPreviousCard();
+    }
+  };
 
   useEffect(() => {
-    window.addEventListener('wheel', handleScroll);
+    window.addEventListener("wheel", handleScroll);
 
     return () => {
-      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener("wheel", handleScroll);
     };
-  }, [handleScroll]);
+  }, []);
+
 
   return (
     <div>
       <div className="container">
         {props.characters.map((element, index) => (
-          <Card {...element} key={element.id} inFocus={index === currentCard} />
+          <Card
+            {...element}
+            key={element.id}
+            inFocus={index === currentCard}
+            prevCard={(index === currentCard - 1) || (currentCard === 0 && index === props.characters.length - 1)}
+            nextCard={(index === currentCard + 1) || (currentCard === props.characters.length - 1 && index === 0)}
+            // onClick={() => chooseCard(index)
+          />
         ))}
       </div>
       <div className="arrows">
-        <span className="arrow prev left" onClick={goToPreviousCard}></span>
-        <span className="arrow next right" onClick={goToNextCard}></span>
+        {/* <span className="arrow prev left" onClick={goToPreviousCard}></span>
+        <span className="arrow next right" onClick={goToNextCard}></span> */}
       </div>
     </div>
   );

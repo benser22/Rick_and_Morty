@@ -9,19 +9,17 @@
   );
   border: 1px solid #e1e8ed;
   border-radius: 10px;
-  margin-bottom: 0px;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
-  transition: transform 0.5s ease-in-out;
   overflow: hidden;
   position: relative;
   width: 100%;
   max-width: 30%;
   height: 680px;
+  /* margin-left: 3%; */
   display: none;
+  transition: opacity 0.5s ease-in-out;
 
   @media only screen and (max-width: 500px) {
     height: 510px;
@@ -33,63 +31,28 @@
   }
 }
 
-/* 
+.prev {
+  transform: scale(0.5);
+  opacity: 0.2;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+
+.post {
+  transform: scale(0.5);
+  opacity: 0.2;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.invisible {
+  filter: grayscale(100%);
+}
+
 .card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   -webkit-box-shadow: 2px 2px 20px 5px #a19e9e;
   box-shadow: 2px 2px 20px 5px #c8c8c8;
-  transition: transform 1s, box-shadow 1s, -webkit-box-shadow 1s;
-} */
-/* 
-.card:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 1s ease-in-out;
-
-} */
-/* 
-.card:hover:before {
-  opacity: 1;
-} */
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.close-button:before,
-.close-button:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 2px;
-  background-color: #dedede;
-  transform-origin: center;
-}
-
-.close-button:before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.close-button:after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.close-button:hover:before,
-.close-button:hover:after {
-  background-color: #999;
+  transition: transform 0.3s, box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .name {
@@ -140,5 +103,29 @@
   @media only screen and (max-width: 500px) {
     font-size: 14px;
     text-align: justify;
+  }
+}
+
+.characters {
+  margin-top: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 20px 5px #000000;
+  box-shadow: 5px 5px 20px 5px #000000;
+  transition: transform 0.5s ease-in-out;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 200px;
+    max-height: 190px;
+    margin-bottom: 15px;
+  }
+}
+
+.characters:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+
+  @media only screen and (max-width: 500px) {
+    max-width: 200px;
+    max-height: 190px;
   }
 }

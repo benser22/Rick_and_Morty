@@ -1,25 +1,4 @@
-.characters {
-  margin-top: 20px;
-  border-radius: 20px;
-  -webkit-box-shadow: 5px 5px 20px 5px #000000;
-  box-shadow: 5px 5px 20px 5px #000000;
-  transition: transform 0.5s ease-in-out;
 
-  @media only screen and (max-width: 500px) {
-    max-width: 200px;
-    max-height: 190px;
-    margin-bottom: 15px;
-  }
-}
-
-.characters:hover {
-  transition: transform 0.5s ease-in-out;
-  transform: scale(1.1);
-  @media only screen and (max-width: 500px) {
-    max-width: 200px;
-    max-height: 190px;
-  }
-}
 
 .closed-card {
   height: 600px;
