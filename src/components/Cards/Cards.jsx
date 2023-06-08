@@ -36,7 +36,6 @@ export default function Cards(props) {
     };
   }, []);
 
-
   return (
     <div>
       <div className="container">
@@ -47,6 +46,7 @@ export default function Cards(props) {
             inFocus={index === currentCard}
             prevCard={(index === currentCard - 1) || (currentCard === 0 && index === props.characters.length - 1)}
             nextCard={(index === currentCard + 1) || (currentCard === props.characters.length - 1 && index === 0)}
+            goToNextCard={goToNextCard} goToPreviousCard={goToPreviousCard}
             // onClick={() => chooseCard(index)
           />
         ))}

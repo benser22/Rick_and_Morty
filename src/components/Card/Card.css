@@ -31,25 +31,34 @@
 }
 
 .prev {
-  transform: scale(0.6);
-  opacity: 0.2;
-  transition: transform 0.9s ease, opacity 0.6s ease;
+  transform: scale(0.7);
+  opacity: 0.5;
+  transition: transform 0.9s ease-in-out, opacity 0.6s ease-in-out;
 }
 
+.next {
+  transform: scale(0.7);
+  opacity: 0.5;
+  transition: transform 0.9s ease-in-out, opacity 0.6s ease-in-out;
+}
+.prev:hover {
+  opacity: 0.5;
+  box-shadow: 2px 2px 20px 5px #c8c8c8;
+  transition: ease-in-out, opacity 0.8s ease-in-out, box-shadow 1s;
+}
 
-.post {
-  transform: scale(0.6);
-  opacity: 0.2;
-  transition: transform 0.9s ease, opacity 0.6s ease;
+.next:hover {
+  opacity: 0.5;
+  box-shadow: 2px 2px 20px 5px #c8c8c8;
+  transition: ease-in-out, opacity 0.8s ease-in-out, box-shadow 1s;
 }
 
 .invisible {
   filter: grayscale(100%);
 }
 
-.card:hover {
+.visible:hover {
   box-shadow: 2px 2px 20px 5px #c8c8c8;
-  transition: box-shadow 1s, -webkit-box-shadow 1s;
 }
 
 .name {

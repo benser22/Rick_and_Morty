@@ -9,7 +9,6 @@ export default function Card(props) {
   const [isHovered, setIsHovered] = useState(false);
   const [visibility, setVisibility] = useState(true);
 
-
   // console.log("previa: ", props.name, "  actual: ", "next ");
 
   const handleHover = () => {
@@ -23,17 +22,37 @@ export default function Card(props) {
   };
 
   const onClose = () => {
-      setVisibility(false);
+    setVisibility(false);
   };
 
   const onOpen = () => {
-      setVisibility(true);
+    setVisibility(true);
   };
 
+  const clickCard = () => {
+    if (props.inFocus) {
+      return;
+    } else if (props.nextCard) {
+      props.goToNextCard();
+    } else {
+      props.goToPreviousCard();
+    }
+   
+  };
 
   return (
-    <div className={`card ${props.inFocus ? "visible" : ""} ${props.prevCard ? "post visible" : ""} ${props.nextCard ? "prev visible" : ""} ${visibility ? "" : "invisible"} ${isHovered ? "hovered" : ""}`}>
-      <button className="mybutton rig" onClick={visibility ? onClose : onOpen}> {props.id} X </button>
+    <div
+      className={`card ${props.inFocus ? "visible" : ""} ${
+        props.prevCard ? "prev visible" : ""
+      } ${props.nextCard ? "next visible" : ""} ${
+        visibility ? "" : "invisible"
+      } ${isHovered ? "hovered" : ""}`}
+      onClick={clickCard}
+    >
+      <button className="mybutton rig" onClick={visibility ? onClose : onOpen}>
+        {" "}
+        {props.id} X{" "}
+      </button>
       <h2 className="name">
         <span className="value">{props.name}</span>
       </h2>
@@ -50,7 +69,14 @@ export default function Card(props) {
         Origin: <span className="value">{props.origin.name}</span>
       </h2>
       <img
-        className="characters" src={myroot} alt={"Imagen de " + props.name} width="220" height="213" onMouseEnter={handleHover} onMouseLeave={handleLeave} />
+        className="characters"
+        src={myroot}
+        alt={"Imagen de " + props.name}
+        width="220"
+        height="213"
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeave}
+      />
     </div>
   );
 }
