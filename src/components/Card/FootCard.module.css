@@ -1,4 +1,4 @@
-.cont {
+.contFoot {
   cursor: pointer;
   display: flex;
   justify-content: space-around;
@@ -10,9 +10,6 @@
   .arrows {
     display: none;
   }
-}
-
-.arrow > span {
 }
 
 .next {
@@ -37,15 +34,16 @@
 
 .prev:hover {
   transform: scale(1.1);
-  filter: drop-shadow(1px 0 3px rgba(171, 171, 171, 0.7));
+  filter: drop-shadow(1px 0 3px rgba(198, 202, 249, 0.7));
 }
+
 .next:hover {
   transform: scale(1.1);
-  filter: drop-shadow(1px 0 3px rgba(171, 171, 171, 0.7));
+  filter: drop-shadow(1px 0 3px rgba(198, 202, 249, 0.7));
 }
 
 .empty {
-display: none;
+  display: none;
 }
 
 .characters {
@@ -72,3 +70,6 @@ display: none;
   }
 }
 
+.characters.static:hover {
+  transform: none;
+}
