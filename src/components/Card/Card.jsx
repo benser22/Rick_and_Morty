@@ -10,7 +10,7 @@ export default function Card(props) {
   const [visibility, setVisibility] = useState(true);
 
 
-  console.log("previa: ", props.name, "  actual: ", "next ");
+  // console.log("previa: ", props.name, "  actual: ", "next ");
 
   const handleHover = () => {
     setIsHovered(true);
