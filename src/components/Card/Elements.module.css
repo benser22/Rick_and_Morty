@@ -73,3 +73,74 @@
 .characters.static:hover {
   transform: none;
 }
+
+.name {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 3px 0 #969696, 1px 4px 8px #aba8a8;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 30px;
+  }
+}
+
+.property .value {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: #c9c5d3;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+.property {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e5e5e5;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+.mybutton {
+  color: lightgray;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 6px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    45deg,
+    #4b5aa5 0%,
+    rgb(3, 3, 135) 50%,
+    #16035b 100%
+  );
+
+  box-shadow: rgb(0, 0, 0) 1px 1px 3px 1px;
+  border: 2px solid rgb(28, 110, 164);
+  display: inline-block;
+}
+
+.mybutton:hover {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.mybutton:active {
+  transform: scale(1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mybutton.rig {
+  font-family: "Courier New", Courier, monospace;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 5px;
+  @media only screen and (max-width: 500px) {
+    margin-top: 5px;
+  }
+}

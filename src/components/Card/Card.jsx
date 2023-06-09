@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { pictures, gifs } from "../Pictures";
-import foot from "./FootCard.module.css";
+import elements from "./Elements.module.css";
 import styles from "./Card.module.css";
 
 export default function Card(props) {
@@ -46,32 +46,32 @@ export default function Card(props) {
       onClick={clickCard}
     >
       <button
-        className={`${styles.mybutton} ${styles.rig}`}
+        className={`${elements.mybutton} ${elements.rig}`}
         onClick={visibility ? onClose : onOpen}
       >
         {props.id} X
       </button>
-      <h2 className={styles.name}>
-        <span className={styles.value}>{props.name}</span>
+      <h2 className={elements.name}>
+        <span className={elements.value}>{props.name}</span>
       </h2>
-      <h2 className={styles.property}>
-        Status: <span className={styles.value}>{props.status}</span>
+      <h2 className={elements.property}>
+        Status: <span className={elements.value}>{props.status}</span>
       </h2>
-      <h2 className={styles.property}>
-        Species: <span className={styles.value}>{props.species}</span>
+      <h2 className={elements.property}>
+        Species: <span className={elements.value}>{props.species}</span>
       </h2>
-      <h2 className={styles.property}>
-        Gender: <span className={styles.value}>{props.gender}</span>
+      <h2 className={elements.property}>
+        Gender: <span className={elements.value}>{props.gender}</span>
       </h2>
-      <h2 className={styles.property}>
-        Origin: <span className={styles.value}>{props.origin.name}</span>
+      <h2 className={elements.property}>
+        Origin: <span className={elements.value}>{props.origin.name}</span>
       </h2>
       {/* <span
-        className={`${foot.prev} ${props.inFocus ? "" : foot.empty}`}
+        className={`${elements.prev} ${props.inFocus ? "" : elements.empty}`}
         onClick={props.goToPreviousCard}
       ></span> */}
       <img
-        className={`${foot.characters} ${props.inFocus ? "" : foot.static}`}
+        className={`${elements.characters} ${props.inFocus ? "" : elements.static}`}
         src={props.inFocus ? myroot : props.image}
         alt={"Imagen de " + props.name}
         width="220"
@@ -80,7 +80,7 @@ export default function Card(props) {
         onMouseLeave={handleLeave}
       />
       {/* <span
-        className={`${foot.next} ${props.inFocus ? "" : foot.empty}`}
+        className={`${elements.next} ${props.inFocus ? "" : elements.empty}`}
         onClick={props.goToNextCard}
       >
         {" "}
