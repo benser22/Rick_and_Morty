@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { pictures, gifs } from "../Pictures";
 import foot from "./FootCard.module.css";
-import styles from './Card.module.css';
+import styles from "./Card.module.css";
 
 export default function Card(props) {
   const [myroot, setMyroot] = useState(props.image);
@@ -38,7 +38,7 @@ export default function Card(props) {
 
   return (
     <div
-      className={`${styles.card} ${props.inFocus ? styles.visible : ""} ${
+      className={`${styles.card} ${props.inFocus ? (styles.visible + " " + styles.centeredCard): ""} ${
         props.prevCard ? `${styles.prev} ${styles.visible}` : ""
       } ${props.nextCard ? `${styles.next} ${styles.visible}` : ""} ${
         visibility ? "" : styles.invisible
@@ -66,25 +66,25 @@ export default function Card(props) {
       <h2 className={styles.property}>
         Origin: <span className={styles.value}>{props.origin.name}</span>
       </h2>
-      <div className={foot.contFoot}>
-        <span
-          className={`${foot.prev} ${props.inFocus ? "" : foot.empty}`}
-          onClick={props.goToPreviousCard}
-        ></span>
-        <img
-          className={`${foot.characters} ${props.inFocus ? "" : foot.static}`}
-          src={props.inFocus ? myroot : props.image}
-          alt={"Imagen de " + props.name}
-          width="220"
-          height="213"
-          onMouseEnter={handleHover}
-          onMouseLeave={handleLeave}
-        />
-        <span
-          className={`${foot.next} ${props.inFocus ? "" : foot.empty}`}
-          onClick={props.goToNextCard}
-        > </span>
-      </div>
+      {/* <span
+        className={`${foot.prev} ${props.inFocus ? "" : foot.empty}`}
+        onClick={props.goToPreviousCard}
+      ></span> */}
+      <img
+        className={`${foot.characters} ${props.inFocus ? "" : foot.static}`}
+        src={props.inFocus ? myroot : props.image}
+        alt={"Imagen de " + props.name}
+        width="220"
+        height="213"
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeave}
+      />
+      {/* <span
+        className={`${foot.next} ${props.inFocus ? "" : foot.empty}`}
+        onClick={props.goToNextCard}
+      >
+        {" "}
+      </span> */}
     </div>
   );
 }

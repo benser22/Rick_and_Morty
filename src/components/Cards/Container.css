@@ -5,10 +5,11 @@
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 50%;
   position: relative;
+  width: 100%;
 }
 
 @media only screen and (max-width: 500px) {
@@ -18,4 +19,7 @@
   }
 }
 
+.container.inverse {
+  flex-direction: row-reverse;
+}
 

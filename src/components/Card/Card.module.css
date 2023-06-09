@@ -17,13 +17,11 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 5px 5px 15px 5px #000000;
-  overflow: hidden;
   position: relative;
   width: 100%;
   max-width: 30%;
   height: 680px;
   display: none;
-  transition: transform 0.8s ease-in-out;
 
   @media only screen and (max-width: 500px) {
     height: 510px;
@@ -39,15 +37,16 @@
   cursor: pointer;
   transform: scale(0.7);
   opacity: 0.5;
-  transition: transform 0.9s ease-in-out, opacity 0.6s ease-in-out;
+  transition: opacity 0.3s, transform 1s ease-in-out;
 }
 
 .next {
   cursor: pointer;
   transform: scale(0.7);
   opacity: 0.5;
-  transition: transform 0.9s ease-in-out, opacity 0.6s ease-in-out;
+  transition: opacity 0.3s, transform 1s ease-in-out;
 }
+
 .prev:hover {
   opacity: 0.5;
   box-shadow: 2px 2px 20px 5px #c8c8c8;
@@ -60,12 +59,19 @@
   transition: ease-in-out, opacity 0.8s ease-in-out, box-shadow 1s;
 }
 
+&.prev {
+  transform: translateX(-150%);
+}
+
+&.next {
+  transform: translateX(150%);
+}
+
 .invisible {
   filter: grayscale(100%);
 }
 
 .visible:hover {
-  
   box-shadow: 2px 2px 20px 5px #c8c8c8;
 }
 
@@ -110,7 +116,7 @@
   padding: 6px;
   border-radius: 10px;
   background-image: linear-gradient(
-  45deg,
+    45deg,
     #4b5aa5 0%,
     rgb(3, 3, 135) 50%,
     #16035b 100%
@@ -131,11 +137,18 @@
 }
 
 .mybutton.rig {
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   margin-left: auto;
   margin-right: 5px;
   margin-top: 5px;
   @media only screen and (max-width: 500px) {
     margin-top: 5px;
   }
+}
+
+.centeredCard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

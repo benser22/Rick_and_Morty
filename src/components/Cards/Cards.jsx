@@ -4,6 +4,7 @@ import "../Cards/Container.css";
 
 export default function Cards(props) {
   const [currentCard, setCurrentCard] = useState(0);
+  const [divClass, setDivClass] = useState("container");
 
   const goToPreviousCard = () => {
     setCurrentCard((prevCurrentCard) =>
@@ -35,33 +36,27 @@ export default function Cards(props) {
     };
   }, []);
 
+  useEffect(() => {
+    if (currentCard === 0 || currentCard === props.characters.length - 1) {
+      setDivClass("container inverse");
+    } else {
+      setDivClass("container");
+    }
+  }, [currentCard, props.characters.length]);
+
   return (
-    <div>
-      <div className="container">
-        {props.characters.map((element, index) => (
-          <Card
-            {...element}
-            key={element.id}
-            inFocus={index === currentCard}
-            prevCard={
-              index === currentCard - 1 ||
-              (currentCard === 0 && index === props.characters.length - 1)
-            }
-            nextCard={
-              index === currentCard + 1 ||
-              (currentCard === props.characters.length - 1 && index === 0)
-            }
-            goToNextCard={goToNextCard}
-            goToPreviousCard={goToPreviousCard}
-            // onClick={() => chooseCard(index)
-          />
-          
-        ))}
-      </div>
-      {/* <div className="arrows"> */}
-      {/* <span className="arrow prev left" onClick={goToPreviousCard}></span>
-        <span className="arrow next right" onClick={goToNextCard}></span> */}
-      {/* </div> */}
+    <div className={divClass}>
+      {props.characters.map((element, index) => (
+        <Card
+          {...element}
+          key={element.id}
+          inFocus={index === currentCard}
+          prevCard={index === currentCard - 1 || (currentCard === 0 && index === props.characters.length - 1)}
+          nextCard={index === currentCard + 1 || (currentCard === props.characters.length - 1 && index === 0)}
+          goToNextCard={goToNextCard}
+          goToPreviousCard={goToPreviousCard}
+        />
+      ))}
     </div>
   );
 }
