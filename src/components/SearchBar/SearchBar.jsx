@@ -1,17 +1,17 @@
-import "../SearchBar/Search.css";
+import styles from './SearchBar.module.css';
+import React from "react";
 import ramtitle from '../../assets/images/title.webp'
 
-console.log(ramtitle);
 export default function SearchBar(props) {
   return (
-    <div className="search_style">
+    <div className={styles.search_style}>
        <img
-          className="imageBar"
+          className={styles.imageBar}
           src={ramtitle}
           alt={"Title Rick and Morty"}
         />
       <input autoComplete="off" type="search" id="id" name="q" />
-      <button onClick={props.onSearch} className="mybutton">
+      <button onClick={props.onSearch} className={styles.mybutton}>
         Buscar
       </button>
     </div>
