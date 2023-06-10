@@ -16,16 +16,19 @@
   transform: scale(1.1);
 
   @media only screen and (max-width: 500px) {
-    width:220px;
-    height:213px;
+    all: unset;
+    /* width:220px;
+    height:213px; */
   }
 }
 
 .characters.static:hover {
   transform: none;
   @media only screen and (max-width: 500px) {
-    width:220px;
-    height:213px;
+    all: unset;
+
+    /* width:220px;
+    height:213px; */
   }
 }
 
