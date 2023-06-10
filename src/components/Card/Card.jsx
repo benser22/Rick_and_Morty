@@ -38,10 +38,10 @@ export default function Card(props) {
 
   return (
     <div
-      className={`${styles.card} ${props.inFocus ? (styles.visible + " " + styles.centeredCard): ""} ${
+      className={`${styles.card} ${props.inFocus ? (" " + styles.visible + " " + styles.centeredCard): ""} ${
         props.prevCard ? `${styles.prev} ${styles.visible}` : ""
       } ${props.nextCard ? `${styles.next} ${styles.visible}` : ""} ${
-        visibility ? "" : styles.invisible
+        visibility ? " " : styles.invisible
       } ${isHovered ? styles.hovered : ""}`}
       onClick={clickCard}
     >
