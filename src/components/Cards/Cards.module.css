@@ -14,5 +14,6 @@
   flex-direction: row-reverse;
   @media only screen and (max-width: 500px) {
     all: unset;
+
   }
 }

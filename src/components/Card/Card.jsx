@@ -38,11 +38,7 @@ export default function Card(props) {
 
   return (
     <div
-      className={`${styles.card} ${props.inFocus ? (" " + styles.visible + " " + styles.centeredCard): ""} ${
-        props.prevCard ? `${styles.prev} ${styles.visible}` : ""
-      } ${props.nextCard ? `${styles.next} ${styles.visible}` : ""} ${
-        visibility ? " " : styles.invisible
-      } ${isHovered ? styles.hovered : ""}`}
+      className={`${styles.card} ${props.inFocus ? (styles.visible + " " + styles.centeredCard): ""} ${props.prevCard ? `${styles.prev} ${styles.visible}` : ""} ${props.nextCard ? `${styles.next} ${styles.visible}` : ""} ${visibility ? " " : styles.invisible} ${isHovered ? styles.hovered : ""}`}
       onClick={clickCard}
     >
       <button

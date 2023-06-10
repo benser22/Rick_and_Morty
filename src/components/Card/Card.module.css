@@ -29,6 +29,7 @@
     min-width: 96%;
     max-height: 85%;
     margin-top: 40px;
+    margin-right: 100px;
     justify-content: space-around;
   }
 }
@@ -42,6 +43,7 @@
   @media only screen and (max-width: 500px) {
     all: unset;
     display: none;
+    opacity: 0;
   }
 }
 
@@ -53,6 +55,7 @@
   @media only screen and (max-width: 500px) {
     all: unset;
     display: none;
+    opacity: 0;
   }
 }
 
