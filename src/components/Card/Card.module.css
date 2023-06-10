@@ -1,12 +1,24 @@
 .card.visible {
   display: flex;
   @media only screen and (max-width: 500px) {
-    flex-direction: column;
-    position: fixed;
-    align-items: center;
-    border-radius: 10px;
-    width: 100%;
-    position: relative;
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: -webkit-linear-gradient(
+  -25deg,
+  #4b5aa5 0%,
+  rgb(3, 3, 135) 25%,
+  #16035b 50%,
+  rgb(2, 2, 55) 75%,
+  #000000 100%
+  );
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: 600px;
+  border: 1px solid #e1e8ed;
+    justify-content: space-around;
   }
 }
 
@@ -32,8 +44,24 @@
   display: none;
 
   @media only screen and (max-width: 500px) {
-    all: unset;
-    
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: -webkit-linear-gradient(
+    -25deg,
+    #4b5aa5 0%,
+    rgb(3, 3, 135) 25%,
+    #16035b 50%,
+    rgb(2, 2, 55) 75%,
+    #000000 100%
+    );
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 600px;
+    border: 1px solid #e1e8ed;
+      justify-content: space-around;
   }
 }
 
@@ -44,7 +72,7 @@
   margin-left: 80px;
 
   @media only screen and (max-width: 500px) {
-    all: unset;
+
   }
 }
 
@@ -54,7 +82,8 @@
   opacity: 0.5;
   margin-right: 80px;
   @media only screen and (max-width: 500px) {
-    all: unset;
+    /* all: unset; */
+
   }
 }
 
@@ -62,7 +91,7 @@
   box-shadow: 2px 2px 20px 5px #c8c8c8;
   transition: ease-in-out, opacity 0.6s ease-in-out, box-shadow 1s;
   @media only screen and (max-width: 500px) {
-    all: unset;
+    /* all: unset; */
 
     }
 }
@@ -72,15 +101,15 @@
   box-shadow: 2px 2px 20px 5px #c8c8c8;
   transition: ease-in-out, opacity 0.6s ease-in-out, box-shadow 1s;
   @media only screen and (max-width: 500px) {
-    all: unset;
-
+  
     }
 }
 
 .invisible {
   filter: grayscale(100%);
   @media only screen and (max-width: 500px) {
-    all: unset;
+  
+
   }
 }
 
@@ -88,7 +117,7 @@
   opacity: 1;
   box-shadow: 2px 2px 20px 5px #c8c8c8;
   @media only screen and (max-width: 500px) {
-    all: unset;
+
   }
 }
 
@@ -99,7 +128,6 @@
   transform: translate(-50%, -50%);
 
   @media only screen and (max-width: 500px) {
-    all: unset;
-    position:unset;
+
   }
 }
