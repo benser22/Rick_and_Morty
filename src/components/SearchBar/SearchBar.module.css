@@ -44,7 +44,9 @@
   box-shadow: rgb(0, 0, 0) 1px 1px 3px 1px;
   border: 2px solid rgb(28, 110, 164);
   display: inline-block;
-
+  @media only screen and (max-width: 500px) {
+    
+  }
 }
 
 .mybutton:hover {
