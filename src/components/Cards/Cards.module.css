@@ -1,6 +1,10 @@
 .card.visible {
   display: flex;
   /* Muestra la carta cuando tiene la clase "visible" */
+  @media only screen and (max-width: 500px) {
+    all: unset;
+    display: grid;
+  }
 }
 
 .container {
@@ -10,16 +14,19 @@
   height: 50%;
   width: 100%;
   position: relative;
-}
+  @media only screen and (max-width: 500px) {
+    all: unset;
 
-@media only screen and (max-width: 500px) {
-  .container {
-    display: flex;
-    flex-direction: column;
   }
 }
 
+
+
 .container.inverse {
   flex-direction: row-reverse;
+  @media only screen and (max-width: 500px) {
+    all: unset;
+
+  }
 }
 

@@ -4,13 +4,12 @@
   justify-content: space-around;
   width: 100%;
   align-items: center;
-}
-
-@media only screen and (max-width: 576px) {
-  .arrows {
-    display: none;
+  @media only screen and (max-width: 576px) {
+    all: unset;
   }
 }
+
+
 
 .next {
   margin-top: 5%;
@@ -20,6 +19,9 @@
   border-left: 30px solid #3439d0;
   filter: drop-shadow(10px 0 5px rgba(0, 0, 0, 1));
   transition: transform 0.3s, filter 0.3s;
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .prev {
@@ -30,20 +32,32 @@
   border-right: 30px solid #3439d0;
   filter: drop-shadow(10px 0 5px rgba(0, 0, 0, 1));
   transition: transform 0.3s, filter 0.3s;
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .prev:hover {
   transform: scale(1.1);
   filter: drop-shadow(1px 0 1px rgba(255, 255, 255, 0.7));
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .next:hover {
   transform: scale(1.1);
   filter: drop-shadow(1px 0 1px rgba(255, 255, 255, 0.7));
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .empty {
   display: none;
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .characters {
@@ -54,9 +68,10 @@
   transition: transform 0.5s ease-in-out;
 
   @media only screen and (max-width: 500px) {
-    max-width: 200px;
+    all: unset;
+    /* max-width: 200px;
     max-height: 190px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; */
   }
 }
 
@@ -65,6 +80,7 @@
   transform: scale(1.1);
 
   @media only screen and (max-width: 500px) {
+    all: unset;
     max-width: 200px;
     max-height: 190px;
   }
@@ -72,6 +88,9 @@
 
 .characters.static:hover {
   transform: none;
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .name {
@@ -124,15 +143,25 @@
   box-shadow: rgb(0, 0, 0) 1px 1px 3px 1px;
   border: 2px solid rgb(28, 110, 164);
   display: inline-block;
+
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .mybutton:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .mybutton:active {
   transform: scale(1);
   transition: transform 0.3s, box-shadow 0.3s;
+  @media only screen and (max-width: 576px) {
+    all: unset;
+  }
 }
 
 .mybutton.rig {
@@ -141,6 +170,7 @@
   margin-right: 5px;
   margin-top: 5px;
   @media only screen and (max-width: 500px) {
+      all: unset;
     margin-top: 5px;
   }
 }

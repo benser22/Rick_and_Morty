@@ -14,11 +14,18 @@
   background-color: #16035b;
   color: #fff;
   margin-inline: 3px;
+  @media only screen and (max-width: 500px) {
+    all: unset;
+    /* margin-bottom: 10px; */
+  }
 
 }
 
 .search_style:hover {
   background-color: rgb(3, 3, 135);
+  @media only screen and (max-width: 500px) {
+    all: unset;
+  }
 }
 
 .mybutton {
@@ -37,15 +44,23 @@
   box-shadow: rgb(0, 0, 0) 1px 1px 3px 1px;
   border: 2px solid rgb(28, 110, 164);
   display: inline-block;
+
 }
 
 .mybutton:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  @media only screen and (max-width: 500px) {
+    all:unset;
+  }
 }
 
 .mybutton:active {
   transform: scale(1);
   transition: transform 0.3s, box-shadow 0.3s;
+  @media only screen and (max-width: 500px) {
+    all: unset;
+  }
+
 }
 
 .mybutton.rig {
@@ -53,17 +68,21 @@
   margin-left: auto;
   margin-right: 5px;
   margin-top: 5px;
+
   @media only screen and (max-width: 500px) {
-    margin-top: 5px;
+    all: unset;
+    margin-left: 0%;
   }
 }
 
 .search_style input {
-  padding: 6px;
+  padding: 10px;
   border-radius: 8px;
   font-size: 17px;
   margin-left: auto;
   margin-right: 12px;
+  @media only screen and (max-width: 500px) {
+  }
 }
 
 
@@ -71,7 +90,14 @@
   max-height: 50px;
   margin-left: 2%;
   transition: filter 0.3s ease-in-out; 
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
 }
 .imageBar:hover{
   filter: brightness(120%);
+  @media only screen and (max-width: 500px) {
+    all: unset;
+
+  }
 }
