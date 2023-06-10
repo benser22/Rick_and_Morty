@@ -15,7 +15,6 @@
   color: #fff;
   margin-inline: 3px;
   @media only screen and (max-width: 500px) {
-    margin-bottom: 100px;
   }
 
 }
