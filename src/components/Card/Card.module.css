@@ -1,9 +1,5 @@
 .card.visible {
   display: flex;
-  @media only screen and (max-width: 500px) {
-    /* max-height: 65%; */
-
-  }
 }
 
 .card {
@@ -28,10 +24,12 @@
   display: none;
 
   @media only screen and (max-width: 500px) {
-    min-width: 97%;
-    max-height: 500px;
-    margin-bottom: 20px;
+    min-width: 50vh;
+    max-height: 85vh; 
+    margin-bottom: 1vh;
+    margin-left: 2vh;
     justify-content: space-around;
+    display: flex;
   }
 }
 
@@ -43,7 +41,7 @@
 
   @media only screen and (max-width: 500px) {
     opacity: 1;
-    box-shadow: 1;
+    box-shadow: unset;
     transform: unset;
     transition: unset;
     margin-left: unset;
@@ -63,8 +61,6 @@
     transform: unset;
     transition: unset;
     margin-right: unset;
-    /* display: none;
-    opacity: 0; */
   }
 }
 
@@ -74,8 +70,7 @@
   @media only screen and (max-width: 500px) {
     box-shadow: unset;
     transition: unset;
-        /* display: none; */
-    }
+  }
 }
 
 .next:hover {
@@ -85,14 +80,13 @@
     opacity: unset;
     box-shadow: unset;
     transition: unset;
-    /* display: none; */
-    }
+  }
 }
 
 .invisible {
   filter: grayscale(100%);
   @media only screen and (max-width: 500px) {
-
+    
   }
 }
 
@@ -115,7 +109,6 @@
     transform: unset;
     left: unset;
     top: unset;
-    /* display: none; */
     display: flex;
   }
 }
