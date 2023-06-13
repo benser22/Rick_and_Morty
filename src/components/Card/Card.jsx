@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { pictures, gifs } from "../Pictures";
 import elements from "./Elements.module.css";
 import styles from "./Card.module.css";
 
@@ -10,12 +9,10 @@ export default function Card(props) {
 
   const handleHover = () => {
     setIsHovered(true);
-    setMyroot(props.gif);
   };
 
   const handleLeave = () => {
     setIsHovered(false);
-    setMyroot(props.image);
   };
 
   const onClose = () => {
@@ -68,7 +65,7 @@ export default function Card(props) {
       ></span> */}
       <img
         className={`${elements.characters} ${props.inFocus ? "" : elements.static}`}
-        src={props.inFocus ? myroot : props.image}
+        src={myroot}
         alt={"Imagen de " + props.name}
         width="220"
         height="213"
@@ -85,4 +82,3 @@ export default function Card(props) {
   );
 }
 
-export { pictures, gifs };

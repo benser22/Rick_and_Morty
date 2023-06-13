@@ -1,18 +1,35 @@
 import styles from './SearchBar.module.css';
-import React from "react";
-import ramtitle from '../../assets/images/title.webp'
+import React, { useState } from "react";
+import ramtitle from '../../assets/images/title.webp';
 
 export default function SearchBar(props) {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleSearch = () => {
+    props.onSearch(searchValue);
+  };
+
   return (
     <div className={styles.search_style}>
-       <img
-          className={styles.imageBar}
-          src={ramtitle}
-          alt={"Title Rick and Morty"}
-        />
-      <input autoComplete="off" type="search" id="id" name="q" />
-      <button onClick={props.onSearch} className={styles.mybutton}>
-        Buscar
+      <img
+        className={styles.imageBar}
+        src={ramtitle}
+        alt={"Title Rick and Morty"}
+      />
+      <input
+        autoComplete="off"
+        type="search"
+        id="id"
+        name="q"
+        value={searchValue}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleSearch} className={styles.mybutton}>
+        Agregar
       </button>
     </div>
   );
