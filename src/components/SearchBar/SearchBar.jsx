@@ -1,6 +1,7 @@
-import styles from './SearchBar.module.css';
 import React, { useState } from "react";
-import ramtitle from '../../assets/images/title.webp';
+import ramtitle from "../../assets/images/title.webp";
+import { NavLink } from "react-router-dom";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
   const [searchValue, setSearchValue] = useState("");
@@ -15,11 +16,13 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.search_style}>
-      <img
-        className={styles.imageBar}
-        src={ramtitle}
-        alt={"Title Rick and Morty"}
-      />
+      <img className={styles.imageBar} src={ramtitle} alt={"Title Rick and Morty"} />
+      <NavLink to="/about">
+        <button>About</button>
+      </NavLink>
+      <NavLink to="/home">
+        <button>Home</button>
+      </NavLink>
       <input
         autoComplete="off"
         type="search"
