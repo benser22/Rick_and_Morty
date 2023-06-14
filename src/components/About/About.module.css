@@ -1,0 +1,87 @@
+.aboutContainer {
+  position: relative;
+  perspective: 1000px;
+  height: 600px;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 10px #000000;
+  border-radius: 10px;
+
+}
+
+.background {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    45deg,
+    #40b6cb 0%,
+    #318e9e 50%,
+    #17424a 100%
+  );
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 40px;
+  width: 70%;
+  margin: 0 auto;
+  font-family: Verdana, sans-serif;
+}
+
+.profileImageContainer {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  filter: grayscale(95%);
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: -5px;
+}
+
+@media (max-width: 767px) {
+  .background {
+    max-width: 95%;
+    max-height: 90%;
+    margin-left: 2%;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .profileImageContainer {
+    width: 150px;
+    height: 150px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}

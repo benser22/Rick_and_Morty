@@ -16,12 +16,15 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.search_style}>
-      <img className={styles.imageBar} src={ramtitle} alt={"Title Rick and Morty"} />
-      <NavLink to="/about">
-        <button>About</button>
-      </NavLink>
       <NavLink to="/home">
-        <button>Home</button>
+        <img
+          className={styles.imageBar}
+          src={ramtitle}
+          alt={"Title Rick and Morty"}
+        />
+      </NavLink>
+      <NavLink to="/about" style={{ textDecoration: 'none' }}>
+        <span className={styles.about}>About</span>
       </NavLink>
       <input
         autoComplete="off"
