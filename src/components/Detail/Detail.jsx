@@ -104,7 +104,7 @@ export default function Detail() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.name}>({id}) -  {displayedName}</h2>
+      <h2 className={styles.name}>{id} - {displayedName}</h2>
       <img
         src={character.image}
         width="220"
@@ -112,10 +112,10 @@ export default function Detail() {
         className={styles.img}
         alt="Character"
       />
-      <p>Status: {displayedStatus}</p>
-      <p>Gender: {displayedGender}</p>
-      <p>Species: {displayedSpecies}</p>
-      <p>Origin: {displayedOrigin}</p>
+      <p className={styles.mini}>Status: {displayedStatus}</p>
+      <p className={styles.mini}>Gender: {displayedGender}</p>
+      <p className={styles.mini}>Species: {displayedSpecies}</p>
+      <p className={styles.mini}>Origin: {displayedOrigin}</p>
     </div>
   );
 }
