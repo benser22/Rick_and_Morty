@@ -4,7 +4,6 @@ import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 
 export default function Card(props) {
-  const [myroot, setMyroot] = useState(props.image);
   const [isHovered, setIsHovered] = useState(false);
   const [visibility, setVisibility] = useState(true);
 
@@ -77,7 +76,7 @@ export default function Card(props) {
         className={`${elements.characters} ${
           props.inFocus ? "" : elements.static
         }`}
-        src={myroot}
+        src={props.image}
         alt={"Imagen de " + props.name}
         width="220"
         height="213"
