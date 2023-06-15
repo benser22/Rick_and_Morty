@@ -6,7 +6,6 @@
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 10px #000000;
   border-radius: 10px;
-
 }
 
 .background {
@@ -66,14 +65,10 @@ h2 {
 }
 
 @media (max-width: 767px) {
-  .background {
-    max-width: 95%;
-    max-height: 90%;
-    margin-left: 2%;
-  }
-
-  .content {
-    padding: 20px;
+  .aboutContainer {
+    margin-top: 23%;
+    max-height: 80vh;
+    max-width: 60vh;
   }
 
   .profileImageContainer {
