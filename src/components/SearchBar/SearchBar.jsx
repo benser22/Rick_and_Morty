@@ -13,11 +13,15 @@ export default function SearchBar(props) {
   };
 
   const handleSearch = () => {
-    props.onSearch(searchValue);
-    setSearchValue(""); // Limpiar el campo de entrada
-    redirectToHome();
+    if (searchValue > 0) {
+      props.onSearch(searchValue);
+      setSearchValue(""); // Limpiar el campo de entrada
+      redirectToHome();
+    } else {
+      window.alert("ID must be a positive number");
+    }
   };
-
+  
   const handleRandom = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
     const confirmAdd = window.confirm(`Add character with ID ${randomId}?`);

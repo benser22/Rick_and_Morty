@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./Form.module.css";
 
-const Form = ({ userData, handleChange, login }) => {
+const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
+    setFormSubmitted(true);
   };
 
   return (
@@ -12,7 +13,8 @@ const Form = ({ userData, handleChange, login }) => {
       <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-mail:</label>
-        <input
+        <input 
+          placeholder="example@example.com"
           type="email"
           id="email"
           name="email"

@@ -13,14 +13,15 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [userData, setUserData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
       ...prevUserData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -28,8 +29,9 @@ function App() {
 
   const login = (userData) => {
     console.log(userData);
-    window.alert("Ud. se ha logueado correctamente")
-    navigate('/home');
+    window.alert("Ud. se ha logueado correctamente");
+    setFormSubmitted(true);
+    navigate("/home");
   };
 
   function onSearch(id) {
@@ -44,15 +46,28 @@ function App() {
     );
   }
 
+  const handleFormSubmitted = (submitted) => {
+    setFormSubmitted(submitted);
+  };
+
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {formSubmitted && <Nav onSearch={onSearch} />}
       <Routes>
         <Route
           path="/"
-          element={<Form userData={userData} handleChange={handleChange} login={login} />}
+          element={
+            <Form
+              userData={userData}
+              handleChange={handleChange}
+              login={login}
+              setFormSubmitted={handleFormSubmitted} // Corregido el nombre de la función
+            />
+          }
         />
-        <Route path="/home" element={<Home characters={characters} />} />
+        {formSubmitted && (
+          <Route path="/home" element={<Home characters={characters} />} />
+        )}
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error404 navigate={Navigate} />} />
