@@ -115,3 +115,21 @@
     /* all: unset; */
   }
 }
+
+.details {
+  font-size: 12px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #40b6cb;
+  text-decoration: none; 
+  margin-bottom: 22px;
+}
+
+.details:hover {
+  border-bottom: 1px solid #c0df3e; 
+  padding-bottom: 3px;
+  filter: brightness(130%);
+}
+
+.details:active {
+  color: #c0df3e;
+}

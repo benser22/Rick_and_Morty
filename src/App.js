@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-
+// eslint-disable-next-line
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About/About";
