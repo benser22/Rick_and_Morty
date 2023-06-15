@@ -42,6 +42,7 @@
 
 .search_style {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
@@ -101,6 +102,18 @@
 
 .search_style input {
   margin-left: 75%;
+}
+
+
+.randomIcon {
+  position: absolute;
+  color: white;
+  top: 50%; 
+  right: 30vh; 
+  transform: translate(-150%, -50%); 
+}
+.randomIcon:hover {
+  color: #c0df3e;
 }
 
 @media only screen and (max-width: 500px) {
