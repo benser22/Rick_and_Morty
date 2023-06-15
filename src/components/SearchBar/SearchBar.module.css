@@ -85,7 +85,7 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-radius: 8px;
   margin: auto;
-  margin-right: 10vh;
+  margin-right: 11vh;
 }
 
 .mybutton:hover {
@@ -104,13 +104,12 @@
   margin-left: 75%;
 }
 
-
 .randomIcon {
   cursor: pointer;
   position: absolute;
   color: white;
   top: 50%; 
-  right: 30vh; 
+  right: 5vh; 
   transform: translate(-150%, -50%); 
 }
 .randomIcon:hover {
@@ -138,7 +137,11 @@
     z-index: 9999;
     overflow-x: visible;
   }
-
+  .randomIcon{
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
   .imageBar {
     max-width: 80%;
   }
