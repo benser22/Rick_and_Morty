@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Form.module.css";
 
 const Form = ({ userData, handleChange, login }) => {
   const handleSubmit = (event) => {
@@ -7,10 +8,10 @@ const Form = ({ userData, handleChange, login }) => {
   };
 
   return (
-    <div>
-      <h2>Registrarse</h2>
+    <div className={styles.container}>
+      <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">E-mail:</label>
         <input
           type="email"
           id="email"
@@ -21,7 +22,7 @@ const Form = ({ userData, handleChange, login }) => {
           required
         />
 
-        <label htmlFor="password">Contraseña:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"

@@ -138,7 +138,7 @@ export default function Detail() {
       <p className={styles.mini}>
         <span>Species:</span> {displayedSpecies}
       </p>
-      <NavLink to="/home" className={styles.navLink}>
+            <NavLink to="/home" className={styles.navLink}>
         <FaHome />
       </NavLink>
     </div>
