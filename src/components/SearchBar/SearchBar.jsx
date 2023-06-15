@@ -12,6 +12,13 @@ export default function SearchBar(props) {
 
   const handleSearch = () => {
     props.onSearch(searchValue);
+    setSearchValue(""); // Limpiar el campo de entrada
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
@@ -26,17 +33,21 @@ export default function SearchBar(props) {
       <NavLink to="/about" style={{ textDecoration: 'none' }}>
         <span className={styles.about}>About</span>
       </NavLink>
-      <input
-        autoComplete="off"
-        type="search"
-        id="id"
-        name="q"
-        value={searchValue}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSearch} className={styles.mybutton}>
-        Agregar
-      </button>
+      <>
+        <input
+          autoComplete="off"
+          type="search"
+          id="id"
+          name="q"
+          value={searchValue}
+          placeholder="Id..."
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown} 
+        />
+        <button onClick={handleSearch} className={styles.mybutton}>
+          Add
+        </button>
+      </>
     </div>
   );
 }
