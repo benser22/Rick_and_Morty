@@ -53,18 +53,6 @@ export default function Card(props) {
       <h2 className={elements.name}>
         <span className={elements.value}>{props.name}</span>
       </h2>
-      <h2 className={elements.property}>
-        Status: <span className={elements.value}>{props.status}</span>
-      </h2>
-      <h2 className={elements.property}>
-        Species: <span className={elements.value}>{props.species}</span>
-      </h2>
-      <h2 className={elements.property}>
-        Gender: <span className={elements.value}>{props.gender}</span>
-      </h2>
-      <h2 className={elements.property}>
-        Origin: <span className={elements.value}>{props.origin.name}</span>
-      </h2>
       <Link to={`/detail/${props.id}`} style={{ textDecoration: 'none' }}>
         <h3 className={elements.details}>+ details...</h3>
       </Link>
