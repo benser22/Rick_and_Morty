@@ -37,6 +37,10 @@
   z-index: -1;
 }
 
+.begin {
+  font-weight: bolder;
+  font-size: larger;
+}
 .content {
   position: relative;
   text-align: center;
@@ -76,23 +80,6 @@ h2 {
   margin-top: -5px;
 }
 
-@media (max-width: 767px) {
-  .aboutContainer {
-    margin-top: 23%;
-    max-height: 80vh;
-    max-width: 60vh;
-  }
-
-  .profileImageContainer {
-    width: 150px;
-    height: 150px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-}
-
 .navLink {
   margin-top: 5%;
   color: white;
@@ -102,4 +89,32 @@ h2 {
 
 .navLink:hover {
   color: lightgray;
+}
+
+@media (max-width: 767px) {
+  .me {
+    font-size: 22px;
+  }
+  .content {
+    margin-top: -25px;
+  }
+
+  .aboutContainer {
+    margin-top: 23%;
+    max-height: 85vh;
+    max-width: 70vh;
+  }
+
+  .content {
+    margin-bottom: -25px;
+  }
+
+  .profileImageContainer {
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
 }
