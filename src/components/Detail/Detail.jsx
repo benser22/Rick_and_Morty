@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./Detail.module.css";
 import audioFile from "../../assets/sounds/letter.mp3";
+import { FaHome } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Detail() {
   const { id } = useParams();
@@ -136,6 +138,9 @@ export default function Detail() {
       <p className={styles.mini}>
         <span>Species:</span> {displayedSpecies}
       </p>
+      <NavLink to="/home" className={styles.navLink}>
+        <FaHome />
+      </NavLink>
     </div>
   );
 }

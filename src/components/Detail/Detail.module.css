@@ -68,3 +68,13 @@ span {
     width: 70%;
   }
 }
+.navLink {
+  margin-top: 5%;
+  color: white;
+  font-size: 30px; 
+  padding: 10px 15px; 
+}
+
+.navLink:hover{
+  color: lightgray;
+}

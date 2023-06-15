@@ -106,6 +106,7 @@
 
 
 .randomIcon {
+  cursor: pointer;
   position: absolute;
   color: white;
   top: 50%; 
