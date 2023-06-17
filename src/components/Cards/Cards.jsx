@@ -11,7 +11,7 @@ export default function Cards({ characters, onClose, favorites, addToFavorites, 
           <Card
             element={element}
             onClose={onClose}
-            key={element.id}
+            key={index}
             inFocus={index === element.id}
           isFavorite={favorites.includes(element.id)}
           AddToFavorites={addToFavorites}

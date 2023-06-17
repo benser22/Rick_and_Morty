@@ -88,7 +88,7 @@ h2 {
 }
 
 .navLink:hover {
-  color: lightgray;
+  color: #c0df3e;
 }
 
 @media (max-width: 767px) {

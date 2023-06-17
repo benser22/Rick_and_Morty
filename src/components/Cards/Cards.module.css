@@ -1,8 +1,7 @@
 .container {
-  flex-direction: row-reverse;
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
+
 
 .container > * {
   margin-right: 10px; /* Agrega un margen derecho para separar horizontalmente los elementos */

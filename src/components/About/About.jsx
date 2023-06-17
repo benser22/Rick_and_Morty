@@ -18,7 +18,7 @@ const About = () => {
           />
         </div>
         <p className={styles.begin}>
-          Hello! I'm Benjamin, a full stack web developer...
+          Hello! I'm Benjamin, a Henry student...
         </p>
         <p className={styles.description}>
           ...Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium
