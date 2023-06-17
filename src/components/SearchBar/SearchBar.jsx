@@ -18,7 +18,7 @@ export default function SearchBar(props) {
       setSearchValue(""); // Limpiar el campo de entrada
       redirectToHome();
     } else {
-      window.alert("El Id debe ser un número entre 0 y 826");
+      window.alert("El Id debe ser un número entre 1 y 826");
     }
   };
   

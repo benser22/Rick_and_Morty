@@ -45,6 +45,8 @@
   .about:hover {
     filter: brightness(120%);
     transition: filter 0.2s ease-in-out, text-decoration 0.3s ease-in-out;
+    cursor: pointer;
+
   }
   
   .about:active {
