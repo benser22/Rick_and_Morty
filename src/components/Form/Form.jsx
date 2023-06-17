@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
+import logo from "../../assets/images/logo_gira.gif";
 
 const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
   const [passwordError, setPasswordError] = useState("");
@@ -13,7 +14,9 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
     }
 
     if (userData.password.length < 6 || userData.password.length > 10) {
-      setPasswordError("La contraseña debe tener una longitud entre 6 y 10 caracteres.");
+      setPasswordError(
+        "La contraseña debe tener una longitud entre 6 y 10 caracteres."
+      );
       return;
     }
 
@@ -24,6 +27,7 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
 
   return (
     <div className={styles.container}>
+      <img src={logo} alt="R&M logo" className={styles.picture} />{" "}
       <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-mail:</label>
@@ -36,8 +40,8 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
           onChange={handleChange}
           autoComplete="new-mail"
           required
+          className={styles.myInput}
         />
-
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -47,9 +51,9 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
           value={userData.password}
           onChange={handleChange}
           autoComplete="new-password"
+          className={styles.myInput}
         />
         {passwordError && <p className={styles.error}>{passwordError}</p>}
-
         <button type="submit">Submit</button>
       </form>
     </div>

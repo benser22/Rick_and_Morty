@@ -6,6 +6,8 @@
   overflow: hidden;
   max-height: 55vh;
   min-width: 25vh;
+  max-width: 25vh;
+
 }
 
 .myButton {
@@ -16,6 +18,7 @@
   padding: 4px;
   margin: 0;
   margin-left: 88%;
+  width: 14%;
 }
 
 .title {
