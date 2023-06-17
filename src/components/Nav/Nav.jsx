@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import ramtitle from "../../assets/images/title.webp";
 import styles from "./Nav.module.css"
 
-
 function Nav(props) {
 
   return (
@@ -16,7 +15,9 @@ function Nav(props) {
           alt="Title Rick and Morty"
         />
       </NavLink>
-      
+      <NavLink to={"/favorites"} style={{ textDecoration: "none" }}>
+        <span className={styles.about}>Favoritos</span>
+      </NavLink>
       <NavLink to="/about" style={{ textDecoration: "none" }}>
         <span className={styles.about}>About</span>
       </NavLink>

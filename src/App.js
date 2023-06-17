@@ -11,12 +11,23 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const addToFavorites = (id) => {
+    setFavorites((prevFavorites) => [...prevFavorites, id]);
+  };
+
+  const removeFromFavorites = (id) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((favoriteId) => favoriteId !== id)
+    );
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +51,6 @@ function App() {
   };
 
   function onSearch(id) {
-    console.log("myId:  ", id);
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -58,9 +68,7 @@ function App() {
 
   return (
     <div className="App">
-      {formSubmitted && (
-        <Nav favorites={[]} onSearch={onSearch} />
-      )}
+      {formSubmitted && <Nav favorites={[]} onSearch={onSearch} />}
       <Routes>
         <Route
           path="/"
@@ -79,7 +87,15 @@ function App() {
         />
         <Route
           path="/favorites"
-          element={<Favorites characters={characters} onClose={onClose} />}
+          element={
+            <Favorites
+              favorites={favorites}
+              characters={characters}
+              onClose={onClose}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          }
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />

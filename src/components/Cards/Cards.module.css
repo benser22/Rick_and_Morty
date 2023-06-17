@@ -1,10 +1,14 @@
 .container {
-  display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  @media only screen and (max-width: 500px) {
-    
-  }
+  justify-content: flex-start;
+}
+
+.container > * {
+  margin-right: 10px; /* Agrega un margen derecho para separar horizontalmente los elementos */
+}
+
+.container > *:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento de cada fila */
 }
 

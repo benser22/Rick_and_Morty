@@ -4,7 +4,7 @@
   background-color: #40b6cb;
   border-radius: 10px;
   overflow: hidden;
-  max-height: 55vh;
+  height: 30vh;
   min-width: 25vh;
   max-width: 25vh;
 
@@ -24,7 +24,9 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: large;
 }
-
+.title:hover {
+  color: #c0df3e;
+}
 .picture {
   width: 16vh;
 }
