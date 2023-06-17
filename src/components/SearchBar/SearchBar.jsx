@@ -12,13 +12,13 @@ export default function SearchBar(props) {
   };
 
   const handleSearch = () => {
-    if (searchValue > 0) {
+    if (searchValue > 0 && searchValue <= 826) {
       console.log(searchValue)
       props.onSearch(searchValue);
       setSearchValue(""); // Limpiar el campo de entrada
       redirectToHome();
     } else {
-      window.alert("ID must be a positive number");
+      window.alert("El Id debe ser un número entre 0 y 826");
     }
   };
   
