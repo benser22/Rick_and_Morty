@@ -35,7 +35,7 @@ function App() {
   };
 
   function onSearch(id) {
-    console.log("myId:  ",id);
+    console.log("myId:  ", id);
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -66,11 +66,14 @@ function App() {
               userData={userData}
               handleChange={handleChange}
               login={login}
-              setFormSubmitted={handleFormSubmitted} 
+              setFormSubmitted={handleFormSubmitted}
             />
           }
         />
-        <Route path="/home" element={<Home characters={characters} onClose={onClose}/>} />
+        <Route
+          path="/home"
+          element={<Home characters={characters} onClose={onClose} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error404 navigate={Navigate} />} />

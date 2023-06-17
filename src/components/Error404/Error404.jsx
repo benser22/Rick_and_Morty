@@ -7,7 +7,7 @@ const Error404 = () => {
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (
