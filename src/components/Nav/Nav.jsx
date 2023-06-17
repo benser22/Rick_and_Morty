@@ -16,6 +16,7 @@ function Nav(props) {
           alt="Title Rick and Morty"
         />
       </NavLink>
+      
       <NavLink to="/about" style={{ textDecoration: "none" }}>
         <span className={styles.about}>About</span>
       </NavLink>

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 import styles from "../Cards/Cards.module.css";
 
-export default function Cards({ characters, onClose }) {
+export default function Cards({ characters, onClose, favorites, addToFavorites, removeFromFavorites }) {
   
   return (
     <div className={styles.container}>
@@ -13,6 +13,9 @@ export default function Cards({ characters, onClose }) {
             onClose={onClose}
             key={element.id}
             inFocus={index === element.id}
+          isFavorite={favorites.includes(element.id)}
+          AddToFavorites={addToFavorites}
+          RemoveFromFavorites={removeFromFavorites}
           />
         );
       })}

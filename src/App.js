@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Error404 from "./components/Error404/Error404";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -34,6 +35,10 @@ function App() {
     navigate("/home");
   };
 
+  const handleFormSubmitted = (submitted) => {
+    setFormSubmitted(submitted);
+  };
+
   function onSearch(id) {
     console.log("myId:  ", id);
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -51,13 +56,11 @@ function App() {
     setCharacters(characters.filter((character) => character.id !== id));
   }
 
-  const handleFormSubmitted = (submitted) => {
-    setFormSubmitted(submitted);
-  };
-
   return (
     <div className="App">
-      {formSubmitted && <Nav onSearch={onSearch} />}
+      {formSubmitted && (
+        <Nav favorites={[]} onSearch={onSearch} />
+      )}
       <Routes>
         <Route
           path="/"
@@ -73,6 +76,10 @@ function App() {
         <Route
           path="/home"
           element={<Home characters={characters} onClose={onClose} />}
+        />
+        <Route
+          path="/favorites"
+          element={<Favorites characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />

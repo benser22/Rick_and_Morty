@@ -1,13 +1,27 @@
 import styles from "./Card.module.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 
-export default function Card({ element, onClose }) {
+export default function Card({ element, onClose, isFavorite, AddToFavorites, RemoveFromFavorites }) {
+    const handleToggleFavorite = () => {
+      if (isFavorite) {
+        RemoveFromFavorites(element.id);
+      } else {
+        AddToFavorites(element.id);
+      }
+    };
+
   return (
     <div className={styles.myDiv}>
-      <button className={styles.myButton} onClick={() => onClose(element.id)}>
-        X
-      </button>
+      <div className={styles.buttonContainer}>
+   <FaHeart
+          className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`}
+          onClick={handleToggleFavorite}
+        />        <button className={styles.myButton} onClick={() => onClose(element.id)}>
+          X
+        </button>
+      </div>
       <Link
         to={`/detail/${element.id}`}
         style={{ textDecoration: "none", color: "white" }}

@@ -17,7 +17,6 @@
   font-size: 12px;
   padding: 4px;
   margin: 0;
-  margin-left: 88%;
   width: 14%;
 }
 
@@ -28,4 +27,21 @@
 
 .picture {
   width: 16vh;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.heartIcon {
+  color: white;
+  cursor: pointer;
+}
+
+
+.favorite {
+  color: red;
 }
