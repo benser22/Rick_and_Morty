@@ -62,31 +62,45 @@
  
   @media only screen and (max-width: 500px) {
     .about {
-      font-size: 1em;
-      margin-left: 15%;
+      font-size: 14px;
+      margin-right: 2vh;
+    }
+    .about::after{
+      all: unset;
+    }
+    .search_style {
+      max-width: unset;
+      max-height: unset;
+      height: unset;
+      width: unset;
+      height: 10px;
+      margin: unset;
+      justify-content: center;
+      align-items: center;
     }
     .search_style input {
       max-width: 20%;
-      margin-left: 10%;
+      height: 3vh;
+      margin-left: 4%;
+      margin-right: 2%;
+      padding: 4px;
+      font-size: 10px;
     }
-    .search_style {
-      max-width: 88%;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      overflow-x: visible;
+    .search_style button {
+      max-width: 20%;
+      height: 3vh;
+      margin-right: 6%;
+      padding: 4px;
+      font-size: 10px;
     }
     .randomIcon{
       position: absolute;
       top: 50%;
-      right: 0;
+      right: 3px;
+      left: 0;
     }
     .imageBar {
+      margin-top: 5px;
       max-width: 80%;
     }
   }

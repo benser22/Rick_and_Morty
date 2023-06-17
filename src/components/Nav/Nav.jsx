@@ -16,10 +16,10 @@ function Nav(props) {
         />
       </NavLink>
       <NavLink to={"/favorites"} style={{ textDecoration: "none" }}>
-        <span className={styles.about}>Favorites</span>
+        <label className={styles.about}>Favorites</label>
       </NavLink>
       <NavLink to="/about" style={{ textDecoration: "none" }}>
-        <span className={styles.about}>About</span>
+        <label className={styles.about}>About</label>
       </NavLink>
       <SearchBar onSearch={props.onSearch} />
     </div>
