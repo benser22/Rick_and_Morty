@@ -16,7 +16,7 @@ export default function Detail() {
   const [displayedSpecies, setDisplayedSpecies] = useState("");
   const [audio, setAudio] = useState(null);
 
-   // eslint-disable-next-line
+  // eslint-disable-next-line
   useEffect(() => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
@@ -25,7 +25,7 @@ export default function Detail() {
     );
   }, [id]);
 
-   // eslint-disable-next-line
+  // eslint-disable-next-line
   useEffect(() => {
     if (character) {
       const nameText = character.name;
@@ -45,29 +45,54 @@ export default function Detail() {
         if (letterCount < nameText.length) {
           setDisplayedName((prevName) => prevName + nameText[letterCount]);
         } else if (letterCount < nameText.length + statusText.length) {
-          setDisplayedStatus((prevStatus) =>
-            prevStatus + statusText[letterCount - nameText.length]
+          setDisplayedStatus(
+            (prevStatus) =>
+              prevStatus + statusText[letterCount - nameText.length]
           );
         } else if (
           letterCount <
           nameText.length + statusText.length + genderText.length
         ) {
-          setDisplayedGender((prevGender) =>
-            prevGender + genderText[letterCount - nameText.length - statusText.length]
+          setDisplayedGender(
+            (prevGender) =>
+              prevGender +
+              genderText[letterCount - nameText.length - statusText.length]
           );
         } else if (
           letterCount <
-          nameText.length + statusText.length + genderText.length + originText.length
+          nameText.length +
+            statusText.length +
+            genderText.length +
+            originText.length
         ) {
-          setDisplayedOrigin((prevOrigin) =>
-            prevOrigin + originText[letterCount - nameText.length - statusText.length - genderText.length]
+          setDisplayedOrigin(
+            (prevOrigin) =>
+              prevOrigin +
+              originText[
+                letterCount -
+                  nameText.length -
+                  statusText.length -
+                  genderText.length
+              ]
           );
         } else if (
           letterCount <
-          nameText.length + statusText.length + genderText.length + originText.length + speciesText.length
+          nameText.length +
+            statusText.length +
+            genderText.length +
+            originText.length +
+            speciesText.length
         ) {
-          setDisplayedSpecies((prevSpecies) =>
-            prevSpecies + speciesText[letterCount - nameText.length - statusText.length - genderText.length - originText.length]
+          setDisplayedSpecies(
+            (prevSpecies) =>
+              prevSpecies +
+              speciesText[
+                letterCount -
+                  nameText.length -
+                  statusText.length -
+                  genderText.length -
+                  originText.length
+              ]
           );
         }
 
@@ -80,6 +105,9 @@ export default function Detail() {
     }
   }, [character]);
 
+  const handleSound = () => {
+    audio.pause();
+  }
   // eslint-disable-next-line
   useEffect(() => {
     if (character) {
@@ -107,7 +135,7 @@ export default function Detail() {
         audio.currentTime = 0;
       }
     };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [character]);
 
   if (!character) {
@@ -138,8 +166,8 @@ export default function Detail() {
       <p className={styles.mini}>
         <span>Species:</span> {displayedSpecies}
       </p>
-            <NavLink to="/home" className={styles.navLink}>
-        <FaHome />
+      <NavLink to="/home" className={styles.navLink}>
+        <FaHome onClick={handleSound}/>
       </NavLink>
     </div>
   );
