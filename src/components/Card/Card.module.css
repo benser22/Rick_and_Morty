@@ -12,8 +12,7 @@
 
 .myDiv:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px #0b023f, 0 0 20px #2d1570; 
-  /* , 0 0 40px; */
+  box-shadow: 0 0 10px #0b023f, 0 0 20px #2d1570;
 }
 
 .myButton {
@@ -52,4 +51,38 @@
 
 .favorite {
   color: red;
+}
+
+@media only screen and (max-width: 500px) {
+  .myDiv {
+    margin: unset;
+    padding: unset;
+    min-width: 15vh;
+    max-width: 15vh;
+    height: 25vh;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+  .picture {
+    max-width: 10vh;
+  }
+
+  .buttonContainer {
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    margin-inline: 5px;
+  }
+
+  .myButton {
+    font-size: 10px;
+    padding: 3px;
+    max-width: 20px;
+  }
+  .heartIcon {
+    width: 15px;
+    height: 15px;
+  }
 }

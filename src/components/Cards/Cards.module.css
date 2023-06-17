@@ -1,5 +1,6 @@
 .container {
   flex-wrap: wrap;
+
 }
 
 
@@ -11,3 +12,8 @@
   margin-right: 0; /* Elimina el margen derecho del último elemento de cada fila */
 }
 
+@media only screen and (max-width: 500px) {
+  .container {
+    margin-top: 80px;
+  }
+}

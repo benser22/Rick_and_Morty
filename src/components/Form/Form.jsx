@@ -8,6 +8,16 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.com)$/.test(userData.email)) {
+      alert("Has ingresado una dirección de correo electrónico inválida.");
+      return;
+    } // SOLO PERMITE LOS MAILS .COM
+    
+    // if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(userData.email)) {
+    //   alert("Has ingresado una dirección de correo electrónico inválida.");
+    //   return;
+    // } SI QUISIERA INCLUIR A LOS MAILS TERMINADOS EN .CO .ORG ... ETC
+
     if (!/\d/.test(userData.password)) {
       setPasswordError("La contraseña debe contener al menos un número.");
       return;
@@ -27,7 +37,7 @@ const Form = ({ userData, handleChange, login, setFormSubmitted }) => {
 
   return (
     <div className={styles.container}>
-      <img src={logo} alt="R&M logo" className={styles.picture} />{" "}
+      <img src={logo} alt="R&M logo" className={styles.picture} />
       <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">E-mail:</label>

@@ -42,7 +42,6 @@ function App() {
   const login = (userData) => {
     console.log(userData);
     window.alert("Ud. se ha logueado correctamente");
-    setFormSubmitted(true);
     navigate("/home");
   };
 
