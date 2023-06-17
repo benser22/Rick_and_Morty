@@ -35,6 +35,7 @@ function App() {
   };
 
   function onSearch(id) {
+    console.log("myId:  ",id);
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -44,6 +45,11 @@ function App() {
         }
       }
     );
+  }
+
+  function onClose(id) {
+    console.log(id);
+    setCharacters(characters.filter((character) => character.id !== id));
   }
 
   const handleFormSubmitted = (submitted) => {
@@ -61,12 +67,12 @@ function App() {
               userData={userData}
               handleChange={handleChange}
               login={login}
-              setFormSubmitted={handleFormSubmitted} // Corregido el nombre de la función
+              setFormSubmitted={handleFormSubmitted} 
             />
           }
         />
         {formSubmitted && (
-          <Route path="/home" element={<Home characters={characters} />} />
+          <Route path="/home" element={<Home characters={characters} onClose={onClose}/>} />
         )}
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />

@@ -1,20 +1,10 @@
 .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50%;
-  width: 100%;
-  position: relative;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   @media only screen and (max-width: 500px) {
-    all: unset;
     
   }
 }
 
-.container.inverse {
-  flex-direction: row-reverse;
-  @media only screen and (max-width: 500px) {
-    all: unset;
-
-  }
-}

@@ -43,13 +43,13 @@
 .name {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .mini {
   margin-bottom: -5px;
   color: #c0df3e;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
@@ -65,8 +65,8 @@ span {
 @media only screen and (max-width: 500px) {
   .container {
     margin-top: 10%;
-    width: 85%;
-    max-height: 80%;
+    width: 95%;
+    max-height: 88%;
   }
 }
 .navLink {

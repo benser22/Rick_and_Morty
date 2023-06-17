@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import ramtitle from "../../assets/images/title.webp";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 import { FaRandom } from "react-icons/fa";
 
@@ -14,6 +13,7 @@ export default function SearchBar(props) {
 
   const handleSearch = () => {
     if (searchValue > 0) {
+      console.log(searchValue)
       props.onSearch(searchValue);
       setSearchValue(""); // Limpiar el campo de entrada
       redirectToHome();
@@ -24,11 +24,9 @@ export default function SearchBar(props) {
   
   const handleRandom = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
-    const confirmAdd = window.confirm(`Add character with ID ${randomId}?`);
-    if (confirmAdd) {
       props.onSearch(randomId.toString());
       redirectToHome();
-    }
+    
   };
 
   const handleKeyDown = (event) => {
@@ -42,17 +40,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <div className={styles.search_style}>
-      <NavLink to="/home">
-        <img
-          className={styles.imageBar}
-          src={ramtitle}
-          alt="Title Rick and Morty"
-        />
-      </NavLink>
-      <NavLink to="/about" style={{ textDecoration: "none" }}>
-        <span className={styles.about}>About</span>
-      </NavLink>
+    <div >
       <span onClick={handleRandom} className={styles.randomLink}>
         <FaRandom className={styles.randomIcon} />
       </span>

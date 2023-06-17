@@ -1,111 +1,28 @@
-.card.visible {
-  display: flex;
-}
-
-.card {
-  cursor: default;
-  background: -webkit-linear-gradient(
-    -25deg,
-    #4b5aa5 0%,
-    rgb(3, 3, 135) 25%,
-    #16035b 50%,
-    rgb(2, 2, 55) 75%,
-    #000000 100%
-  );
-  border: 1px solid #e1e8ed;
+.myDiv {
+  display: inline-block;
+  padding: 10px;
+  background-color: #40b6cb;
   border-radius: 10px;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 5px 5px 15px 5px #000000;
-  position: relative;
-  width: 100%;
-  max-width: 30%;
-  height: 400px;
-  display: none;
-
-  @media only screen and (max-width: 500px) {
-    min-width: 50vh;
-    max-height: 85vh; 
-    margin-bottom: 1vh;
-    margin-left: 2vh;
-    justify-content: space-around;
-    display: flex;
-  }
+  overflow: hidden;
+  max-height: 55vh;
+  min-width: 25vh;
 }
 
-.prev {
-  cursor: pointer;
-  transform: scale(0.7);
-  opacity: 0.5;
-
-  @media only screen and (max-width: 500px) {
-    opacity: 1;
-    box-shadow: unset;
-    transform: unset;
-    transition: unset;
-    display: none;
-  }
+.myButton {
+  background-color: #23626d;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 4px;
+  margin: 0;
+  margin-left: 88%;
 }
 
-.next {
-  cursor: pointer;
-  transform: scale(0.7);
-  opacity: 0.5;
-
-  @media only screen and (max-width: 500px) {
-    opacity: 1;
-    box-shadow: unset;
-    transform: unset;
-    transition: unset;
-    
-  }
+.title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
 }
 
-.prev:hover {
-  box-shadow: 2px 2px 20px 5px #c8c8c8;
-  transition: ease-in-out, opacity 0.6s ease-in-out, box-shadow 1s;
-  @media only screen and (max-width: 500px) {
-    box-shadow: unset;
-    transition: unset;
-  }
-}
-
-.next:hover {
-  box-shadow: 2px 2px 20px 5px #c8c8c8;
-  transition: ease-in-out, opacity 0.6s ease-in-out, box-shadow 1s;
-  @media only screen and (max-width: 500px) {
-    opacity: unset;
-    box-shadow: unset;
-    transition: unset;
-  }
-}
-
-.invisible {
-  filter: grayscale(100%);
-  @media only screen and (max-width: 500px) {
-    
-  }
-}
-
-.visible:hover {
-  opacity: 1;
-  box-shadow: 2px 2px 20px 5px #c8c8c8;
-  @media only screen and (max-width: 500px) {
-    box-shadow: unset;
-  }
-}
-
-.centeredCard {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  @media only screen and (max-width: 500px) {
-    position: unset;
-    transform: unset;
-    left: unset;
-    top: unset;
-    display: flex;
-  }
+.picture {
+  width: 16vh;
 }
