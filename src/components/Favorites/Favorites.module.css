@@ -1,0 +1,26 @@
+.title {
+  color: white;
+  margin: 0;
+  font-size: 1em;
+  font-family: Verdana, sans-serif;
+}
+
+.home {
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+}
+.home:hover {
+  cursor: pointer;
+  color: #c0df3e;
+}
+
+
+@media (max-width: 767px) {
+    .title {
+        font-size: 18px;
+    }
+    .home {
+      margin-top: 15px;
+    }
+}

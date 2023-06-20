@@ -9,6 +9,7 @@ export default function Card({
   isFavorite,
   AddToFavorites,
   RemoveFromFavorites,
+  isArrayFavorites,
 }) {
   
   const handleToggleFavorite = () => {
@@ -22,10 +23,12 @@ export default function Card({
   return (
     <div className={styles.myDiv}>
       <div className={styles.buttonContainer}>
-        <FaHeart
-          className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`}
-          onClick={handleToggleFavorite}
-        />
+        {!isArrayFavorites && (
+          <FaHeart
+            className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`}
+            onClick={handleToggleFavorite}
+          />
+        )}
         <button className={styles.myButton} onClick={() => onClose(element.id)}>
           X
         </button>
