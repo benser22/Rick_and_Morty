@@ -26,7 +26,7 @@ export default function SearchBar(props) {
     const randomId = Math.floor(Math.random() * 826) + 1;
       props.onSearch(randomId.toString());
       redirectToHome();
-    
+
   };
 
   const handleKeyDown = (event) => {

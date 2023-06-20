@@ -5,7 +5,6 @@ import ramtitle from "../../assets/images/title.webp";
 import styles from "./Nav.module.css"
 
 function Nav(props) {
-
   return (
     <div className={styles.search_style}>
       <NavLink to="/home">

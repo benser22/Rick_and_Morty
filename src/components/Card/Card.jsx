@@ -10,6 +10,7 @@ export default function Card({
   AddToFavorites,
   RemoveFromFavorites,
 }) {
+  
   const handleToggleFavorite = () => {
     if (isFavorite) {
       RemoveFromFavorites(element.id);

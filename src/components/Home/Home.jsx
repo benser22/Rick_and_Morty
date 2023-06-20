@@ -1,36 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux"; // Importa la función connect
 import Cards from "../Cards/Cards";
-// import Favorites from "../Favorites/Favorites";
+import { addToFavorites, removeFromFavorites } from "../../redux/actions/favoritesActions"; // Importa las acciones addToFavorites y removeFromFavorites
 
-export default function Home({ characters, onClose }) {
-  const [favorites, setFavorites] = useState([]);
-
-  const addToFavorites = (id) => {
-    setFavorites((prevFavorites) => [...prevFavorites, id]);
-  };
-
-  const removeFromFavorites = (id) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.filter((favoriteId) => favoriteId !== id)
-    );
-  };
-
+const Home = ({ characters, onClose, addToFavorites, removeFromFavorites }) => {
   return (
-    <>
-      <Cards
-        characters={characters}
-        onClose={onClose}
-        favorites={favorites}
-        addToFavorites={addToFavorites}
-        removeFromFavorites={removeFromFavorites}
-      />
-      {/* <Favorites
-        favorites={favorites}
-        characters={characters}
-        onClose={onClose}
-        addToFavorites={addToFavorites}
-        removeFromFavorites={removeFromFavorites}
-      /> */}
-    </>
+    <Cards
+      characters={characters}
+      onClose={onClose}
+      addToFavorites={addToFavorites}
+      removeFromFavorites={removeFromFavorites}
+    />
   );
-}
+};
+
+// Mapea el estado de Redux a las props del componente
+const mapStateToProps = (state) => ({
+  favorites: state.favorites, // Accede al estado 'favorites' en Redux
+});
+
+// Conecta el componente a Redux y mapea las acciones
+export default connect(mapStateToProps, { addToFavorites, removeFromFavorites })(Home);

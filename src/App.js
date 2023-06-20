@@ -9,25 +9,17 @@ import Detail from "./components/Detail/Detail";
 import Error404 from "./components/Error404/Error404";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
+import { addToFavorites, removeFromFavorites } from "./redux/actions/favoritesActions";
 
 function App() {
-  const [favorites, setFavorites] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const addToFavorites = (id) => {
-    setFavorites((prevFavorites) => [...prevFavorites, id]);
-  };
-
-  const removeFromFavorites = (id) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.filter((favoriteId) => favoriteId !== id)
-    );
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -66,41 +58,42 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {formSubmitted && <Nav favorites={[]} onSearch={onSearch} />}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Form
-              userData={userData}
-              handleChange={handleChange}
-              login={login}
-              setFormSubmitted={handleFormSubmitted}
-            />
-          }
-        />
-        <Route
-          path="/home"
-          element={<Home characters={characters} onClose={onClose} />}
-        />
-        <Route
-          path="/favorites"
-          element={
-            <Favorites
-              favorites={favorites}
-              characters={characters}
-              onClose={onClose}
-              addToFavorites={addToFavorites}
-              removeFromFavorites={removeFromFavorites}
-            />
-          }
-        />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" element={<Error404 navigate={Navigate} />} />
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        {formSubmitted && <Nav onSearch={onSearch} />}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Form
+                userData={userData}
+                handleChange={handleChange}
+                login={login}
+                setFormSubmitted={handleFormSubmitted}
+              />
+            }
+          />
+          <Route
+            path="/home"
+            element={<Home characters={characters} onClose={onClose} />}
+          />
+          <Route
+            path="/favorites"
+            element={
+              <Favorites
+                characters={characters}
+                onClose={onClose}
+                addToFavorites={addToFavorites}
+                removeFromFavorites={removeFromFavorites}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="*" element={<Error404 navigate={Navigate} />} />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 
