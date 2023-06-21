@@ -18,8 +18,13 @@
   }
 
 .logout {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
   cursor: pointer;
-  color: #c0df3e;
+  color: #40b6cb;
+}
+.logout:hover{
+  color:#c0df3e;
 }
 
 .about {

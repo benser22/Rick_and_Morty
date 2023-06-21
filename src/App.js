@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
@@ -12,6 +12,7 @@ import Favorites from "./components/Favorites/Favorites";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
 import { addToFavorites, removeFromFavorites } from "./redux/actions/favoritesActions";
+import { saveDataToLocalStorage, getDataFromLocalStorage } from "./localStorageUtils";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -37,6 +38,19 @@ function App() {
   function onClose(id) {
     setCharacters(characters.filter((character) => character.id !== id));
   }
+
+  useEffect(() => {
+    // Obtener datos guardados del Local Storage al cargar la aplicación
+    const savedCharacters = getDataFromLocalStorage("characters");
+    if (savedCharacters) {
+      setCharacters(savedCharacters);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Guardar datos en el Local Storage cada vez que los personajes cambien
+    saveDataToLocalStorage("characters", characters);
+  }, [characters]);
 
   return (
     <Provider store={store}>
