@@ -17,6 +17,10 @@
     filter: brightness(120%);
   }
 
+.logout {
+  cursor: pointer;
+  color: #c0df3e;
+}
 
 .about {
     position: relative;

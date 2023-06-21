@@ -4,17 +4,14 @@ import validate from "./validation";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo_gira.gif";
 
-const Form = () => {
+const Form = ({userData, setUserData}) => {
 
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
 
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
+
 
   function handleChange(event) {
     setUserData({ ...userData, [event.target.name]: event.target.value });
@@ -31,7 +28,7 @@ const Form = () => {
     window.alert("You have successfully logged in");
     navigate("/home");
     } else {
-      window.alert("Email or password was not correct")
+      window.alert("Email or password incorrect")
     }
   };
 

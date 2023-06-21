@@ -17,6 +17,10 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
 
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -24,7 +28,7 @@ function App() {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          window.alert("¡No hay personajes con este ID!");
+          window.alert("There are no characters with this ID!");
         }
       }
     );
@@ -37,9 +41,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        {location.pathname !== '/' && <Nav onSearch={onSearch} />}
+        {location.pathname !== '/' && <Nav onSearch={onSearch} userData={userData}/>}
         <Routes>
-          <Route path="/" element={<Form />} />
+          <Route path="/" element={<Form userData={userData} setUserData={setUserData}/>} />
           <Route
             path="/home"
             element={<Home characters={characters} onClose={onClose} />}
