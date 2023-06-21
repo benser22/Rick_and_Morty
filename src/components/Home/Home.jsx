@@ -1,7 +1,7 @@
 import React from "react";
-import { connect } from "react-redux"; // Importa la función connect
+import { connect } from "react-redux";
 import Cards from "../Cards/Cards";
-import { addToFavorites, removeFromFavorites } from "../../redux/actions/favoritesActions"; // Importa las acciones addToFavorites y removeFromFavorites
+import { addToFavorites, removeFromFavorites } from "../../redux/actions/favoritesActions"; 
 
 const Home = ({ characters, onClose, addToFavorites, removeFromFavorites }) => {
   return (

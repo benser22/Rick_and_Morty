@@ -11,7 +11,7 @@ export default function Favorites({ characters, onClose }) {
   const favorites = useSelector((state) => state.favorites.favorites);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let cantidad = "";
+  let amount = "";
 
   const handleRemoveFromFavorites = (id) => {
     dispatch(removeFromFavorites(id));
@@ -21,13 +21,13 @@ export default function Favorites({ characters, onClose }) {
     favorites.includes(element.id)
   );
 
-  favoriteCharacters.length === 1 ? cantidad = "carta" : cantidad = "cartas"
+  favoriteCharacters.length === 1 ? amount = "card" : amount = "cards"
 
   return (
     <>
     <div>
         <FaHome className={stylesHeader.home} onClick={() => navigate("/home")}/>
-        <h2 className={stylesHeader.title}>Tienes {favoriteCharacters.length} {cantidad} en Favoritos</h2>
+        <h2 className={stylesHeader.title}>You have {favoriteCharacters.length} {amount} in Favorites</h2>
       <hr></hr>
     </div>
     <div className={styles.container}>

@@ -29,8 +29,9 @@
   
   .container label {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #bababa;
+    margin-right: auto;
   }
   
   .myInput {
@@ -58,7 +59,10 @@
   }
   
   .error {
-    color:white;
+    color:chartreuse;
+    font-size: 0.9em;
+    margin-top: -8px;
+    font-family:cursive;
   }
 
   .picture {

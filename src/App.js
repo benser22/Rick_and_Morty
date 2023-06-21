@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import Home from "./components/Home/Home";
@@ -15,31 +15,8 @@ import { addToFavorites, removeFromFavorites } from "./redux/actions/favoritesAc
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const location = useLocation();
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserData((prevUserData) => ({
-      ...prevUserData,
-      [name]: value,
-    }));
-  };
-
-  const navigate = useNavigate();
-
-  const login = (userData) => {
-    console.log(userData);
-    window.alert("Ud. se ha logueado correctamente");
-    navigate("/home");
-  };
-
-  const handleFormSubmitted = (submitted) => {
-    setFormSubmitted(submitted);
-  };
 
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -60,19 +37,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        {formSubmitted && <Nav onSearch={onSearch} />}
+        {location.pathname !== '/' && <Nav onSearch={onSearch} />}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Form
-                userData={userData}
-                handleChange={handleChange}
-                login={login}
-                setFormSubmitted={handleFormSubmitted}
-              />
-            }
-          />
+          <Route path="/" element={<Form />} />
           <Route
             path="/home"
             element={<Home characters={characters} onClose={onClose} />}
