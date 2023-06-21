@@ -20,6 +20,7 @@
 .logout {
   position: absolute;
   left: 15%;
+  top: 34%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
   cursor: pointer;
@@ -101,20 +102,20 @@
     .search_style button {
       max-width: 20%;
       height: 3vh;
-      margin-right: 12%;
+      margin-right: 4vh;
       padding: 4px;
       font-size: 10px;
     }
-    /* .randomIcon{
-      position: relative;
-      left:0
-    } */
+
     .imageBar {
       display: none;
     }
 
     .logout{
-      margin-left: 4px;
+      position: unset;
+      left: unset;
+      right: unset;
+      margin-left: 4vh;
       margin-right: 4px;
       font-size: 0.7em;
     }

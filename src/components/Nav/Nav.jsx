@@ -48,7 +48,7 @@ function Nav(props) {
         {isHovered ? (
           "Logout"
         ) : (
-          <label style={{ color: "lightblue", cursor: "pointer" }}>
+          <label style={{ cursor: "pointer" }}>
             {email}
           </label>
         )}
