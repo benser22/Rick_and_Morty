@@ -1,8 +1,8 @@
 .container {
   flex-wrap: wrap;
-  flex-direction: row-reverse;
+  animation: fade-in 0.5s ease-in-out forwards;
+  
 }
-
 
 .container > * {
   margin-right: 10px; /* Agrega un margen derecho para separar horizontalmente los elementos */
@@ -15,5 +15,16 @@
 @media only screen and (max-width: 500px) {
   .container {
     margin-top: 15px;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

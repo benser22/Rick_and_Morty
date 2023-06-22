@@ -25,10 +25,9 @@ export default function Favorites({ characters, onClose }) {
 
   return (
     <>
-    <div>
+    <div className={stylesHeader.container}>
         <FaHome className={stylesHeader.home} onClick={() => navigate("/home")}/>
         <h2 className={stylesHeader.title}>You have {favoriteCharacters.length} {amount} in Favorites</h2>
-      <hr></hr>
     </div>
     <div className={styles.container}>
       {favoriteCharacters.map((element) => (
