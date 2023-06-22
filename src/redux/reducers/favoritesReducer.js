@@ -1,18 +1,25 @@
+// favoritesReducer.js
+import { getFavoritesFromStorage, saveFavoritesToStorage } from '../store/favoritesStorage';
+
 const initialState = {
-  favorites: [],
+  favorites: getFavoritesFromStorage(),
 };
 
 const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_FAVORITES':
+      const newFavoritesAdd = [...state.favorites, action.payload];
+      saveFavoritesToStorage(newFavoritesAdd);
       return {
         ...state,
-        favorites: [...state.favorites, action.payload],
+        favorites: newFavoritesAdd,
       };
     case 'REMOVE_FROM_FAVORITES':
+      const newFavoritesRemove = state.favorites.filter((id) => id !== action.payload);
+      saveFavoritesToStorage(newFavoritesRemove);
       return {
         ...state,
-        favorites: state.favorites.filter((id) => id !== action.payload),
+        favorites: newFavoritesRemove,
       };
     default:
       return state;
