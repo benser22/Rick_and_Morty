@@ -164,7 +164,7 @@ export default function Detail() {
         <span>Origin:</span> {displayedOrigin}
       </p>
       <p className={styles.mini}>
-        <span>Species:</span> {displayedSpecies}
+        <span>Specie:</span> {displayedSpecies}
       </p>
       <NavLink to="/home" className={styles.navLink}>
         <FaHome onClick={handleSound}/>
