@@ -5,7 +5,7 @@ import styles from "../Cards/Cards.module.css";
 import { removeFromFavorites } from "../../redux/actions/favoritesActions";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import  stylesHeader from "./Favorites.module.css"
+import stylesHeader from "./Favorites.module.css";
 
 export default function Favorites({ characters, onClose }) {
   const favorites = useSelector((state) => state.favorites.favorites);
@@ -21,26 +21,33 @@ export default function Favorites({ characters, onClose }) {
     favorites.includes(element.id)
   );
 
-  favoriteCharacters.length === 1 ? amount = "card" : amount = "cards"
+  favoriteCharacters.length === 1 ? (amount = "card") : (amount = "cards");
 
   return (
     <>
-    <div className={stylesHeader.container}>
-        <FaHome className={stylesHeader.home} onClick={() => navigate("/home")}/>
-        <h2 className={stylesHeader.title}>You have {favoriteCharacters.length} {amount} in Favorites</h2>
-    </div>
-    <div className={styles.container}>
-      {favoriteCharacters.map((element) => (
-        <Card
-          element={element}
-          onClose={handleRemoveFromFavorites}
-          key={element.id}
-          isFavorite={true}
-          isArrayFavorites={true}
-          RemoveFromFavorites={handleRemoveFromFavorites}
+      <div className={stylesHeader.container}>
+        <FaHome
+          className={stylesHeader.home}
+          onClick={() => navigate("/home")}
         />
-      ))}
-    </div>
+        <h2 className={stylesHeader.title}>
+          You have {favoriteCharacters.length} {amount} in Favorites
+        </h2>
+      </div>
+      <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>
+      <div className={styles.container}>
+        {favoriteCharacters.map((element) => (
+          <Card
+            element={element}
+            onClose={handleRemoveFromFavorites}
+            key={element.id}
+            isFavorite={true}
+            isArrayFavorites={true}
+            RemoveFromFavorites={handleRemoveFromFavorites}
+          />
+        ))}
+      </div>
+      <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>
     </>
   );
 }

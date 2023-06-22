@@ -1,17 +1,9 @@
 .container {
-  background: linear-gradient(
-  45deg,
-  #40b6cb 0%,
-  #318e9e 50%,
-  #17424a 100%
-);
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  box-shadow: 6px 5px 5px #0c2327;
   animation: fade-in 0.5s ease-in-out forwards;
 }
-
 
 @keyframes fade-in {
   0% {
@@ -23,31 +15,30 @@
     transform: scale(1);
   }
 }
+
 .title {
   color: white;
   margin: 0;
   font-size: 1em;
   font-family: Verdana, sans-serif;
-  
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .home {
   color: white;
   font-size: 30px;
   padding: 10px 15px;
-
 }
 .home:hover {
   cursor: pointer;
   color: #c0df3e;
 }
 
-
 @media (max-width: 767px) {
-    .title {
-        font-size: 18px;
-    }
-    .home {
-      margin-top: 15px;
-    }
+  .title {
+    font-size: 18px;
+  }
+  .home {
+    margin-top: 15px;
+  }
 }
