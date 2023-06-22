@@ -24,16 +24,29 @@ function App() {
   });
 
   function onSearch(id) {
+    const characterExists = characters.find((character) => character.id === id);
+  
+    if (characterExists) {
+      window.alert("This character already exists!");
+      return; 
+    }
+  
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+          if (characters.find((character) => character.id === data.id)) {
+            window.alert("This character already exists!");
+          } else {
+            setCharacters((oldChars) => [...oldChars, data]);
+          }
         } else {
           window.alert("There are no characters with this ID!");
         }
       }
     );
   }
+  
+  
 
   function onClose(id) {
     setCharacters(characters.filter((character) => character.id !== id));

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import stylesHeader from "./Favorites.module.css";
 
-export default function Favorites({ characters, onClose }) {
+export default function Favorites({ characters }) {
   const favorites = useSelector((state) => state.favorites.favorites);
   const dispatch = useDispatch();
   const navigate = useNavigate();

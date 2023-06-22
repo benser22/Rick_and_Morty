@@ -24,7 +24,6 @@ const Form = ({ userData, setUserData }) => {
       userData.email === "benser22@gmail.com" &&
       userData.password === "password1"
     ) {
-      console.log(userData);
       window.alert("You have successfully logged in");
       navigate("/home");
     } else {

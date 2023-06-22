@@ -13,9 +13,8 @@ export default function SearchBar(props) {
 
   const handleSearch = () => {
     if (searchValue > 0 && searchValue <= 826) {
-      console.log(searchValue)
       props.onSearch(searchValue);
-      setSearchValue(""); // Limpiar el campo de entrada
+      setSearchValue("");
       redirectToHome();
     } else {
       window.alert("The Id must be a number between 1 and 826");
