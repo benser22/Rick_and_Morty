@@ -1,4 +1,3 @@
-// favoritesActions.js
 export const addToFavorites = (id) => ({
     type: 'ADD_TO_FAVORITES',
     payload: id,
