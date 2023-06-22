@@ -44,7 +44,11 @@ function Nav(props) {
           alt="Title Rick and Morty"
         />
       </NavLink>
-      <NavLink to="/" className={styles.logout} style={{textDecoration: "none"}}>
+      <NavLink
+        to="/"
+        className={styles.logout}
+        style={{ textDecoration: "none" }}
+      >
         {isHovered ? (
           "Logout"
         ) : (

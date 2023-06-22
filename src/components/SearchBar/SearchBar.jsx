@@ -20,12 +20,11 @@ export default function SearchBar(props) {
       window.alert("The Id must be a number between 1 and 826");
     }
   };
-  
+
   const handleRandom = () => {
     const randomId = Math.floor(Math.random() * 826) + 1;
-      props.onSearch(randomId.toString());
-      redirectToHome();
-
+    props.onSearch(randomId.toString());
+    redirectToHome();
   };
 
   const handleKeyDown = (event) => {
@@ -39,7 +38,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <div >
+    <div>
       <span onClick={handleRandom} className={styles.randomLink}>
         <FaRandom className={styles.randomIcon} />
       </span>

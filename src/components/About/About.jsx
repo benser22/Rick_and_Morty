@@ -17,14 +17,12 @@ const About = () => {
             className={styles.profileImage}
           />
         </div>
-        <p className={styles.begin}>
-          Hello! I'm Benjamin, a Henry student...
-        </p>
+        <p className={styles.begin}>Hello! I'm Benjamin, a Henry student...</p>
         <p className={styles.description}>
-          ...Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-          nostrum sit neque dicta commodi atque facilis vitae nobis molestiae
-          reprehenderit esse doloribus, totam asperiores laboriosam fuga quod?
-          Delectus, ex neque!
+          ...Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Accusantium nostrum sit neque dicta commodi atque facilis vitae nobis
+          molestiae reprehenderit esse doloribus, totam asperiores laboriosam
+          fuga quod? Delectus, ex neque!
         </p>
         <div>
           <a

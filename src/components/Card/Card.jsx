@@ -3,14 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
-export default function Card({
-  element,
-  onClose,
-  isFavorite,
-  AddToFavorites,
-  RemoveFromFavorites,
-  isArrayFavorites,
-}) {
+export default function Card({element, onClose, isFavorite, AddToFavorites, RemoveFromFavorites, isArrayFavorites,}) {
   
   const handleToggleFavorite = () => {
     if (isFavorite) {
@@ -24,19 +17,13 @@ export default function Card({
     <div className={styles.myDiv}>
       <div className={styles.buttonContainer}>
         {!isArrayFavorites && (
-          <FaHeart
-            className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`}
-            onClick={handleToggleFavorite}
-          />
+          <FaHeart className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`} onClick={handleToggleFavorite} />
         )}
         <button className={styles.myButton} onClick={() => onClose(element.id)}>
           X
         </button>
       </div>
-      <Link
-        to={`/detail/${element.id}`}
-        style={{ textDecoration: "none", color: "white" }}
-      >
+      <Link to={`/detail/${element.id}`} style={{ textDecoration: "none", color: "white" }}>
         <h3 className={styles.title}>
           {element.id} - {element.name}
         </h3>

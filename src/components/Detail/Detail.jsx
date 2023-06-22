@@ -107,7 +107,7 @@ export default function Detail() {
 
   const handleSound = () => {
     audio.pause();
-  }
+  };
   // eslint-disable-next-line
   useEffect(() => {
     if (character) {
@@ -167,7 +167,7 @@ export default function Detail() {
         <span>Specie:</span> {displayedSpecies}
       </p>
       <NavLink to="/home" className={styles.navLink}>
-        <FaHome onClick={handleSound}/>
+        <FaHome onClick={handleSound} />
       </NavLink>
     </div>
   );

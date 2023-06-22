@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import Card from "../Card/Card";
 import styles from "../Cards/Cards.module.css";
-import { addToFavorites, removeFromFavorites } from "../../redux/actions/favoritesActions";
+import {addToFavorites, removeFromFavorites} from "../../redux/actions/favoritesActions";
 
-const Cards = ({ characters, onClose, favorites, addToFavorites, removeFromFavorites }) => {
+const Cards = ({characters, onClose, favorites, addToFavorites, removeFromFavorites}) => {
   return (
     <div className={styles.container}>
       {characters.map((element, index) => {
@@ -29,4 +29,7 @@ const mapStateToProps = (state) => ({
   favorites: state.favorites.favorites, // Asegurarse de obtener el estado correcto de favoritos
 });
 
-export default connect(mapStateToProps, { addToFavorites, removeFromFavorites })(Cards);
+export default connect(mapStateToProps, {
+  addToFavorites,
+  removeFromFavorites,
+})(Cards);
