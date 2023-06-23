@@ -19,7 +19,7 @@ export default function Card({element, onClose, isFavorite, AddToFavorites, Remo
         {!isArrayFavorites && (
           <FaHeart className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`} onClick={handleToggleFavorite} />
         )}
-        <button className={styles.myButton} onClick={() => onClose(element.id)}>
+        <button className={styles.myButton} onClick={() => { onClose(element.id); RemoveFromFavorites(element.id); }}>
           X
         </button>
       </div>
