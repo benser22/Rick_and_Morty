@@ -1,13 +1,13 @@
-input {
+.myinput {
   flex-grow: 1;
   border-radius: 6px;
   font-size: 16px;
   font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   max-width: 80px;
   margin-bottom: 15%;
+  margin-right: 2px;
 }
-
 
 .mybutton {
   background-color: #40b6cb;
@@ -41,38 +41,36 @@ input {
   cursor: pointer;
   position: absolute;
   color: white;
-  top: 53%; 
-  right: 65vh; 
-  transform: translate(-150%, -50%); 
+  top: 53%;
+  right: 70vh;
+  transform: translate(-150%, -50%);
 }
 .randomIcon:hover {
   color: #c0df3e;
 }
 
 @media only screen and (max-width: 500px) {
-  .about {
-    font-size: 1em;
-  }
-  .search_style input {
-    max-width: 20%;
-  }
-  .search_style {
-    max-width: 88%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    overflow-x: visible;
-  }
-  .randomIcon{
-    position: absolute;
-    top: 50%;
-    left: 27vh;
+  .mybutton {
+    padding: 0.5vh;
+    margin-right: 17vh;
+    margin-bottom: 10vh;
+    font-size: 10px;
   }
 
-  .imageBar {
-    max-width: 80%;
+  .myinput {
+    margin: unset;
+    margin-left: 10vh;
+    max-width: 4vh;
+    max-height: 20px;
+    font-size: 12px;
   }
+
+  .randomIcon {
+    position: absolute;
+    top: 50%;
+    left: 28vh;
+    max-height: 2vh;
+  }
+
+
 }

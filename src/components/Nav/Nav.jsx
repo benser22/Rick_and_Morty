@@ -58,7 +58,9 @@ function Nav(props) {
         )}
       </NavLink>
       <NavLink to={"/favorites"} style={{ textDecoration: "none" }}>
-        <label className={styles.about}>Favorites</label>
+        <label className={`${styles.about} ${styles.favorite}`}>
+          Favorites
+        </label>
       </NavLink>
       <NavLink to="/about" style={{ textDecoration: "none" }}>
         <label className={styles.about}>About</label>

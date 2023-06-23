@@ -1,19 +1,26 @@
 .container {
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   animation: fade-in 0.5s ease-in-out forwards;
-  
+  max-width: 90%;
+  justify-content: center;
+  margin-left: 40px;
 }
 
 .container > * {
-  margin-right: 10px; /* Agrega un margen derecho para separar horizontalmente los elementos */
+  margin-right: 10px; 
 }
 
 .container > *:last-child {
-  margin-right: 0; /* Elimina el margen derecho del último elemento de cada fila */
+  margin-right: 0;
 }
 
 @media only screen and (max-width: 500px) {
   .container {
+    margin: unset;
+    justify-content: space-around;
+    max-width: unset;
     margin-top: 15px;
   }
 }

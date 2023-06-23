@@ -51,6 +51,7 @@ export default function SearchBar(props) {
         placeholder="Id..."
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
+        className={styles.myinput}
       />
       <button onClick={handleSearch} className={styles.mybutton}>
         Add

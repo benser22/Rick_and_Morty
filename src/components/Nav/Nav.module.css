@@ -64,7 +64,11 @@
 .about:active {
   color: #c0df3e;
 }
+.mail {
+  color: #40b6cb;
 
+  margin-left: -8vh;
+}
 .imageBar {
   max-width: 200px;
   max-height: 45px;
@@ -75,9 +79,12 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .favorite {
+    margin-right: 2vh;
+  }
   .about {
-    font-size: 14px;
-    margin-left: 0.5vh;
+    font-size: 12px;
+    margin-left: 1vh;
   }
   .about::after {
     all: unset;
@@ -86,18 +93,6 @@
     max-width: 60vh;
     height: 10px;
     overflow: hidden;
-  }
-  .search_style input {
-    max-width: 20%;
-    height: 3vh;
-    font-size: 10px;
-  }
-  .search_style button {
-    max-width: 20%;
-    height: 3vh;
-    margin-right: 10vh;
-    margin-bottom: 10vh;
-    font-size: 10px;
   }
 
   .imageBar {
@@ -114,4 +109,5 @@
     font-size: 8px;
     margin-left: -50px;
   }
+
 }
