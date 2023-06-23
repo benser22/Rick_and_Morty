@@ -65,10 +65,16 @@
   color: #c0df3e;
 }
 .mail {
+  position: absolute;
+  left: 85%;
+  top: 34%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
   color: #40b6cb;
-
-  margin-left: -8vh;
 }
+
+
 .imageBar {
   max-width: 200px;
   max-height: 45px;
@@ -79,35 +85,41 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .favorite {
-    margin-right: 2vh;
-  }
+  
   .about {
-    font-size: 12px;
+    font-size: 20px;
     margin-left: 1vh;
+    margin-right: 100%;
   }
-  .about::after {
-    all: unset;
-  }
+ 
   .search_style {
-    max-width: 60vh;
-    height: 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    max-width: 14vh;
+    max-height: unset;
+    margin-top: 2vh;
+    height: 90%;
     overflow: hidden;
+    padding: 2vh;
   }
 
   .imageBar {
-    display: none;
+    max-width: 12vh;
+    margin-bottom: -10vh;
   }
 
   .logout {
-    left: 48vh;
-    font-size: 0.7em;
+    font-size: 1em;
+    top: 85vh;
+    left: 5vh;
   }
 
   .mail {
-    right: unset;
-    font-size: 8px;
-    margin-left: -50px;
-  }
-
+    font-size: 0.5em;
+    top: 85vh;
+    left: 2vh;
+    }
 }

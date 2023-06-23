@@ -42,10 +42,11 @@ const About = () => {
             <FaGithub />
           </a>
         </div>
+        <hr></hr>
+        <NavLink to="/home" className={`${styles.navLink} ${styles.home}`}>
+          <FaHome />
+        </NavLink>
       </div>
-      <NavLink to="/home" className={styles.navLink}>
-        <FaHome />
-      </NavLink>
     </div>
   );
 };

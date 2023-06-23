@@ -21,12 +21,15 @@
 
 @media (max-width: 767px) {
   .container{
-    margin-top: -4vh;
+    text-align: right;
+    margin-right: 8vh;
   }
   .title {
-    font-size: 16px;
+    font-size: 10px;
   }
   .home {
+    justify-content:center ;
+    margin-right: 15%;
     margin-top: 10px;
   }
 }

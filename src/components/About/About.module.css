@@ -8,7 +8,6 @@
   transform: scale(0.5);
   animation: fade-in 0.5s ease-in-out forwards;
   box-shadow: 6px 5px 5px #0c2327;
-
 }
 
 @keyframes fade-in {
@@ -42,6 +41,7 @@
   font-weight: bolder;
   font-size: larger;
 }
+
 .content {
   position: relative;
   text-align: center;
@@ -96,13 +96,10 @@ h2 {
   .me {
     font-size: 22px;
   }
-  .content {
-    margin-top: -25px;
-  }
 
   .aboutContainer {
     margin-top: 5%;
-    max-height: 85vh;
+    max-height: 95vh;
     max-width: 70vh;
   }
 
@@ -117,5 +114,11 @@ h2 {
 
   h2 {
     font-size: 14px;
+  }
+
+  .home {
+    position: absolute;
+    margin-top: 2%;
+    margin-left: -8%;
   }
 }

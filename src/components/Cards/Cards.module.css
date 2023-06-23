@@ -17,11 +17,15 @@
 }
 
 @media only screen and (max-width: 500px) {
+
+  .container > * {
+    margin-right: 0px; 
+  }
+
   .container {
-    margin: unset;
-    justify-content: space-around;
-    max-width: unset;
-    margin-top: 15px;
+    margin-left: 16vh;
+    min-width: 30vh;
+    max-width: 60vh;
   }
 }
 

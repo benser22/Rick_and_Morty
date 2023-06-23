@@ -52,24 +52,22 @@
 @media only screen and (max-width: 500px) {
   .mybutton {
     padding: 0.5vh;
-    margin-right: 17vh;
-    margin-bottom: 10vh;
-    font-size: 10px;
+    margin-right: 1vh;
+    margin-top: -10vh;
+    margin-bottom: 25vh;
+    font-size: 18px;
   }
 
-  .myinput {
-    margin: unset;
-    margin-left: 10vh;
-    max-width: 4vh;
-    max-height: 20px;
-    font-size: 12px;
+  .myinput{
+    padding: 1px;
+    max-width: 6vh;
+    margin-right: 5px;
   }
 
   .randomIcon {
     position: absolute;
-    top: 50%;
-    left: 28vh;
-    max-height: 2vh;
+    right: 15%;
+    top: 80%;
   }
 
 

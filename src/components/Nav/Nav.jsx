@@ -46,13 +46,12 @@ function Nav(props) {
       </NavLink>
       <NavLink
         to="/"
-        className={styles.logout}
         style={{ textDecoration: "none" }}
       >
         {isHovered ? (
-          "Logout"
+          <label className={styles.logout}>Logout</label>
         ) : (
-          <label className={styles.mail} style={{ cursor: "pointer" }}>
+          <label className={styles.mail}>
             {email}
           </label>
         )}
