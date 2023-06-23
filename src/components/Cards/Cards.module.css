@@ -23,9 +23,9 @@
   }
 
   .container {
-    margin-left: 16vh;
-    min-width: 30vh;
-    max-width: 60vh;
+    margin-left: 8vh;
+    min-width: 40vh;
+    max-width: 50vh;
   }
 }
 
@@ -37,5 +37,12 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 391px) {
+  .container{
+    min-width: 32vh;
+    margin-left: 10vh;
   }
 }

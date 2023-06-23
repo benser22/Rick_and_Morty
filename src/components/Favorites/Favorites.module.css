@@ -19,10 +19,10 @@
   color: #c0df3e;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   .container{
     text-align: right;
-    margin-right: 8vh;
+    margin-right: 4vh;
   }
   .title {
     font-size: 10px;

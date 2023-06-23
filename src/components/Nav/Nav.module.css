@@ -98,7 +98,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    max-width: 14vh;
+    max-width: 8vh;
     max-height: unset;
     margin-top: 2vh;
     height: 90%;
@@ -107,7 +107,7 @@
   }
 
   .imageBar {
-    max-width: 12vh;
+    max-width: 10vh;
     margin-bottom: -10vh;
   }
 
@@ -119,7 +119,28 @@
 
   .mail {
     font-size: 0.5em;
-    top: 85vh;
+    top: 90%;
     left: 2vh;
     }
+}
+
+@media only screen and (max-width: 391px) {
+  .search_style {
+    max-width: 7vh;
+  }
+  .about{
+    font-size: 14px;
+  }
+
+  .imageBar {
+    max-width: 95%;
+  }
+
+  .mail{
+    font-size: 0.4em;
+  }
+
+  .logout{
+    font-size: 0.8em;
+  }
 }
