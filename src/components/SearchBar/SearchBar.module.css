@@ -1,28 +1,37 @@
+.divSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vh;
+  margin-right: 40vh;
+}
+
 .myinput {
-  flex-grow: 1;
+  margin: unset;
+  max-width: 3.5em;
+  max-height: 2em;
+  margin-left: 1em;
   border-radius: 6px;
   font-size: 16px;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
-  max-width: 80px;
-  margin-bottom: 15%;
-  margin-right: 2px;
 }
 
 .mybutton {
+  margin: unset;
+  max-width: 3em;
+  max-height: 2em;
+  margin-left: 1em;
   background-color: #40b6cb;
   border: #c0df3e;
   color: #133343;
-  padding: 3px 4px;
+  padding: 4px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   font-weight: bold;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-radius: 8px;
-  margin-right: 50vh;
-  margin-top: 10vh;
 }
 
 .mybutton:hover {
@@ -38,46 +47,35 @@
 }
 
 .randomIcon {
-  cursor: pointer;
-  position: absolute;
   color: white;
-  top: 53%;
-  right: 70vh;
-  transform: translate(-150%, -50%);
+  cursor: pointer;
+  margin-right: 3em;
+  height: 3vh;
+  width: 3vh;
 }
 .randomIcon:hover {
   color: #c0df3e;
 }
 
 @media only screen and (max-width: 500px) {
-  .mybutton {
-    padding: 0.5vh;
-    margin-right: 1vh;
-    margin-top: -10vh;
-    margin-bottom: 25vh;
-    font-size: 18px;
-  }
-
-  .myinput{
-    padding: 1px;
-    max-width: 6vh;
-    margin-right: 5px;
-  }
-
-  .randomIcon {
-    position: absolute;
-    right: 15%;
-    top: 80%;
-  }
 }
 
 @media only screen and (max-width: 391px) {
-  .myinput{
-    max-width: 20%;
-    font-size: 10px;
+  .divSearch {
+    flex-direction: column;
+    margin-left: 38vh;
   }
-  .mybutton{
-    max-width: 18%;
-    font-size: 10px;
+
+  .myinput {
+    max-width: 2.5em;
+  }
+  .mybutton {
+    max-height: 2em;
+    padding: 4px;
+    margin-top: 1vh;
+  }
+  .randomIcon {
+    margin-left: 10vh;
+    margin-bottom: 3vh;
   }
 }

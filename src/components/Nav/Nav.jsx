@@ -44,27 +44,20 @@ function Nav(props) {
           alt="Title Rick and Morty"
         />
       </NavLink>
-      <NavLink
-        to="/"
-        style={{ textDecoration: "none" }}
-      >
-        {isHovered ? (
-          <label className={styles.logout}>Logout</label>
-        ) : (
-          <label className={styles.mail}>
-            {email}
-          </label>
-        )}
-      </NavLink>
       <NavLink to={"/favorites"} style={{ textDecoration: "none" }}>
-        <label className={`${styles.about} ${styles.favorite}`}>
-          Favorites
-        </label>
+        <label className={`${styles.about} ${styles.favorite}`}>Favorites</label>
       </NavLink>
       <NavLink to="/about" style={{ textDecoration: "none" }}>
         <label className={styles.about}>About</label>
       </NavLink>
       <SearchBar onSearch={props.onSearch} />
+      <NavLink to="/" style={{ textDecoration: "none" }}>
+        {isHovered ? (
+          <p className={styles.logout}>LOGOUT</p>
+        ) : (
+          <p className={styles.mail}>{email}</p>
+        )}
+      </NavLink>
     </div>
   );
 }

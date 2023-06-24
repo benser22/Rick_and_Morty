@@ -38,7 +38,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <div>
+    <div className={styles.divSearch}>
       <span onClick={handleRandom} className={styles.randomLink}>
         <FaRandom className={styles.randomIcon} />
       </span>

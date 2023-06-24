@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   border-radius: 10px;
   padding: 14px;
   max-height: 30px;
@@ -21,10 +21,13 @@
   position: absolute;
   left: 88%;
   top: 34%;
+  margin: unset;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
   cursor: pointer;
   color: #40b6cb;
+  letter-spacing: 0.4em; 
+  font-weight: bold;
 }
 .logout:hover {
   color: #c0df3e;
@@ -34,10 +37,11 @@
   position: relative;
   overflow: hidden;
   color: #40b6cb;
-  margin-left: -50vh;
   font-size: 1.5em;
+  margin-right: 15vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 
 .about::after {
   content: "";
@@ -64,18 +68,20 @@
 .about:active {
   color: #c0df3e;
 }
+
 .mail {
   position: absolute;
-  left: 85%;
-  top: 34%;
+  cursor: pointer;
+  left: 88%;
+  top: 0vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   color: #40b6cb;
 }
 
-
 .imageBar {
+  margin-right: 25vh;
   max-width: 200px;
   max-height: 45px;
 }
@@ -85,62 +91,61 @@
 }
 
 @media only screen and (max-width: 500px) {
-  
-  .about {
-    font-size: 20px;
-    margin-left: 1vh;
-    margin-right: 100%;
-  }
- 
   .search_style {
-    justify-content: space-between;
     align-items: center;
     position: fixed;
-    display: flex;
+    justify-content: space-between;
     flex-direction: column;
     max-width: 8vh;
     max-height: unset;
     margin-top: 2vh;
     height: 90%;
     overflow: hidden;
-    padding: 2vh;
   }
 
   .imageBar {
+    margin: unset;
     max-width: 10vh;
-    margin-bottom: -10vh;
+    margin-top: 5vh;
+    transform: rotate(-90deg);
+  }
+
+  .about {
+    margin: unset;
+    font-size: 1.1em;
+    transform: rotate(-90deg);
   }
 
   .logout {
-    font-size: 1em;
-    top: 85vh;
-    left: 5vh;
+    margin: unset;
+    transform: rotate(-90deg);
   }
 
   .mail {
-    font-size: 0.5em;
-    top: 90%;
-    left: 2vh;
-    }
+    margin: unset;
+    transform: rotate(-90deg);
+    margin-bottom: 5vh;
+  }
 }
 
 @media only screen and (max-width: 391px) {
-  .search_style {
-    max-width: 7vh;
-  }
-  .about{
-    font-size: 14px;
+  .about::after {
+    all: unset;
   }
 
-  .imageBar {
-    max-width: 95%;
+  .mail {
+    position: relative;
+    left: 0;
+    font-size: 10px;
+    margin-bottom: 12vh;
   }
 
-  .mail{
-    font-size: 0.4em;
-  }
-
-  .logout{
-    font-size: 0.8em;
+  .logout {
+    position: relative;
+    left: 0;
+    font-size: 12px;
+    margin-bottom: 12vh;
+    transform: rotate(-0deg);
+    letter-spacing: 0.2em; 
   }
 }
