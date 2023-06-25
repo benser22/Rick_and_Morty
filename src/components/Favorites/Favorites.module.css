@@ -19,7 +19,51 @@
   color: #c0df3e;
 }
 
+.select_container {
+  margin-top: 2vh;
+  margin-bottom: 20px;
+
+}
+
+.select_container label {
+  margin-left: 4vh;
+  margin-right: 1vh;
+  font-family: Arial;
+  color: #133343;
+  font-weight: bold;
+}
+
+.select_container select {
+  color: white;
+  background-color:#133343;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+
+
 @media (max-width: 500px) {
+
+  .select_container {
+    display: flex;
+    transform: scale(0.5);
+    margin-left: 8vh;
+  }
+
+  .select_container label {
+    margin: unset;
+    color: #ffffff;
+    margin-left: 4vh;
+
+  }
+  
+  .select_container select {
+    transform: scale(0.8);
+    margin: unset;
+    margin-left: 2vh;
+  }
+
   .container{
     text-align: right;
     margin-right: 4vh;
