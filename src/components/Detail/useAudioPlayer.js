@@ -123,7 +123,7 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
         if (letterCount === totalLetters) {
           clearInterval(timer);
         }
-      }, 100);
+      }, 70);
     }
   }, [character]); // No necesito limpiar al desmontar este hook, xq ya lo hago en el primer useEfect
 
@@ -137,7 +137,7 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
         character.gender.length +
         character.origin.name.length +
         character.species.length;
-      const audioDuration = totalLetters * 100; // Duración en milisegundos
+      const audioDuration = totalLetters * 70; // Duración en milisegundos
 
       const audio = new Audio(audioFile);
       audio.play();
