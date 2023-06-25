@@ -19,7 +19,7 @@
 
 .logout {
   position: absolute;
-  left: 88%;
+  left: 84%;
   top: 34%;
   margin: unset;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -72,7 +72,7 @@
 .mail {
   position: absolute;
   cursor: pointer;
-  left: 88%;
+  left: 84%;
   top: 0vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
@@ -81,7 +81,6 @@
 }
 
 .imageBar {
-  margin-right: 25vh;
   max-width: 200px;
   max-height: 45px;
 }
@@ -137,7 +136,7 @@
     position: relative;
     left: 0;
     font-size: 10px;
-    margin-bottom: 12vh;
+    margin-bottom: 8vh;
   }
 
   .logout {

@@ -13,7 +13,7 @@ function Nav(props) {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    // Obtener el valor del email del Local Storage al cargar el componente
+    // Obtener el valor del email del Local Storage al cargar el componente para poder mostrar el mail en mi Nav
     const storedEmail = getDataFromLocalStorage("email");
     if (storedEmail) {
       setEmail(storedEmail);
