@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
+
+// Estilos
 import "./App.css";
+
+// Componentes
 import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About/About";
@@ -9,28 +13,31 @@ import Detail from "./components/Detail/Detail";
 import Error404 from "./components/Error404/Error404";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+
+// Redux
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
-import { addToFavorites, removeFromFavorites } from "./redux/actions/favoritesActions";
+import { addToFavorites, removeFromFavorites} from "./redux/actions/favoritesActions";
+
+// Utilidades
 import { saveDataToLocalStorage, getDataFromLocalStorage } from "./localStorageUtils";
 
-function App() {
+// * FUNCION PRINCIPAL
+export default function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
 
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
+  const [userData, setUserData] = useState({ email: "", password: "" });
 
+  // Función de agregar un personaje
   function onSearch(id) {
     const characterExists = characters.find((character) => character.id === id);
-  
+
     if (characterExists) {
       window.alert("This character already exists!");
-      return; 
+      return;
     }
-  
+
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -45,41 +52,35 @@ function App() {
       }
     );
   }
-  
-  
 
+  // Función de eliminar un personaje
   function onClose(id) {
     setCharacters(characters.filter((character) => character.id !== id));
   }
 
+  // Cargar datos del Local Storage al iniciar la aplicación
   useEffect(() => {
-    // Obtener datos guardados del Local Storage al cargar la aplicación
     const savedCharacters = getDataFromLocalStorage("characters");
     if (savedCharacters) {
       setCharacters(savedCharacters);
     }
   }, []);
 
+  // Guardar datos en el Local Storage cuando los personajes cambien
   useEffect(() => {
-    // Guardar datos en el Local Storage cada vez que los personajes cambien
     saveDataToLocalStorage("characters", characters);
   }, [characters]);
 
   return (
     <Provider store={store}>
       <div className="App">
-        {location.pathname !== '/' && <Nav onSearch={onSearch} userData={userData}/>}
+        {location.pathname !== "/" && ( <Nav onSearch={onSearch} userData={userData} /> )}
         <Routes>
-          <Route path="/" element={<Form userData={userData} setUserData={setUserData}/>} />
-          <Route
-            path="/home"
-            element={<Home characters={characters} onClose={onClose} />}
-          />
-          <Route
-            path="/favorites"
+          <Route path="/" element={<Form userData={userData} setUserData={setUserData} />} />
+          <Route path="/home" element={<Home characters={characters} onClose={onClose} />} />
+          <Route path="/favorites" 
             element={
-              <Favorites
-                characters={characters}
+            <Favorites characters={characters}
                 onClose={onClose}
                 addToFavorites={addToFavorites}
                 removeFromFavorites={removeFromFavorites}
@@ -94,5 +95,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;
