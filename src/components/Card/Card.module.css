@@ -22,10 +22,11 @@
   background-color: #23626d;
   color: white;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 4px;
   margin: 0;
-  width: 14%;
+  width: 3vh;
+  height: 3vh;
 }
 
 .title {
@@ -45,16 +46,39 @@
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
+  padding: 0.5vh;
 }
 
 .heartIcon {
   color: white;
+  width: 3vh;
+  height: 3vh;
   cursor: pointer;
 }
 
 .favorite {
-  color: red;
+  color: #FF0000;
 }
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heartIcon:hover {
+  animation: pulseAnimation 1s ease infinite;
+}
+
+
+
+
 
 @media only screen and (max-width: 500px) {
   .myDiv {

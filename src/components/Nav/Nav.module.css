@@ -89,6 +89,41 @@
   filter: brightness(120%);
 }
 
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  color: white;
+  background-color: #40b6cb;
+  border-radius: 8px;
+  margin: auto;
+  padding: 20px;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.myh2{
+  margin: 0%;
+  text-align: center;
+  font-size: 28px;
+  color:#133343;
+  font-family:sans-serif;
+}
+
 @media only screen and (max-width: 500px) {
   .search_style {
     align-items: center;

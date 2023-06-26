@@ -44,7 +44,7 @@ export default function SearchBar(props) {
       </span>
       <input
         autoComplete="off"
-        type="search"
+        type="text"
         id="id"
         name="q"
         value={searchValue}
