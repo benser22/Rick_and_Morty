@@ -59,8 +59,9 @@
   }
   
   .error {
-    color:chartreuse;
-    font-size: 0.9em;
+    color:rgb(251, 16, 16);
+    font-size: 1em;
+    font-weight: bold;
     margin-top: -8px;
     font-family:cursive;
   }
