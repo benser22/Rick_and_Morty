@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import ramtitle from "../../assets/images/title.webp";
 import styles from "./Nav.module.css";
@@ -14,7 +14,8 @@ function Nav(props) {
   const [email, setEmail] = useState("");
   const [logout, setLogout] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Utilizar useNavigate
+  const navigate = useNavigate(); 
+  const location = useLocation();
 
   useEffect(() => {
     const storedEmail = getDataFromLocalStorage("email");
@@ -45,7 +46,7 @@ function Nav(props) {
 
   useEffect(() => {
     if (logout) {
-      navigate("/"); // Utilizar navigate en lugar de props.history.push
+      navigate("/");
     }
   }, [logout, navigate]);
 
@@ -72,7 +73,7 @@ function Nav(props) {
       </NavLink>
       <SearchBar onSearch={props.onSearch} />
       <NavLink
-        to={logout ? "/" : "/home"}
+        to={logout ? "/" : location}
         style={{ textDecoration: "none" }}
         onClick={handleLogout}
       >
