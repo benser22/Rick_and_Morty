@@ -8,6 +8,7 @@ import {
   getDataFromLocalStorage,
 } from "../../localStorageUtils";
 import Modal from "react-modal";
+Modal.setAppElement("#root"); /* Especifica el elemento de la aplicación (App element) al utilizar la biblioteca react-modal. Esta línea es necesaria para garantizar el correcto funcionamiento de react-modal en términos de accesibilidad. */
 
 function Nav(props) {
   const [isHovered, setIsHovered] = useState(false);
