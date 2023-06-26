@@ -8,6 +8,7 @@
   transform: scale(0.5);
   animation: fade-in 0.5s ease-in-out forwards;
   box-shadow: 6px 5px 5px #0c2327;
+  border: 2px groove #23626d;
 }
 
 @keyframes fade-in {

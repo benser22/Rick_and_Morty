@@ -1,7 +1,7 @@
 .myDiv {
   display: inline-block;
   padding: 10px;
-  background-color: #40b6cb;
+  background-image: linear-gradient(-45deg, #2e788d, #3799ab, #4db8cb);
   border-radius: 10px;
   overflow: hidden;
   height: 30vh;
@@ -11,11 +11,12 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   margin-left: 4vh;
-}
+  border: 2px groove #23626d;
+  }
 
 .myDiv:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px #0b023f, 0 0 20px #2d1570;
+  box-shadow:  0 0 20px #ffffff;
 }
 
 .myButton {
@@ -33,6 +34,7 @@
 .title {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: large;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 .title:hover {
   color: #c0df3e;
@@ -40,6 +42,7 @@
 .picture {
   width: 16vh;
   border-radius: 8px;
+  border: #23626d groove 2px;
 }
 
 .buttonContainer {

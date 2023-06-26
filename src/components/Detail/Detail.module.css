@@ -13,7 +13,7 @@
     rgba(49, 142, 158, 1) 50%,
     rgba(23, 66, 74, 1) 100%
   );
-  border: 1px solid rgba(64, 182, 203, 0.5);
+  border: 2px groove #23626d;
   border-radius: 10px;
   width: 50%;
   max-width: 500px;
