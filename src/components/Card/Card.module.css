@@ -21,12 +21,13 @@
 .myButton {
   background-color: #23626d;
   color: white;
+  font-family:'Courier New', Courier, monospace;
   border-radius: 5px;
-  font-size: 14px;
-  padding: 4px;
+  font-size: 16px;
+  padding: 2px;
   margin: 0;
-  width: 3vh;
-  height: 3vh;
+  width: 2vh;
+  height: 2vh;
 }
 
 .title {
@@ -46,13 +47,13 @@
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
-  padding: 0.5vh;
+  padding: 2px;
 }
 
 .heartIcon {
   color: white;
-  width: 3vh;
-  height: 3vh;
+  width: 2vh;
+  height: 2vh;
   cursor: pointer;
 }
 
