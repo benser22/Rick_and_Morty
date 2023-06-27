@@ -1,14 +1,14 @@
 .container {
   display: flex;
   position: fixed;
-  left: 55%;
+  left: 52%;
   top: 20%;
 }
 
 .cardContainer {
   position: fixed;
   top: 50%;
-  left: 40%;
+  left: 36%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   font-size: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
 }
 
 .mini {
@@ -70,6 +70,17 @@ span {
   font-style: italic;
 }
 
+.navLink {
+  margin-top: 5%;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+}
+
+.navLink:hover {
+  color: #c0df3e;
+}
+
 @media only screen and (max-width: 500px) {
   .cardContainer {
     width: 92%;
@@ -81,13 +92,16 @@ span {
     display: none;
   }
 }
-.navLink {
-  margin-top: 5%;
-  color: white;
-  font-size: 30px;
-  padding: 10px 15px;
-}
 
-.navLink:hover {
-  color: #c0df3e;
+@media only screen and (max-width: 1024px) {
+  .cardContainer {
+    transform: scale(0.5);
+    left: 10%;
+    top: 0;
+    bottom: 0;
+  }
+
+  .episodesContainer {
+    transform: scale(0.5);
+  }
 }

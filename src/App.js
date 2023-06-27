@@ -17,10 +17,16 @@ import Favorites from "./components/Favorites/Favorites";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
-import { addToFavorites, removeFromFavorites} from "./redux/actions/favoritesActions";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "./redux/actions/favoritesActions";
 
 // Utilidades
-import { saveDataToLocalStorage, getDataFromLocalStorage } from "./localStorageUtils";
+import {
+  saveDataToLocalStorage,
+  getDataFromLocalStorage,
+} from "./localStorageUtils";
 
 // * FUNCION PRINCIPAL
 export default function App() {
@@ -67,13 +73,23 @@ export default function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        {location.pathname !== "/" && ( <Nav onSearch={onSearch} userData={userData} /> )}
+        {location.pathname !== "/" && (
+          <Nav onSearch={onSearch} userData={userData} />
+        )}
         <Routes>
-          <Route path="/" element={<Form userData={userData} setUserData={setUserData} />} />
-          <Route path="/home" element={<Home characters={characters} onClose={onClose} />} />
-          <Route path="/favorites" 
+          <Route
+            path="/"
+            element={<Form userData={userData} setUserData={setUserData} />}
+          />
+          <Route
+            path="/home"
+            element={<Home characters={characters} onClose={onClose} />}
+          />
+          <Route
+            path="/favorites"
             element={
-            <Favorites characters={characters}
+              <Favorites
+                characters={characters}
                 onClose={onClose}
                 addToFavorites={addToFavorites}
                 removeFromFavorites={removeFromFavorites}
