@@ -10,6 +10,8 @@ export default function useAudioPlayer(id) {
   const [displayedOrigin, setDisplayedOrigin] = useState("");
   const [displayedSpecies, setDisplayedSpecies] = useState("");
   const audioRef = useRef(null);
+  const [isOver, setIsOver] = useState(false)
+
 /*
 utilizo useRef xq tenía problemas para detener el audio cuando se tenía que desmontar abruptamente el componente. Me sirve para almacenar una referencia mutable a la instancia del temporizador. Puedo acceder a la instancia del temporizador anterior y cancelarlo cuando sea necesario, evitando problemas como múltiples instancias del temporizador ejecutándose simultáneamente.
 */
@@ -121,6 +123,7 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
         letterCount++;
 
         if (letterCount === totalLetters) {
+          setIsOver(true);
           clearInterval(timer);
         }
       }, 70);
@@ -172,5 +175,6 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
     displayedOrigin,
     displayedSpecies,
     handleSound,
+    isOver
   };
 }
