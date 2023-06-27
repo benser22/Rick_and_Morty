@@ -31,13 +31,6 @@ export default function App() {
 
   // Función de agregar un personaje
   function onSearch(id) {
-    const characterExists = characters.find((character) => character.id === id);
-
-    if (characterExists) {
-      window.alert("This character already exists!");
-      return;
-    }
-
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
