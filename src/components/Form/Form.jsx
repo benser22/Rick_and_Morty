@@ -42,9 +42,10 @@ const Form = ({ userData, setUserData }) => {
       <h2>LOGIN</h2>
 
       <form onSubmit={handleSubmit}>
-        <label>E-mail:</label>
+        <label htmlFor="myMail">E-mail:</label>
         <input
           placeholder="example@example.com"
+          id="myMail"
           type="text"
           name="email"
           value={userData.email}
@@ -53,8 +54,9 @@ const Form = ({ userData, setUserData }) => {
           autoComplete="username"
         />
         <p className={styles.error}>{errors.email}</p>
-        <label>Password:</label>
+        <label htmlFor="myPass">Password:</label>
         <input
+          id="myPass"
           autoComplete="current-password"
           type="password"
           name="password"
