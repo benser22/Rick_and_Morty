@@ -15,8 +15,6 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 // Redux
-import { Provider } from "react-redux";
-import store from "./redux/store/store";
 import {
   addToFavorites,
   removeFromFavorites,
@@ -71,7 +69,6 @@ export default function App() {
   }, [characters]);
 
   return (
-    <Provider store={store}>
       <div className="App">
         {location.pathname !== "/" && (
           <Nav onSearch={onSearch} userData={userData} />
@@ -101,6 +98,5 @@ export default function App() {
           <Route path="*" element={<Error404 navigate={Navigate} />} />
         </Routes>
       </div>
-    </Provider>
   );
 }

@@ -1,22 +1,26 @@
-// favoritesReducer.js
+// Importa las funciones auxiliares de almacenamiento de favoritos
 import { getFavoritesFromStorage, saveFavoritesToStorage } from '../store/favoritesStorage';
 
+// Estado inicial del reducer
 const initialState = {
-  favorites: getFavoritesFromStorage(),
+  favorites: getFavoritesFromStorage(), // Obtiene los favoritos almacenados desde el almacenamiento
 };
 
+// Reducer de favoritos
 const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TO_FAVORITES':
+      // Agrega el nuevo elemento a la lista de favoritos
       const newFavoritesAdd = [...state.favorites, action.payload];
-      saveFavoritesToStorage(newFavoritesAdd);
+      saveFavoritesToStorage(newFavoritesAdd); // Guarda los favoritos actualizados en el almacenamiento
       return {
         ...state,
         favorites: newFavoritesAdd,
       };
     case 'REMOVE_FROM_FAVORITES':
+      // Remueve el elemento de la lista de favoritos
       const newFavoritesRemove = state.favorites.filter((id) => id !== action.payload);
-      saveFavoritesToStorage(newFavoritesRemove);
+      saveFavoritesToStorage(newFavoritesRemove); // Guarda los favoritos actualizados en el almacenamiento
       return {
         ...state,
         favorites: newFavoritesRemove,

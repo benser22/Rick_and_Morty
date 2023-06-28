@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import styles from "./Form.module.css";
-import validate from "./validation";
 import { useNavigate } from "react-router-dom";
+
+// Estilos
+import styles from "./Form.module.css";
+
+// Validación
+import validate from "./validation";
+
+// Imagen del logo
 import logo from "../../assets/images/logo_gira.gif";
 
 const Form = ({ userData, setUserData }) => {
@@ -10,6 +16,7 @@ const Form = ({ userData, setUserData }) => {
     password: "",
   });
 
+  // Función para manejar los cambios en los inputs
   function handleChange(event) {
     setUserData({ ...userData, [event.target.name]: event.target.value });
     setErrors(
@@ -19,18 +26,20 @@ const Form = ({ userData, setUserData }) => {
 
   const navigate = useNavigate();
 
+  // Función para realizar el login
   const login = (userData) => {
     if (
       userData.email === "benser22@gmail.com" &&
       userData.password === "password1"
     ) {
-      window.alert("You have successfully logged in");
+      window.alert("Has iniciado sesión correctamente");
       navigate("/home");
     } else {
-      window.alert("Email or password incorrect");
+      window.alert("Correo electrónico o contraseña incorrectos");
     }
   };
 
+  // Función para manejar el envío del formulario
   function handleSubmit(event) {
     event.preventDefault();
     login(userData);

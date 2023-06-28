@@ -1,53 +1,69 @@
+// React
 import React, { useState, useEffect } from "react";
+
+// React Router
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+
+// Componente
 import SearchBar from "../SearchBar/SearchBar";
+
+// Imágen que me servirá para anclar "/home"
 import ramtitle from "../../assets/images/title.webp";
+
+// Estilos
 import styles from "./Nav.module.css";
+
+// Funciones auxiliares de almacenamiento local
 import {
-  saveDataToLocalStorage,
-  getDataFromLocalStorage,
+  saveDataToLocalStorage, // Guardar datos en almacenamiento local
+  getDataFromLocalStorage, // Obtener datos desde almacenamiento local
 } from "../../localStorageUtils";
+
+// Librería de Modal
 import Modal from "react-modal";
 Modal.setAppElement("#root"); /* Especifica el elemento de la aplicación (App element) al utilizar la biblioteca react-modal. Esta línea es necesaria para garantizar el correcto funcionamiento de react-modal en términos de accesibilidad. */
 
 function Nav(props) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [email, setEmail] = useState("");
-  const [logout, setLogout] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // Estado para controlar si el mouse está sobre el componente.Lo necesito para mostrar o el mail del usuario o Logout
+  const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico del usuario
+  const [logout, setLogout] = useState(false); // Estado para controlar si se ha realizado el cierre de sesión
+  const [showModal, setShowModal] = useState(false); // Estado para controlar la visibilidad del modal
   const navigate = useNavigate(); 
-  const location = useLocation();
+  const location = useLocation(); // Ubicación actual de la ruta
 
   useEffect(() => {
+    // Obtengo el correo electrónico almacenado para mostrarlo en mi nav
     const storedEmail = getDataFromLocalStorage("email");
     if (storedEmail) {
-      setEmail(storedEmail);
+      // Si hay un correo electrónico almacenado en el almacenamiento local, lo utiliza
+      setEmail(storedEmail); // Actualizo el estado de 'email' con el correo electrónico almacenado
     } else {
-      setEmail(props.userData.email);
-      saveDataToLocalStorage("email", props.userData.email);
+      // De lo contrario, utiliza el correo electrónico proporcionado en las propiedades
+      setEmail(props.userData.email); // Actualizo el estado de 'email' con el correo electrónico de las propiedades
+      saveDataToLocalStorage("email", props.userData.email); // Guarda el correo electrónico en el almacenamiento local
     }
   }, [props.userData.email]);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    setIsHovered(true); // Actualizo el estado de 'isHovered' para indicar que el mouse está sobre el componente
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    setIsHovered(false); // Actualizo el estado de 'isHovered' para indicar que el mouse ya no está sobre el componente
   };
 
   const handleLogout = () => {
-    setShowModal(true);
+    setShowModal(true); // Muestro el modal de confirmación de cierre de sesión
   };
 
   const handleConfirmLogout = () => {
-    setLogout(true);
-    setShowModal(false);
+    setLogout(true); // Actualizo el estado de 'logout' para indicar que se ha realizado el cierre de sesión
+    setShowModal(false); // Oculto el modal de confirmación de cierre de sesión
   };
 
   useEffect(() => {
     if (logout) {
-      navigate("/");
+      navigate("/"); // Redirijo al usuario a la página de inicio cuando se realiza el cierre de sesión
     }
   }, [logout, navigate]);
 
@@ -93,8 +109,8 @@ function Nav(props) {
         overlayClassName={styles.modalOverlay}
       >
         <h2 className={styles.myh2}>Confirm Logout</h2>
-        <hr  style={{color:"white", width:"100%", boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)"}}></hr>
-        <p style={{fontWeight:"bold", fontFamily:"sans-serif"}}>Are you sure you want to log out?</p>
+        <hr style={{ color: "white", width: "100%", boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}></hr>
+        <p style={{ fontWeight: "bold", fontFamily: "sans-serif" }}>Are you sure you want to log out?</p>
         <button onClick={handleConfirmLogout}>Logout</button>
         <button onClick={() => setShowModal(false)}>Cancel</button>
       </Modal>

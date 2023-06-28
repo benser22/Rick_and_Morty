@@ -1,8 +1,8 @@
 .container {
   display: flex;
-  position: fixed;
-  left: 52%;
-  top: 20%;
+  position: relative;
+  margin-left: 54%;
+  margin-top: 5%;
 }
 
 .cardContainer {

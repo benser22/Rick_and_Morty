@@ -1,12 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Card from "../Card/Card";
-import styles from "../Cards/Cards.module.css";
-import { removeFromFavorites } from "../../redux/actions/favoritesActions";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import Card from "../Card/Card";
+
+// Acciones de Redux
+import { removeFromFavorites, orderCards, filterCards } from "../../redux/actions/favoritesActions";
+
+// Estilos
+import styles from "../Cards/Cards.module.css";
 import stylesHeader from "./Favorites.module.css";
-import { orderCards, filterCards } from "../../redux/actions/favoritesActions";
 
 export default function Favorites({ characters }) {
   const favorites = useSelector((state) => state.favorites.favorites);
@@ -16,18 +19,21 @@ export default function Favorites({ characters }) {
   const navigate = useNavigate();
   let amount = "";
 
+  // Remuevo un elemento de mis favoritos
   const handleRemoveFromFavorites = (id) => {
     dispatch(removeFromFavorites(id));
   };
 
   let favoriteCharacters = [...characters];
+
+  // Ordeno mis personajes favoritos según mi preferencia (ascendente o descendente)
   if (order === "A") {
     favoriteCharacters.sort((a, b) => b.id - a.id); // Orden ascendente
   } else if (order === "D") {
     favoriteCharacters.sort((a, b) => a.id - b.id); // Orden descendente
   }
 
-  // Aplicar filtro por género si hay un valor seleccionado
+  // Aplico un filtro por género si he seleccionado alguna opción. Por defecto, se muestran todas las cartas
   if (genderFilter) {
     favoriteCharacters = favoriteCharacters.filter(
       (element) => element.gender === genderFilter
@@ -40,10 +46,12 @@ export default function Favorites({ characters }) {
 
   favoriteCharacters.length === 1 ? (amount = "card") : (amount = "cards");
 
+  // Manejo del cambio en la opción de ordenamiento
   const handleOrderChange = (e) => {
     dispatch(orderCards(e.target.value));
   };
 
+  // Manejo del cambio en el filtro por género
   const handleGenderFilterChange = (e) => {
     dispatch(filterCards(e.target.value));
   };
@@ -56,22 +64,22 @@ export default function Favorites({ characters }) {
           onClick={() => navigate("/home")}
         />
         <h2 className={stylesHeader.title}>
-          You have {favoriteCharacters.length} {amount} in Favorites
+          Tienes {favoriteCharacters.length} {amount} en tus Favoritos
         </h2>
       </div>
       <div className={stylesHeader.select_container}>
-        <label>Order by:</label>
+        <label>Ordenar por:</label>
         <select value={order} onChange={handleOrderChange}>
-          <option value="A">Ascending</option>
-          <option value="D">Descending</option>
+          <option value="A">Ascendente</option>
+          <option value="D">Descendente</option>
         </select>
-        <label>Filter by:</label>
+        <label>Filtrar por:</label>
         <select value={genderFilter} onChange={handleGenderFilterChange}>
-          <option value="">All</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
+          <option value="">Todos</option>
+          <option value="Male">Masculino</option>
+          <option value="Female">Femenino</option>
+          <option value="Genderless">Sin género</option>
+          <option value="unknown">Desconocido</option>
         </select>
       </div>
       <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>

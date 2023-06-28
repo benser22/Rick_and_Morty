@@ -1,21 +1,23 @@
+// Acción para agregar un elemento a favoritos
 export const addToFavorites = (id) => ({
   type: 'ADD_TO_FAVORITES',
   payload: id,
 });
 
+// Acción para eliminar un elemento de favoritos
 export const removeFromFavorites = (id) => ({
   type: 'REMOVE_FROM_FAVORITES',
   payload: id,
 });
 
+// Acción para ordenar las tarjetas
 export const orderCards = (order) => ({
   type: 'ORDER',
   payload: order,
 });
 
-export const filterCards = (gender) => (
-  {
-  type: 'SET_GENDER_FILTER', 
+// Acción para filtrar las tarjetas por género
+export const filterCards = (gender) => ({
+  type: 'SET_GENDER_FILTER',
   payload: gender,
 });
-

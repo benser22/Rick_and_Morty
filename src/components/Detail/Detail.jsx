@@ -1,10 +1,16 @@
 import React from "react";
+// Utilizo el hook useParams para obtener los parámetros de la URL
 import { useParams } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import useAudioPlayer from "./useAudioPlayer";
 import styles from "./Detail.module.css";
-import SlideEpisode from "./SlideEpisode";
+
+import useAudioPlayer from "./useAudioPlayer";
+// Utilice un archivo separado para la animación, porque el código se me hizo largo. Yo quiero mostrar letra por letra las caracterísitcas del pj, simulando una máquina de escribir
+
+
+// También decidí hacer por separado un componente para mostrar más info del personaje, en este caso las apariciones en la serie, en una caja scrollable 
+import Episodes from "./Episodes";
 
 export default function Detail() {
   const { id } = useParams();
@@ -19,6 +25,7 @@ export default function Detail() {
     isOver,
   } = useAudioPlayer(id);
 
+  // Si no se ha cargado la información del personaje, muestro un mensaje de "Cargando...", con esto evito errores si aún no se ha montado el componente
   if (!character) {
     return <p style={{ color: "white" }}>Loading...</p>;
   }
@@ -48,16 +55,14 @@ export default function Detail() {
         <p className={styles.mini}>
           <span>Specie:</span> {displayedSpecies}
         </p>
+        {/* Icono de inicio */}
         <NavLink to="/home" className={styles.navLink}>
           <FaHome onClick={handleSound} />
         </NavLink>
       </div>
       <div className={styles.episodesContainer}>
-      {isOver && (
-        <SlideEpisode
-          episodes={character.episode}
-        ></SlideEpisode>
-      )}
+        {/* Muestro episodios si la animación ha terminado */}
+        {isOver && <Episodes episodes={character.episode}></Episodes>}
       </div>
     </div>
   );

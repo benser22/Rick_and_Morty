@@ -12,7 +12,35 @@
   .myhr {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   }
-
+  .anchor {
+    position: fixed;
+    margin-right: 6vh;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
+    transform: scale(1);
+    transition: transform 0.3s;
+  }
+  
+  .anchor:hover {
+    transform: scale(1.2);
+  }
+  
+  .anchorIcon {
+    color: #000000;
+    font-size: 24px;
+  }
+  
+  
   @media only screen and (max-width: 500px) {
     .title{
       font-size: 18px;

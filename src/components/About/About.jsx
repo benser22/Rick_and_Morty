@@ -1,8 +1,12 @@
 import React from "react";
-import styles from "./About.module.css";
 import profileImage from "../../assets/images/aboutme.webp";
-import { FaHome, FaLinkedin, FaGithub } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+
+// Estilos
+import styles from "./About.module.css";
+
+// Algunos iconos predeterminados de react/fa
+import { FaHome, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -25,6 +29,7 @@ const About = () => {
           fuga quod? Delectus, ex neque!
         </p>
         <div>
+          {/* Enlace a mi LinkedIn */}
           <a
             href="https://www.linkedin.com/in/benjam%C3%ADn-serrano-friedlander-30527b247/"
             target="_blank"
@@ -33,6 +38,7 @@ const About = () => {
           >
             <FaLinkedin />
           </a>
+          {/* Enlace a mi GitHub */}
           <a
             href="https://github.com/benser22"
             target="_blank"
@@ -43,6 +49,7 @@ const About = () => {
           </a>
         </div>
         <hr></hr>
+        {/* Enlace a la página de inicio */}
         <NavLink to="/home" className={`${styles.navLink} ${styles.home}`}>
           <FaHome />
         </NavLink>

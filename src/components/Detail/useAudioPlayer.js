@@ -10,16 +10,16 @@ export default function useAudioPlayer(id) {
   const [displayedOrigin, setDisplayedOrigin] = useState("");
   const [displayedSpecies, setDisplayedSpecies] = useState("");
   const audioRef = useRef(null);
-  const [isOver, setIsOver] = useState(false)
+  const [isOver, setIsOver] = useState(false); // Utilizo una bandera para saber cuándo terminó la animación. La necesitaré en el componente Details.
 
-/*
-utilizo useRef xq tenía problemas para detener el audio cuando se tenía que desmontar abruptamente el componente. Me sirve para almacenar una referencia mutable a la instancia del temporizador. Puedo acceder a la instancia del temporizador anterior y cancelarlo cuando sea necesario, evitando problemas como múltiples instancias del temporizador ejecutándose simultáneamente.
-*/
-
+  /*
+  Utilizo useRef porque tenía problemas para detener el audio cuando se tenía que desmontar abruptamente el componente.
+  Me sirve para almacenar una referencia mutable a la instancia del temporizador. Puedo acceder a la instancia del temporizador anterior y cancelarlo cuando sea necesario, evitando problemas como múltiples instancias del temporizador ejecutándose simultáneamente.
+  */
 
   // Este hook maneja la petición del personaje del que quiero mostrar los detalles
   useEffect(() => {
-    //Instancia de CancelToken para cancelar la solicitud si el componente se desmonte antes de que se complete la solicitud.
+    // Instancia de CancelToken para cancelar la solicitud si el componente se desmonta antes de que se complete la solicitud
     const source = axios.CancelToken.source();
 
     axios
@@ -38,7 +38,8 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
       });
 
     return () => {
-      source.cancel("Request canceled"); // Al desmontar uso el callback para cancelar la solicitud y limpiar los campos de character
+      // Al desmontar, uso el callback para cancelar la solicitud y limpiar los campos de character
+      source.cancel("Request canceled"); 
       setCharacter(null);
       setDisplayedName("");
       setDisplayedStatus("");
@@ -56,15 +57,15 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
       const genderText = character.gender;
       const originText = character.origin.name;
       const speciesText = character.species;
-      const totalLetters = //Todas las caracteristicas concatenadas
+      const totalLetters = // Todas las palabras juntas. La necesito para saber hasta dónde animar
         nameText.length +
         statusText.length +
         genderText.length +
         originText.length +
         speciesText.length;
-      let letterCount = 0; //Contador de letras
+      let letterCount = 0; // Contador de letras
 
-      //Se inicia un temporizador (setInterval) para mostrar los fragmentos de texto uno por uno en la interfaz de usuario.
+      // Se inicia un temporizador (setInterval) para mostrar los fragmentos de texto uno por uno en la interfaz de usuario. Iré concatenando las letras
       const timer = setInterval(() => {
         if (letterCount < nameText.length) {
           setDisplayedName((prevName) => prevName + nameText[letterCount]);
@@ -128,10 +129,9 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
         }
       }, 70);
     }
-  }, [character]); // No necesito limpiar al desmontar este hook, xq ya lo hago en el primer useEfect
+  }, [character]); // No necesito limpiar al desmontar este hook, porque ya lo hago en el primer useEffect
 
-
-  // Este hook se encarga de reproducir el audio sólo mientras dure la animación de mostrar letra x letra
+  // Este hook se encarga de reproducir el audio solo mientras dure la animación de mostrar letra por letra
   useEffect(() => {
     if (character) {
       const totalLetters =
@@ -152,7 +152,8 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
       audioRef.current = audio;
     }
 
-    return () => { // Limpio todo al desmontar
+    return () => {
+      // Limpio todo al desmontar
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
@@ -175,6 +176,10 @@ utilizo useRef xq tenía problemas para detener el audio cuando se tenía que de
     displayedOrigin,
     displayedSpecies,
     handleSound,
-    isOver
+    isOver,
   };
 }
+
+/* 
+  Cuando comencé a hacer esta animación, no pensé que sería tan engorrosa, pero la voy a dejar porque ya la tengo, aún cuando extendí el código de mi App más de lo que hubiera querido
+*/

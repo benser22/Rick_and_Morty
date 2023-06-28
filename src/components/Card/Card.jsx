@@ -1,29 +1,43 @@
-import styles from "./Card.module.css";
 import React from "react";
+import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
 export default function Card({element, onClose, isFavorite, AddToFavorites, RemoveFromFavorites, isArrayFavorites,}) {
   
-  const handleToggleFavorite = () => {
+  // Manipula lista de favoritos con las funciones de redux que recibí por parametro
+  const handleToggleFavorite = () => { 
     if (isFavorite) {
-      RemoveFromFavorites(element.id);
+      RemoveFromFavorites(element.id); // Si ya es favorito, se remueve de la lista de favoritos
     } else {
-      AddToFavorites(element.id);
+      AddToFavorites(element.id); // Si no es favorito, se agrega a la lista de favoritos
     }
   };
 
   return (
     <div className={styles.myDiv}>
       <div className={styles.buttonContainer}>
+        {/* Botón de favorito */}
         {!isArrayFavorites && (
-          <FaHeart className={`${styles.heartIcon} ${isFavorite ? styles.favorite : ""}`} onClick={handleToggleFavorite} />
+          <FaHeart
+            className={`${styles.heartIcon} ${
+              isFavorite ? styles.favorite : ""
+            }`}
+            onClick={handleToggleFavorite}
+          />
         )}
-        <button className={styles.myButton} onClick={() => { onClose(element.id); RemoveFromFavorites(element.id); }}>
+        <button className={styles.myButton} onClick={() => {
+            onClose(element.id); // Cierra el componente al hacer clic en el botón de cierre
+            RemoveFromFavorites(element.id); // Remueve de la lista de favoritos al cerrar el componente, esto lo necesito hacer si voy a usar localStorage, porque al eliminar un favorito, volvía como fav cuando lo agregaba
+          }}
+        >
           X
         </button>
       </div>
-      <Link to={`/detail/${element.id}`} style={{ textDecoration: "none", color: "white" }}>
+      <Link
+        to={`/detail/${element.id}`}
+        style={{ textDecoration: "none", color: "white" }} // A veces uso estilo in-line cuando lo amerita
+      >
         <h3 className={styles.title}>
           {element.id} - {element.name}
         </h3>
