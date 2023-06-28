@@ -47,5 +47,10 @@
       margin-left: 18vh;
       margin-top: 2vh;
     }
+
+    .anchor{
+      z-index: 9999; /* Valor alto para asegurar que esté por encima de todo */
+      margin: 0;
+    }
   
   }
