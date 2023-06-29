@@ -102,8 +102,8 @@ span {
     margin: 4vh;
   }
   .cardContainer {
-    transform: scale(0.5);
-    left: 20%;
+    transform: scale(0.7);
+    left: 15%;
     top: 0;
     bottom: 0;
   }
