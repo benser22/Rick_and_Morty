@@ -7,13 +7,13 @@ export default function validate(inputs) {
 
   // Validación del campo de email
   if (!inputs.email) {
-    errors.email = "El campo de correo electrónico no puede estar vacío";
+    errors.email = "The email field cannot be empty";
   } else {
     if (inputs.email.length > 35) {
-      errors.email = "No puede exceder los 35 caracteres";
+      errors.email = "Email cannot exceed 35 characters";
     } else {
       if (!regexEmail.test(inputs.email)) {
-        errors.email = "Debes ingresar un correo electrónico válido";
+        errors.email = "You must enter a valid email";
       } else {
         errors.email = "";
       }
@@ -22,10 +22,10 @@ export default function validate(inputs) {
 
   // Validación del campo de contraseña
   if (!inputs.password) {
-    errors.password = "El campo de contraseña no puede estar vacío";
+    errors.password = "The password field cannot be empty";
   } else if (!regexPassword.test(inputs.password)) {
     errors.password =
-      "La contraseña debe tener entre 6 y 10 caracteres y al menos un número";
+      "Password must be between 6 and 10 characters and at least one number";
   } else {
     errors.password = "";
   }

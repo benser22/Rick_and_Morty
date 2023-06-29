@@ -32,10 +32,10 @@ const Form = ({ userData, setUserData }) => {
       userData.email === "benser22@gmail.com" &&
       userData.password === "password1"
     ) {
-      window.alert("Has iniciado sesión correctamente");
+      window.alert("You have successfully logged in");
       navigate("/home");
     } else {
-      window.alert("Correo electrónico o contraseña incorrectos");
+      window.alert("The email or password is not correct");
     }
   };
 
