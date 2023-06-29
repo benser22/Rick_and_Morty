@@ -64,7 +64,7 @@ export default function Favorites({ characters }) {
           onClick={() => navigate("/home")}
         />
         <h2 className={stylesHeader.title}>
-          You have {favoriteCharacters.length} {amount} in Favorites
+          You have {favoriteCharacters.length} {amount}
         </h2>
       </div>
       <div className={stylesHeader.select_container}>

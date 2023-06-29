@@ -12,6 +12,7 @@
   margin-bottom: 1vh;
   margin-left: 4vh;
   border: 2px groove #23626d;
+  box-shadow: 6px 5px 5px #0c2327;
   }
 
 .myDiv:hover {
