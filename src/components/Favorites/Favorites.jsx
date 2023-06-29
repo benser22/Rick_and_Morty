@@ -68,12 +68,12 @@ export default function Favorites({ characters }) {
         </h2>
       </div>
       <div className={stylesHeader.select_container}>
-        <label>Ordenar por:</label>
+        <label>Order by:</label>
         <select value={order} onChange={handleOrderChange}>
           <option value="A">Ascendent</option>
           <option value="D">Descendent</option>
         </select>
-        <label>Filtrar por:</label>
+        <label>Filter by:</label>
         <select value={genderFilter} onChange={handleGenderFilterChange}>
           <option value="">All</option>
           <option value="Male">Male</option>

@@ -11,7 +11,7 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   margin-left: 4vh;
-  border: 2px groove #23626d;
+  border: 1px groove #23626d;
   box-shadow: 6px 5px 5px #0c2327;
   }
 
@@ -21,20 +21,25 @@
 }
 
 .myButton {
-  background-color: #23626d;
+  background-color: #1a4850;
   color: white;
   font-family:'Courier New', Courier, monospace;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 12px;
   padding: 0px;
   margin: 0;
   width: 2vh;
   height: 2vh;
 }
+.myButton:hover {
+  filter: brightness(110%);
+  box-shadow:  0 0 2px #ffffff;
+
+}
 
 .title {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: large;
+  font-size: 0.9em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 .title:hover {
@@ -43,7 +48,7 @@
 .picture {
   width: 16vh;
   border-radius: 8px;
-  border: #23626d groove 2px;
+  border: #23626d groove 1px;
 }
 
 .buttonContainer {
@@ -97,7 +102,7 @@
   }
 
   .title {
-    font-size: 12px;
+    font-size: 10px;
   }
   .picture {
     max-width: 10vh;

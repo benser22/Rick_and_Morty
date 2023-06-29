@@ -1,14 +1,15 @@
 .aboutContainer {
   position: relative;
-  perspective: 1000px;
-  height: 600px;
+  height: 70vh;
+  width: 75%;
+  margin-left: 10%;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0 20px 0 20px;
   opacity: 0;
   transform: scale(0.5);
   animation: fade-in 0.5s ease-in-out forwards;
   box-shadow: 6px 5px 5px #0c2327;
-  border: 2px groove #23626d;
+  border: 1px groove #23626d;
 }
 
 @keyframes fade-in {
@@ -23,7 +24,7 @@
 }
 
 .background {
-  border-radius: 10px;
+  border-radius: 0 20px 0 20px;
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +36,7 @@
 
 .begin {
   font-weight: bolder;
-  font-size: larger;
+  font-size: 1em;
 }
 
 .content {
@@ -49,8 +50,8 @@
 }
 
 .profileImageContainer {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
@@ -66,12 +67,12 @@
 }
 
 .description {
-  font-size: 18px;
+  font-size: 1em;
   margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 30px;
+.me {
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 20px;
   margin-top: -5px;
@@ -80,7 +81,7 @@ h2 {
 .navLink {
   margin-top: 5%;
   color: white;
-  font-size: 30px;
+  font-size: 1.5em;
   padding: 10px 15px;
 }
 
@@ -90,18 +91,9 @@ h2 {
 
 @media (max-width: 767px) {
 
-  .me {
-    font-size: 22px;
-  }
-
   .aboutContainer {
-    margin-top: 5%;
-    max-height: 95vh;
-    max-width: 70vh;
-  }
-
-  .content {
-    margin-bottom: -25px;
+    height: 70vh;
+    width: 85%;
   }
 
   .profileImageContainer {
@@ -109,13 +101,15 @@ h2 {
     height: 100px;
   }
 
-  h2 {
-    font-size: 14px;
+  .me {
+    font-size: 1em;
   }
-
+  .content {
+    font-size: 0.8em;
+  }
   .home {
     position: absolute;
     margin-top: 2%;
     margin-left: -8%;
-  }
+  } 
 }
