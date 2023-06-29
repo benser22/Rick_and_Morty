@@ -64,22 +64,22 @@ export default function Favorites({ characters }) {
           onClick={() => navigate("/home")}
         />
         <h2 className={stylesHeader.title}>
-          Tienes {favoriteCharacters.length} {amount} en tus Favoritos
+          You have {favoriteCharacters.length} {amount} in Favorites
         </h2>
       </div>
       <div className={stylesHeader.select_container}>
         <label>Ordenar por:</label>
         <select value={order} onChange={handleOrderChange}>
-          <option value="A">Ascendente</option>
-          <option value="D">Descendente</option>
+          <option value="A">Ascendent</option>
+          <option value="D">Descendent</option>
         </select>
         <label>Filtrar por:</label>
         <select value={genderFilter} onChange={handleGenderFilterChange}>
-          <option value="">Todos</option>
-          <option value="Male">Masculino</option>
-          <option value="Female">Femenino</option>
-          <option value="Genderless">Sin género</option>
-          <option value="unknown">Desconocido</option>
+          <option value="">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
         </select>
       </div>
       <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>
