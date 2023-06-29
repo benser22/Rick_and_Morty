@@ -31,7 +31,7 @@
   font-family: Arial;
   color: #133343;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 12px;
 
 }
 
@@ -40,7 +40,11 @@
   background-color:#133343;
   padding: 4px;
   border-radius: 8px;
-  font-size: 0.7em;
+  font-size: 12px;
+}
+
+.select_container option{
+  font-style: italic;
 }
 
 @media (max-width: 500px) {

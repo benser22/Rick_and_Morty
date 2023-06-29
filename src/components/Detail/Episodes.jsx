@@ -20,12 +20,18 @@ const SlideContainer = styled.div`
 `;
 
 const EpisodeBox = styled.div`
-  border: 2px groove #23626d;
+  border: 1px groove #23626d;
   border-radius: 12px;
   margin-bottom: 10px;
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  transition: transform 0.3s ease-out; /* Transición más lenta y suave */
+
+  &:hover {
+    transform: translateY(-3px); /* Desplazamiento hacia arriba */
+  }
 `;
+
 
 const EpisodeTitle = styled.h4`
   margin: 0;
