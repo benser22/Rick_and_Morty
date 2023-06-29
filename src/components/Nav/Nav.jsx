@@ -109,10 +109,10 @@ function Nav(props) {
         overlayClassName={styles.modalOverlay}
       >
         <h2 className={styles.myh2}>Confirm Logout</h2>
-        <hr style={{ color: "white", width: "100%", boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}></hr>
-        <p style={{ fontWeight: "bold", fontFamily: "sans-serif" }}>Are you sure you want to log out?</p>
-        <button onClick={handleConfirmLogout}>Logout</button>
-        <button onClick={() => setShowModal(false)}>Cancel</button>
+        <hr style={{ width: "100%", boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}></hr>
+        <p style={{ fontWeight: "bold", fontFamily: "sans-serif", fontSize:"14px" }}>Are you sure you want to log out?</p>
+        <button style={{ fontSize:"14px" }} onClick={handleConfirmLogout}>Logout</button>
+        <button style={{ fontSize:"14px" }} onClick={() => setShowModal(false)}>Cancel</button>
       </Modal>
     </div>
   );
