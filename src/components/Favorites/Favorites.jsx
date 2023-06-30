@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import Card from "../Card/Card";
 
 // Acciones de Redux
-import { removeFromFavorites, orderCards, filterCards } from "../../redux/actions/favoritesActions";
+import { removeFromFavorites, orderCards, filterCards, removeAllFavorites } from "../../redux/actions/favoritesActions";
 
 // Estilos
 import styles from "../Cards/Cards.module.css";
@@ -18,6 +18,13 @@ export default function Favorites({ characters }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let amount = "";
+
+  useEffect(() => {
+    // Restablecer el orden y el filtro cada vez que el componente se monta, porque si no queda cargado cuando vuelvo a home y regreso a favoritos
+    dispatch(orderCards("A")); // Establecer orden ascendente
+    dispatch(filterCards("")); // Establecer filtro en "All"
+    // eslint-disable-next-line
+  }, []);
 
   // Remuevo un elemento de mis favoritos
   const handleRemoveFromFavorites = (id) => {
@@ -56,6 +63,11 @@ export default function Favorites({ characters }) {
     dispatch(filterCards(e.target.value));
   };
 
+  // Manejo de eliminación de todos los estados favoritos
+  const handleEraseAll = () => {
+    dispatch(removeAllFavorites());
+  }
+
   return (
     <>
       <div className={stylesHeader.container}>
@@ -81,8 +93,9 @@ export default function Favorites({ characters }) {
           <option value="Genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
+        <button onClick={handleEraseAll} className={stylesHeader.myButton}>Clear All Favorites</button>
       </div>
-      <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>
+      <hr className={stylesHeader.myhr} ></hr>
       <div className={styles.container}>
         {favoriteCharacters.map((element) => (
           <Card

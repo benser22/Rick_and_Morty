@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 // Estilos
 import "./App.css";
@@ -18,6 +19,7 @@ import Favorites from "./components/Favorites/Favorites";
 import {
   addToFavorites,
   removeFromFavorites,
+  removeAllFavorites
 } from "./redux/actions/favoritesActions";
 
 // Utilidades
@@ -30,9 +32,8 @@ import {
 export default function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
-
   const [userData, setUserData] = useState({ email: "", password: "" });
-
+  const dispatch = useDispatch();
   // Función de agregar un personaje
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -50,8 +51,10 @@ export default function App() {
     );
   }
 
+  // Función para eliminar todos los personajes
   function handleEraseAll() {
-    setCharacters([]);
+    dispatch(removeAllFavorites()); // Me aseguro que cuando se eliminen todas las cartas, también pierdan su estado de favorito si es que lo tuvieran
+    setCharacters([]); // Seteo mi array con los personajes a vacío y así eliminar todas las cartas
   }
 
   // Función de eliminar un personaje

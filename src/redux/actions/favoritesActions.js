@@ -10,6 +10,11 @@ export const removeFromFavorites = (id) => ({
   payload: id,
 });
 
+// Acción para eliminar todos los favoritos
+export const removeAllFavorites = () => ({
+  type: 'REMOVE_ALL_FAVORITES',
+});
+
 // Acción para ordenar las tarjetas
 export const orderCards = (order) => ({
   type: 'ORDER',

@@ -1,6 +1,3 @@
-
-
-
 .title {
   color: white;
   margin: 0;
@@ -22,7 +19,9 @@
 .select_container {
   margin-top: 2vh;
   margin-bottom: 20px;
-
+}
+.myhr{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .select_container label {
@@ -32,53 +31,95 @@
   color: #133343;
   font-weight: bold;
   font-size: 12px;
+}
 
+.myButton {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-image: linear-gradient(
+    90deg,
+    #173e51 0%,
+    #21546d 50%,
+    #286989 100%
+  );
+  box-shadow: rgb(0, 0, 0) 1px 1px 4px 0px;
+  border: 1px solid #0e2531;
+  display: inline-block;
+  margin-inline-start: 85%;
+}
+
+.myButton:hover {
+  filter: saturate(180%);
+}
+
+.myButton:active {
+  box-shadow: unset;
+  filter: brightness(150%);
 }
 
 .select_container select {
   color: white;
-  background-color:#133343;
+  background-color: #133343;
   padding: 4px;
   border-radius: 8px;
   font-size: 12px;
 }
 
-.select_container option{
+.select_container option {
   font-style: italic;
 }
 
 @media (max-width: 500px) {
-
   .select_container {
     display: flex;
-    transform: scale(0.5);
-    margin-left: 8vh;
+    flex-direction: column;
+    transform: scale(0.8);
+    margin: 0;
+    margin-left: 14vh;
   }
 
   .select_container label {
     margin: unset;
     color: #ffffff;
     margin-left: 4vh;
-
   }
-  
+  .myhr {
+    margin-top: 10vh;
+  }
   .select_container select {
     transform: scale(0.8);
     margin: unset;
     margin-left: 2vh;
   }
 
-  .container{
+  .container {
     text-align: right;
     margin-right: 6vh;
   }
   .title {
     font-size: 10px;
     margin-right: 7vh;
+    margin-bottom: 4vh;
   }
   .home {
-    justify-content:center ;
+    justify-content: center;
     margin-right: 20%;
     margin-top: 10px;
+  }
+  .myButton {
+    margin: 0;
+    max-width: 14vh;
+    font-size: 10px;
+    margin-left: 65%;
+    margin-top: -15vh;
   }
 }
