@@ -67,10 +67,10 @@ export default function Episodes({ episodes }) {
       // Creo un array para almacenar los detalles de los episodios
       const detailedEpisodes = [];
 
-      // El "episodes" que recibo por parametro es un array con direcciones. Si accedo a cada una muestra en un Json información de ese episodio
+      // El "episodes" que recibo por parametro es un array con direcciones. Si accedo a cada una muestra información de ese episodio
       for (const episodeURL of episodes) {
         fetch(episodeURL)
-          .then((response) => response.json())
+          .then((response) => response.json()) // Convierto esa información en un Json
           .then((data) => {
             // Agrego los detalles del episodio al array
             detailedEpisodes.push(data);
