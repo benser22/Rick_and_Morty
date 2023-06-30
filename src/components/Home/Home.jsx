@@ -15,7 +15,7 @@ import styles from "./Home.module.css";
 
 import { FaArrowUp } from "react-icons/fa";
 
-const Home = ({ onClose, characters }) => {
+const Home = ({ onClose, characters, handleEraseAll }) => {
   const dispatch = useDispatch();
   const [showAnchor, setShowAnchor] = useState(false);
 
@@ -55,9 +55,11 @@ const Home = ({ onClose, characters }) => {
     };
   }, []);
 
+
   return (
     <div>
       <h2 className={styles.title}>HOME</h2>
+      <button className={styles.myButton} onClick={handleEraseAll}>Delete All</button>
       <hr className={styles.myhr}></hr>
       {showAnchor && (
         // Mostrar el icono de ancla solo cuando showAnchor es verdadero

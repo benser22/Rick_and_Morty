@@ -7,6 +7,8 @@
     letter-spacing: 2px;
     margin-top: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0;
+
   }
   
   .myhr {
@@ -40,12 +42,44 @@
     font-size: 24px;
   }
   
+  .myButton {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: linear-gradient(90deg, #173e51 0%, #21546d 50%, #286989 100%);
+    box-shadow: rgb(0, 0, 0) 1px 1px 4px 0px;
+    border: 1px solid #0e2531;
+    display: inline-block;
+    margin-inline-start: 85%;
+  }
   
+  .myButton:hover {
+    filter: saturate(180%);
+  }
+  
+  .myButton:active {
+    box-shadow: unset;
+    filter: brightness(150%);
+  }
+  
+
   @media only screen and (max-width: 500px) {
     .title{
       font-size: 18px;
       margin-left: 18vh;
       margin-top: 2vh;
+    }
+
+    .myButton{
+      font-size: 0.5em;
     }
 
     .anchor{

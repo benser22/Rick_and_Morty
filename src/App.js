@@ -50,6 +50,10 @@ export default function App() {
     );
   }
 
+  function handleEraseAll() {
+    setCharacters([]);
+  }
+
   // Función de eliminar un personaje
   function onClose(id) {
     setCharacters(characters.filter((character) => character.id !== id));
@@ -80,7 +84,7 @@ export default function App() {
           />
           <Route
             path="/home"
-            element={<Home characters={characters} onClose={onClose} />}
+            element={<Home characters={characters} onClose={onClose} handleEraseAll={handleEraseAll}/>}
           />
           <Route
             path="/favorites"
