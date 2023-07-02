@@ -13,17 +13,17 @@
   margin-left: 4vh;
   border: 1px groove #23626d;
   box-shadow: 6px 5px 5px #0c2327;
-  }
+}
 
 .myDiv:hover {
   transform: scale(1.05);
-  box-shadow:  0 0 20px #ffffff;
+  box-shadow: 0 0 20px #ffffff;
 }
 
 .myButton {
   background-color: #1a4850;
   color: white;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   border-radius: 5px;
   font-size: 12px;
   padding: 0px;
@@ -33,8 +33,7 @@
 }
 .myButton:hover {
   filter: brightness(110%);
-  box-shadow:  0 0 2px #ffffff;
-
+  box-shadow: 0 0 2px #ffffff;
 }
 
 .title {
@@ -48,7 +47,8 @@
 .picture {
   width: 16vh;
   border-radius: 8px;
-  border: #23626d groove 1px;
+  border: 1px solid #23626d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.4) inset;
 }
 
 .buttonContainer {
@@ -67,7 +67,7 @@
 }
 
 .favorite {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 @keyframes pulseAnimation {
@@ -85,10 +85,6 @@
 .heartIcon:hover {
   animation: pulseAnimation 1s ease infinite;
 }
-
-
-
-
 
 @media only screen and (max-width: 500px) {
   .myDiv {

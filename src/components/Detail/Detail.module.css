@@ -16,7 +16,7 @@
   align-items: center;
   background-image: linear-gradient(45deg, #2e788d, #3799ab, #4db8cb, #2e788d);
   border: 1px groove #23626d;
-  border-radius: 0 16px 0 16px;
+  border-radius: 0 36px 0 36px;
   width: 50%;
   max-width: 450px;
   max-height: 90%;
@@ -40,13 +40,17 @@
 }
 
 .img {
-  border-radius: 20%;
+  border-radius: 4vh;
   max-height: 100%;
   width: 35vh;
   margin: auto;
   height: auto;
-  border: groove 1px #43c1d7;
+  border: 1px solid #23626d;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.4), 
+    0 4px 8px rgba(0, 0, 0, 0.4) inset; 
 }
+
 
 .name {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
