@@ -53,6 +53,7 @@ function Nav(props) {
   };
 
   const handleLogout = () => {
+    setIsHovered(false);
     setShowModal(true); // Muestro el modal de confirmación de cierre de sesión
   };
 
