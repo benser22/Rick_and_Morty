@@ -1,0 +1,13 @@
+Rick & Morty/
+├── Client/
+│   ├── ... (contenido del Módulo 2)
+│
+└── Server/
+    ├── src/
+    │   ├── index.js
+    │   ├── controllers/
+    │   ├── routes/
+    │   └── utils/
+    │       └── data.js
+    │
+    └── test/
