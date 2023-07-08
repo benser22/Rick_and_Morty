@@ -67,18 +67,24 @@ export default function Episodes({ episodes }) {
       const detailedEpisodes = [];
 
       // El "episodes" que recibo por parametro es un array con direcciones. Si accedo a cada una muestra información de ese episodio
-      for (const episodeURL of episodes) {
-        fetch(episodeURL)
-          .then((response) => response.json()) // Convierto esa información en un Json
-          .then((data) => {
-            // Agrego los detalles del episodio al array
-            detailedEpisodes.push(data);
-            // Actualizo el estado con los detalles de los episodios
-            setEpisodeDetails([...detailedEpisodes]);
-          })
-          .catch((error) => {
-            console.log("Error fetching episode details:", error);
-          });
+      if (Object.keys(episodes).length === 0) {
+        detailedEpisodes.push({name: "This character never aired :)", air_date: "Never", episode: "None" })
+        setEpisodeDetails([...detailedEpisodes]);
+      } else {
+        // El objeto episodes no está vacío, realizar el bucle y las solicitudes
+        for (const episodeURL of episodes) {
+          fetch(episodeURL)
+            .then((response) => response.json()) // Convierto esa información en un JSON
+            .then((data) => {
+              // Agrego los detalles del episodio al array
+              detailedEpisodes.push(data);
+              // Actualizo el estado con los detalles de los episodios
+              setEpisodeDetails([...detailedEpisodes]);
+            })
+            .catch((error) => {
+              console.log("Error fetching episode details:", error);
+            });
+        }
       }
     };
 

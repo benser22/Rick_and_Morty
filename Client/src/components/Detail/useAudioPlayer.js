@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import audioFile from "../../assets/sounds/letter.mp3";
+import data from "../../utils/data";
 
 export default function useAudioPlayer(id) {
   const [character, setCharacter] = useState(null);
@@ -21,7 +22,9 @@ export default function useAudioPlayer(id) {
   useEffect(() => {
     // Instancia de CancelToken para cancelar la solicitud si el componente se desmonta antes de que se complete la solicitud
     const source = axios.CancelToken.source();
-
+    if (id === "0") {
+      setCharacter(data[0])
+    } else {
     axios
       .get(`http://localhost:3001/rickandmorty/character/${id}`, {
         cancelToken: source.token,
@@ -36,7 +39,7 @@ export default function useAudioPlayer(id) {
           console.log("Error:", error.message);
         }
       });
-
+    }
     return () => {
       // Al desmontar, uso el callback para cancelar la solicitud y limpiar los campos de character
       source.cancel("Request canceled"); 

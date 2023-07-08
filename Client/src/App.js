@@ -19,7 +19,7 @@ import Favorites from "./components/Favorites/Favorites";
 import {
   addToFavorites,
   removeFromFavorites,
-  removeAllFavorites
+  removeAllFavorites,
 } from "./redux/actions/favoritesActions";
 
 // Utilidades
@@ -27,6 +27,8 @@ import {
   saveDataToLocalStorage,
   getDataFromLocalStorage,
 } from "./localStorageUtils";
+
+import data from "../src/utils/data";
 
 // * FUNCION PRINCIPAL
 export default function App() {
@@ -36,25 +38,31 @@ export default function App() {
   const dispatch = useDispatch();
   // Función de agregar un personaje
   function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-        if (data.name) {
-          if (characters.find((character) => character.id === data.id)) {
-            window.alert("This character already exists!");
+    if (id === "0") {
+      if (characters.find((character) => character.id === id)) {
+        window.alert("This character already exists!");
+      } else {
+        setCharacters((oldChars) => [...oldChars, data[0]]);
+      }
+    } else {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
+        .then(({ data }) => {
+          if (data.name) {
+            if (characters.find((character) => character.id === data.id)) {
+              window.alert("This character already exists!");
+            } else {
+              setCharacters((oldChars) => [...oldChars, data]);
+            }
           } else {
-            setCharacters((oldChars) => [...oldChars, data]);
+            window.alert("There are no characters with this ID!");
           }
-        } else {
-          window.alert("There are no characters with this ID!");
-        }
-      })
-      .catch((error) => {
-        console.error("An error occurred:", error.message);
-        window.alert("Error occurred while fetching character data!");
-      });
+        })
+        .catch((error) => {
+          console.error("An error occurred:", error.message);
+          window.alert("Error occurred while fetching character data!");
+        });
+    }
   }
-  
-
   // Función para eliminar todos los personajes
   function handleEraseAll() {
     dispatch(removeAllFavorites()); // Me aseguro que cuando se eliminen todas las cartas, también pierdan su estado de favorito si es que lo tuvieran
@@ -80,34 +88,40 @@ export default function App() {
   }, [characters]);
 
   return (
-      <div className="App">
-        {location.pathname !== "/" && (
-          <Nav onSearch={onSearch} userData={userData} />
-        )}
-        <Routes>
-          <Route
-            path="/"
-            element={<Form userData={userData} setUserData={setUserData} />}
-          />
-          <Route
-            path="/home"
-            element={<Home characters={characters} onClose={onClose} handleEraseAll={handleEraseAll}/>}
-          />
-          <Route
-            path="/favorites"
-            element={
-              <Favorites
-                characters={characters}
-                onClose={onClose}
-                addToFavorites={addToFavorites}
-                removeFromFavorites={removeFromFavorites}
-              />
-            }
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="*" element={<Error404 navigate={Navigate} />} />
-        </Routes>
-      </div>
+    <div className="App">
+      {location.pathname !== "/" && (
+        <Nav onSearch={onSearch} userData={userData} />
+      )}
+      <Routes>
+        <Route
+          path="/"
+          element={<Form userData={userData} setUserData={setUserData} />}
+        />
+        <Route
+          path="/home"
+          element={
+            <Home
+              characters={characters}
+              onClose={onClose}
+              handleEraseAll={handleEraseAll}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites
+              characters={characters}
+              onClose={onClose}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<Error404 navigate={Navigate} />} />
+      </Routes>
+    </div>
   );
 }

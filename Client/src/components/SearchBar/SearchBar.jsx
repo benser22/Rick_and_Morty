@@ -24,7 +24,7 @@ export default function SearchBar(props) {
 
   // Agrega un personaje aleatorio
   const handleRandom = () => {
-    const randomId = Math.floor(Math.random() * 826) + 1;
+    const randomId = Math.floor(Math.random() * 826);
     props.onSearch(randomId.toString());
     redirectToHome();
   };
