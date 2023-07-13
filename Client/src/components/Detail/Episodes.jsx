@@ -98,8 +98,8 @@ export default function Episodes({ episodes }) {
       <SlideContainer>
         {/* Renderizo cada episodio con sus detalles */}
         {episodeDetails &&
-          episodeDetails.map((episode) => (
-            <EpisodeBox key={episode.id}>
+          episodeDetails.map((episode, index) => (
+            <EpisodeBox key={index}>
               <EpisodeTitle>{episode.name}</EpisodeTitle>
               <EpisodeInfo>
                 <strong>Air Date:</strong> {episode.air_date}
