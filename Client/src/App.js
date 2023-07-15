@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Estilos
 import "./App.css";
@@ -17,22 +17,17 @@ import Favorites from "./components/Favorites/Favorites";
 
 // Redux
 import {
-  addToFavorites,
-  removeFromFavorites,
+  addFav,
+  removeFav,
   removeAllFavorites,
-} from "./redux/actions/favoritesActions";
-
-// Utilidades
-import {
-  saveDataToLocalStorage,
-  getDataFromLocalStorage,
-} from "./localStorageUtils";
+} from "./redux/actions/actions";
 
 import data from "../src/utils/data";
 
 // * FUNCION PRINCIPAL
 export default function App() {
   const [characters, setCharacters] = useState([]);
+  const favorites = useSelector(state => state.favorites);
   const location = useLocation();
   const [userData, setUserData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
@@ -74,19 +69,6 @@ export default function App() {
     setCharacters(characters.filter((character) => character.id !== id));
   }
 
-  // Cargar datos del Local Storage al iniciar la aplicación
-  useEffect(() => {
-    const savedCharacters = getDataFromLocalStorage("characters");
-    if (savedCharacters) {
-      setCharacters(savedCharacters);
-    }
-  }, []);
-
-  // Guardar datos en el Local Storage cuando los personajes cambien
-  useEffect(() => {
-    saveDataToLocalStorage("characters", characters);
-  }, [characters]);
-
   return (
     <div className="App">
       {location.pathname !== "/" && (
@@ -111,10 +93,10 @@ export default function App() {
           path="/favorites"
           element={
             <Favorites
-              characters={characters}
+              favorites={favorites}
               onClose={onClose}
-              addToFavorites={addToFavorites}
-              removeFromFavorites={removeFromFavorites}
+              addFav={addFav}
+              removeFav={removeFav}
             />
           }
         />

@@ -5,10 +5,7 @@ import { useDispatch } from "react-redux";
 import Cards from "../Cards/Cards";
 
 // Acciones de Redux
-import {
-  addToFavorites,
-  removeFromFavorites,
-} from "../../redux/actions/favoritesActions";
+import { addFav, removeFav } from "../../redux/actions/actions";
 
 // Estilos
 import styles from "./Home.module.css";
@@ -26,12 +23,12 @@ const Home = ({ onClose, characters, handleEraseAll }) => {
 
   // Función para agregar a favoritos
   const handleAddToFavorites = (character) => {
-    dispatch(addToFavorites(character));
+    dispatch(addFav(character));
   };
 
   // Función para remover de favoritos
   const handleRemoveFromFavorites = (characterId) => {
-    dispatch(removeFromFavorites(characterId));
+    dispatch(removeFav(characterId));
   };
 
   useEffect(() => {

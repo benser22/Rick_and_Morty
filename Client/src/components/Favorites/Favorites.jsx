@@ -1,72 +1,57 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import Card from "../Card/Card";
 
-// Acciones de Redux
-import { removeFromFavorites, orderCards, filterCards, removeAllFavorites } from "../../redux/actions/favoritesActions";
-
 // Estilos
 import styles from "../Cards/Cards.module.css";
 import stylesHeader from "./Favorites.module.css";
 
-export default function Favorites({ characters }) {
-  const favorites = useSelector((state) => state.favorites.favorites);
-  const order = useSelector((state) => state.order.order);
-  const genderFilter = useSelector((state) => state.filter.genderFilter);
+export default function Favorites() {
+  const favorites = useSelector((state) => state.favorites);
+  const order = useSelector((state) => state.order);
+  const genderFilter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let amount = "";
 
   useEffect(() => {
-    // Restablecer el orden y el filtro cada vez que el componente se monta, porque si no queda cargado cuando vuelvo a home y regreso a favoritos
-    dispatch(orderCards("A")); // Establecer orden ascendente
-    dispatch(filterCards("")); // Establecer filtro en "All"
-    // eslint-disable-next-line
-  }, []);
+    dispatch({ type: "ORDER", payload: "A" }); // Establecer orden ascendente
+    dispatch({ type: "FILTER", payload: "" }); // Establecer filtro en "All"
+  }, [dispatch]);
 
-  // Remuevo un elemento de mis favoritos
   const handleRemoveFromFavorites = (id) => {
-    dispatch(removeFromFavorites(id));
+    dispatch({ type: "REMOVE_FAV", payload: id });
   };
 
-  let favoriteCharacters = [...characters];
+  let favoriteCharacters = [...favorites];
 
-  // Ordeno mis personajes favoritos según mi preferencia (ascendente o descendente)
   if (order === "A") {
     favoriteCharacters.sort((a, b) => b.id - a.id); // Orden ascendente
   } else if (order === "D") {
     favoriteCharacters.sort((a, b) => a.id - b.id); // Orden descendente
   }
 
-  // Aplico un filtro por género si he seleccionado alguna opción. Por defecto, se muestran todas las cartas
   if (genderFilter) {
     favoriteCharacters = favoriteCharacters.filter(
       (element) => element.gender === genderFilter
     );
   }
 
-  favoriteCharacters = favoriteCharacters.filter((element) =>
-    favorites.includes(element.id)
-  );
-
   favoriteCharacters.length === 1 ? (amount = "card") : (amount = "cards");
 
-  // Manejo del cambio en la opción de ordenamiento
   const handleOrderChange = (e) => {
-    dispatch(orderCards(e.target.value));
+    dispatch({ type: "ORDER", payload: e.target.value });
   };
 
-  // Manejo del cambio en el filtro por género
   const handleGenderFilterChange = (e) => {
-    dispatch(filterCards(e.target.value));
+    dispatch({ type: "FILTER", payload: e.target.value });
   };
 
-  // Manejo de eliminación de todos los estados favoritos
   const handleEraseAll = () => {
-    dispatch(removeAllFavorites());
-  }
+    dispatch({ type: "REMOVE_ALL_FAVORITES" });
+  };
 
   return (
     <>
@@ -93,9 +78,11 @@ export default function Favorites({ characters }) {
           <option value="Genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
-        <button onClick={handleEraseAll} className={stylesHeader.myButton}>Clear All Favorites</button>
+        <button onClick={handleEraseAll} className={stylesHeader.myButton}>
+          Clear All Favorites
+        </button>
       </div>
-      <hr className={stylesHeader.myhr} ></hr>
+      <hr className={stylesHeader.myhr}></hr>
       <div className={styles.container}>
         {favoriteCharacters.map((element) => (
           <Card

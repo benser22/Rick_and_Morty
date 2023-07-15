@@ -10,7 +10,7 @@ export default function Card({element, onClose, isFavorite, AddToFavorites, Remo
     if (isFavorite) {
       RemoveFromFavorites(element.id); // Si ya es favorito, se remueve de la lista de favoritos
     } else {
-      AddToFavorites(element.id); // Si no es favorito, se agrega a la lista de favoritos
+      AddToFavorites(element); // Si no es favorito, se agrega a la lista de favoritos
     }
   };
   
@@ -28,7 +28,6 @@ export default function Card({element, onClose, isFavorite, AddToFavorites, Remo
         )}
         <button className={styles.myButton} onClick={() => {
             onClose(element.id); // Cierra el componente al hacer clic en el botón de cierre
-            RemoveFromFavorites(element.id); // Remueve de la lista de favoritos al cerrar el componente, esto lo necesito hacer si voy a usar localStorage, porque al eliminar un favorito, volvía como fav cuando lo agregaba
           }}
         >
           X
