@@ -18,25 +18,25 @@ const Cards = ({ onClose, characters }) => {
 
   return (
     <div className={styles.container}>
-      {characters && characters.map((element, index) => {
-        const isFavorite = favorites.includes(element); 
-        return (
-          <Card
-            element={element}
-            onClose={onClose}
-            key={index}
-            inFocus={index === element.id}
-            isFavorite={isFavorite} 
-            AddToFavorites={handleAddToFavorites} 
-            RemoveFromFavorites={handleRemoveFromFavorites} 
-          />
-        );
-      })}
+      {characters &&
+        characters.map((element, index) => {
+          const isFavorite = favorites.some(
+            (favorite) => favorite.id === element.id
+          );
+          return (
+            <Card
+              element={element}
+              onClose={onClose}
+              key={index}
+              inFocus={index === element.id}
+              isFavorite={isFavorite}
+              AddToFavorites={handleAddToFavorites}
+              RemoveFromFavorites={handleRemoveFromFavorites}
+            />
+          );
+        })}
     </div>
   );
 };
 
 export default Cards;
-
-
-

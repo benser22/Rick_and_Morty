@@ -16,25 +16,17 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_FAV:
-      const addFavorites = [...state.allCharacters, payload];
-      return {
-        ...state,
-        favorites: [...addFavorites],
-        allCharacters: [...addFavorites],
-      };
-    case REMOVE_FAV:
-      const deleteFavorites = state.favorites.filter((e) => e.id !== payload);
+      return { favorites: payload, allCharacters: payload };
 
-      return {
-        ...state,
-        favorites: [...deleteFavorites],
-        allCharacters: [...deleteFavorites],
-      };
+    case REMOVE_FAV:
+      return { favorites: payload, allCharacters: payload };
+
     case FILTER:
       return {
         ...state,
         filter: payload,
       };
+      
     case ORDER:
       let orderFavorites;
       if (payload === "A") {
@@ -54,6 +46,7 @@ const reducer = (state = initialState, { type, payload }) => {
         favorites: [],
         allCharacters: [],
       };
+
     default:
       return state;
   }

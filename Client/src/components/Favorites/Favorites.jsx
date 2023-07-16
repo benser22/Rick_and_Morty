@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import Card from "../Card/Card";
+import { removeFav, removeAllFavorites } from "../../redux/actions/actions";
 
 // Estilos
 import styles from "../Cards/Cards.module.css";
@@ -22,7 +23,7 @@ export default function Favorites() {
   }, [dispatch]);
 
   const handleRemoveFromFavorites = (id) => {
-    dispatch({ type: "REMOVE_FAV", payload: id });
+    dispatch(removeFav(id));
   };
 
   let favoriteCharacters = [...favorites];
@@ -50,7 +51,7 @@ export default function Favorites() {
   };
 
   const handleEraseAll = () => {
-    dispatch({ type: "REMOVE_ALL_FAVORITES" });
+    dispatch(removeAllFavorites());
   };
 
   return (
@@ -84,16 +85,17 @@ export default function Favorites() {
       </div>
       <hr className={stylesHeader.myhr}></hr>
       <div className={styles.container}>
-        {favoriteCharacters.map((element) => (
-          <Card
-            element={element}
-            onClose={handleRemoveFromFavorites}
-            key={element.id}
-            isFavorite={true}
-            isArrayFavorites={true}
-            RemoveFromFavorites={handleRemoveFromFavorites}
-          />
-        ))}
+        {favoriteCharacters &&
+          favoriteCharacters.map((element, index) => (
+            <Card
+              element={element}
+              onClose={handleRemoveFromFavorites}
+              key={index}
+              isFavorite={true}
+              isArrayFavorites={true}
+              RemoveFromFavorites={handleRemoveFromFavorites}
+            />
+          ))}
       </div>
       <hr style={{ boxShadow: "2px 2px 4px rgba(0, 0, 0, 1)" }}></hr>
     </>
