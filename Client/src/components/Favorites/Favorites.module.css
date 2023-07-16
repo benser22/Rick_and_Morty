@@ -37,20 +37,15 @@
   margin: 0;
   color: rgb(255, 255, 255);
   font-size: 14px;
-  padding: 6px;
-  border-radius: 10px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px;
+  border-radius: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: normal;
   text-decoration: none;
   font-style: normal;
   font-variant: normal;
   text-transform: none;
-  background-image: linear-gradient(
-    90deg,
-    #173e51 0%,
-    #21546d 50%,
-    #286989 100%
-  );
+  background-image: linear-gradient(90deg, #173e51 0%, #21546d 50%, #286989 100%);
   box-shadow: rgb(0, 0, 0) 1px 1px 4px 0px;
   border: 1px solid #0e2531;
   display: inline-block;
@@ -59,7 +54,9 @@
 
 .myButton:hover {
   filter: saturate(180%);
+  box-shadow: 0 0 8px #ffffff;
 }
+
 
 .myButton:active {
   box-shadow: unset;

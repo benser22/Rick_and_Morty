@@ -46,9 +46,9 @@
     margin: 0;
     color: rgb(255, 255, 255);
     font-size: 14px;
-    padding: 6px;
-    border-radius: 10px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px;
+    border-radius: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: normal;
     text-decoration: none;
     font-style: normal;
@@ -63,6 +63,7 @@
   
   .myButton:hover {
     filter: saturate(180%);
+    box-shadow: 0 0 8px #ffffff;
   }
   
   .myButton:active {
