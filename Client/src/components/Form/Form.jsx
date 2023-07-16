@@ -82,7 +82,7 @@ const Form = ({ userData, setUserData }) => {
           className={styles.myInput}
         />
         {!errors.email && <p className={styles.error}>{errors.password}</p>}
-        <button type="submit" value="LOGIN">
+        <button type="submit" value="LOGIN" className={styles.myButton}>
           SUBMIT
         </button>
       </form>
