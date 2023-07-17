@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 // Utilizo Styled-components como otra opción de lo que aprendimos para dar estilos
 const MyDiv = styled.div`
-  background-image: linear-gradient(45deg, #2e788d, #3799ab, #4db8cb, #2e788d);
-  box-shadow: 6px 5px 5px #0c2327;
+background-image: linear-gradient(-45deg, #251d2e, #2e788d, #3799ab, #251d2e);
+box-shadow: 6px 5px 5px #0c2327;
   border: 1px groove #23626d;
   min-width: 50vh;
   margin-top: 12vh;

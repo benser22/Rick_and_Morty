@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(45deg, #2e788d, #3799ab, #4db8cb, #2e788d);
+  background-image: linear-gradient(-45deg, #251d2e, #2e788d, #3799ab, #251d2e);
   border: 1px groove #23626d;
   border-radius: 0 36px 0 36px;
   width: 50%;
@@ -46,11 +46,8 @@
   margin: auto;
   height: auto;
   border: 1px solid #23626d;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.4), 
-    0 4px 8px rgba(0, 0, 0, 0.4) inset; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.4) inset;
 }
-
 
 .name {
   font-family: Verdana, Geneva, Tahoma, sans-serif;

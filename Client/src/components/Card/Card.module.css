@@ -23,6 +23,7 @@
 .myButton {
   background-color: #1a4850;
   color: white;
+  border: gray solid 1px;
   font-family: "Courier New", Courier, monospace;
   border-radius: 5px;
   font-size: 12px;
