@@ -64,6 +64,7 @@ export default function App() {
 
   // Función de eliminar un personaje
   function onClose(id) {
+    dispatch(removeFav(id)); // Me aseguro de que al eliminar una carta también pierda su estado de favorito si es que lo tenía
     setCharacters(characters.filter((character) => character.id !== id));
   }
 
