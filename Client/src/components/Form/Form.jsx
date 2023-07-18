@@ -28,24 +28,24 @@ const Form = ({ userData, setUserData }) => {
   const navigate = useNavigate();
 
   // Función para realizar el login
-  const login = (userData) => {
+  const login = async (userData) => {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
-    axios.get(URL, { params: { email, password } })
-      .then(({ data }) => {
-        const { access } = data;
-        if (access) {
-          window.alert("You have successfully logged in");
-          navigate("/home");
-        } else {
-          window.alert("The email or password is not correct");
-        }
-      })
-      .catch(error => {
-        console.log("Error:", error);
-        window.alert("An error occurred while logging in");
-      });
+    try {
+      const response = await axios.get(URL, { params: { email, password } });
+      const { access } = response.data;
+      if (access) {
+        window.alert("You have successfully logged in");
+        navigate("/home");
+      } else {
+        throw new Error("The email or password is not correct");
+      }
+    } catch (error) {
+      console.log(error.message);
+      window.alert("An error occurred while logging in: " + error.message);
+    }
   };
+  
 
   // Función para manejar el envío del formulario
   function handleSubmit(event) {
@@ -91,10 +91,6 @@ const Form = ({ userData, setUserData }) => {
 };
 
 export default Form;
-
-
-
-
 
 // import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";

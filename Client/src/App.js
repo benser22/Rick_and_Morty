@@ -16,23 +16,19 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 // Redux
-import {
-  addFav,
-  removeFav,
-  removeAllFavorites,
-} from "./redux/actions/actions";
+import { addFav, removeFav, removeAllFavorites } from "./redux/actions/actions";
 
 import data from "../src/utils/data";
 
 // * FUNCION PRINCIPAL
 export default function App() {
   const [characters, setCharacters] = useState([]);
-  const favorites = useSelector(state => state.favorites);
+  const favorites = useSelector((state) => state.favorites);
   const location = useLocation();
   const [userData, setUserData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   // Función de agregar un personaje
-  function onSearch(id) {
+  async function onSearch(id) {
     if (id === "0") {
       if (characters.find((character) => character.id === id)) {
         window.alert("This character already exists!");
@@ -40,22 +36,24 @@ export default function App() {
         setCharacters((oldChars) => [...oldChars, data[0]]);
       }
     } else {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-        .then(({ data }) => {
-          if (data.name) {
+      try {
+        await axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+          ({ data }) => {
             if (characters.find((character) => character.id === data.id)) {
               window.alert("This character already exists!");
             } else {
               setCharacters((oldChars) => [...oldChars, data]);
             }
-          } else {
-            window.alert("There are no characters with this ID!");
           }
-        })
-        .catch((error) => {
-          console.error("An error occurred:", error.message);
-          window.alert("Error occurred while fetching character data!");
-        });
+        );
+      } catch (error) {
+        console.error(error.message);
+        if (error.request.status === 404) {
+          window.alert("The API query had an error");
+        } else {
+          window.alert(`There is no character with the id ${id}`);
+        }
+      }
     }
   }
   // Función para eliminar todos los personajes
