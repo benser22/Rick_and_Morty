@@ -22,5 +22,5 @@ function deleteAllFavs(req, res) {
 module.exports = {
   postFav,
   deleteFav,
-  deleteAllFavs
+  deleteAllFavs,
 };

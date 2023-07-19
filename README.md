@@ -1,4 +1,4 @@
-# **💪 HW6 | Async Await - Integration**
+# **💪 HW7 | Testing - Integration**
 
 ## **🕒 DURACIÓN ESTIMADA**
 
@@ -16,79 +16,147 @@ XX minutos
 
 ## **📝 INTRODUCCIÓN**
 
-En esta homework vamos a transformar todas nuestras funciones asincrónicas que utilizan promesas a **`async await`**.
+En esta homework construiremos algunos test para validar que nuestro proyecto esté funcionando correctamente.
 
-🤓 ¿Preparad@? 🤓
+Te daremos instrucciones solo para construir algunos test del lado de tu Back-End, pero tu puedes crear todos los que gustes.
 
-<br />
-
----
-
-<div align="center">
-
-## **📋 INSTRUCCIONES 📋**
-
-</div>
-
-## **🚀 PARTE 1 | Server 🚀**
-
-<br />
-
-### **👩‍💻 EJERCICIO 1 | GET getCharById**
-
-Dirígete a tu carpeta **`controllers`** y modifica la función **`getCharById`** de modo tal que utilices **async/await** y no promesas.
-
-2. Para manejar correctamente el error envuelve el contenido de esta función en un **try-catch**.
+Finalmente te brindaremos información para que aprendas a testear tu Front-End.
 
 <br />
 
 ---
 
-## **🚀 PARTE 2 | Client 🚀**
+## **📋 INSTRUCCIONES**
 
-<br />
+### **👩‍💻 EJERCICIO 01 | Dependencias**
 
-### **👩‍💻 EJERCICIO 2 | APP**
+Instala las siguientes dependencias en el **`package.json`** de tu servidor:
 
-Dirígete a tu archivo **`App.js`** y modifica:
+-  **jest**
+-  **supertest**
 
-1. La función **`onSearch`** de modo tal que utilices **async/await** y no promesas.
+Además, dentro del **`package.json`** deberás agregar el siguiente script:
 
-2. La función **`login`** de modo tal que utilices **async/await** y no promesas.
-
-3. Para manejar correctamente el error envuelve el contenido de ambas funciones en un **try-catch**.
-
-<br />
-
----
-
-### **👩‍💻 EJERCICIO 3 | ACTIONS**
-
-Dirígete a tu archivo **`/redux/actions.js`** y modifica:
-
-1. La función **`addFav`** de modo tal que utilices **async/await** y no promesas.
-
-2. La función **`removeFav`** de modo tal que utilices **async/await** y no promesas.
-
-3. Para manejar correctamente el error envuelve el contenido de ambas funciones en un **try-catch**.
+```bash
+   "test": "jest --detectOpenHandles"
+```
 
 <br />
 
 ---
 
-<br />
+### **👩‍💻 EJERCICIO 02 | Modularizar el Server**
 
-> [**NOTA**]: no modificaremos el archivo **`Detail.jsx`** porque suele ser más conveniente utilizar promesas en los **useEffect** que utilizar async/await.
+1. Dentro de la carpeta **src** debes crear un archivo llamado **`app.js`**.
+
+2. Luego de crealo tendrás que copiar y pegar todo lo que tienes en tu archivo **`index.js`** dentro de este, exceptuando la ejecución de la función **listen**. Esta función debe permanecer en tu archivo **`index.js`**.
+
+3. Dentro de tu archivo **`app.js`** debes exportar tu servidor, y luego importarlo dentro de tu archivo **`index.js`**.
+
+> [**NOTA**]: ten en cuenta que la variable PORT (si es que tienes una) debe permanecer en el archivo **`index`**.
 
 <br />
 
 ---
 
-### **👀 COMPROBEMOS...**
+### **👩‍💻 EJERCICIO 03 | Testing Template**
 
-Levanta el servidor y tu proyecto Front-End. Revisa que todo aún funcione correctamente:
+Dirígete a la carpeta **test**. En esta crea un archivo llamado **`index.test.js`**. Aquí desarrollaremos el testing.
 
-1. Que puedas traer cualquier personaje por su **id** desde la Search Bar.
-2. Que puedas ingresar al detalle de cualquier personaje que hayas encontrado.
-3. Que puedas agregar todos los personajes que quieras a tus favoritos.
-4. Que puedas eliminar a todos los personajes que quieras de tus favoritos.
+1. Dentro del archivo que acabas de crear tendrás que importar los siguientes elementos:
+
+   ```javascript
+   const app = require('../src/app');
+   const session = require('supertest');
+   const agent = session(app);
+   ```
+
+2. Crea la primer función **describe** con el mensaje **"_Test de RUTAS_"**.
+
+Recuerda que todos los ejercicios de testing serán asincrónicos, ya que estaremos ejecutando rutas. ¡Puedes utilizar **promesas** o **async await**!
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 04 | GET /rickandmorty/character/:id**
+
+Crea un **describe** con el mensaje '**`GET /rickandmorty/character/:id`**'.
+
+1. **PRIMER TEST**:
+
+   Crea un **it** con el mensaje '**`Responde con status: 200`**'. En su **callback** pega el siguiente código:
+
+   ```javascript
+   await agent.get('/rickandmorty/character/1').expect(200);
+   ```
+
+2. **SEGUNDO TEST**:
+
+   Crea un **it** con el mensaje '**`Responde un objeto con las propiedades: "id", "name", "species", "gender", "status", "origin" e "image"`**'.
+
+   Aquí tendrás que obtener la respuesta de esta ruta. Valida si en la propiedad **body** de la respuesta obtienes todas las propiedades correspondientes.
+
+> [**PISTA**]: podrías validar esto con el métodos [**`toHaveProperty`**](https://jestjs.io/docs/expect#tohavepropertykeypath-value).
+
+3. **TERCER TEST**:
+
+   Crea un **it** con el mensaje '**`Si hay un error responde con status: 500`**'. Aquí tendrás que validar que este será el status si se ingresa un id que no existe para buscar al personaje. Es decir, tendrás que forzar el error.
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 05 | GET /rickandmorty/login**
+
+Crea un nuevo describe con el comentario: **"_GET /rickandmorty/login_"**. En este test tendrás que validar dos cosas:
+
+1. Valida que, si ejecutas esta ruta pasándole la información de login (email y password) correctas, debes obtener un objeto como este:
+
+   ```js
+   {
+      access: true;
+   }
+   ```
+
+> [**NOTA**]: recuerda que la información la debes enviar por **`Query`**. Además, recuerda que la información de login se encuentra en tu achivo **`/src/utils/index`**.
+
+2. Ahora tendrás que testear que en el caso de enviar la información incorrecta la porpiedad **access** sea **`false`**.
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 06 | POST /rickandmorty/fav**
+
+Crea un nuevo describe con el texto : **"_POST /rickandmorty/fav_"**. Dentro de este test tendrás que validar:
+
+1. Lo que envíes por body debe ser devuelto en un arreglo.
+
+2. Si vuelves a enviar un nuevo elemento por body, este debe ser devuelto en un arreglo que incluye un elemento enviado previamente.
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 07 | DELETE /rickandmorty/fav/:id**
+
+Crea un nuevo describe con el texto : **"_DELETE /rickandmorty/fav/:id_"**. Dentro de este test tendrás que validar:
+
+1. Primero deberás testear que lo que devuelva esta ruta, en el caso de que no haya ningún personaje con el ID que envías, sea un arreglo con los elementos previos sin modificar.
+
+2. Luego debes testear que cuando envías un ID válido se elimine correctamente al personaje.
+
+<br />
+
+---
+
+## **💪 EXTRA CREDIT | Testing Front-End**
+
+Te invitamos a que revises los **`Recursos adicionales`** para investigar como testear un **Front-End** con React y Jest.
+
+## **🔎 Recursos adicionales**
+
+-  Documentación [**Matchers From Jest**](https://jestjs.io/docs/using-matchers)
+-  Documentación [**React-Jest Testing**](https://testing-library.com/docs/react-testing-library/intro/)
+-  Documentación [**Jest - Enzyme**](https://enzymejs.github.io/enzyme/docs/guides/jest.html)
