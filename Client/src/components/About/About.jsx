@@ -50,7 +50,7 @@ const About = () => {
         </div>
         <hr></hr>
         {/* Enlace a la página de inicio */}
-        <NavLink to="/home" className={`${styles.navLink} ${styles.home}`}>
+        <NavLink to="/home" className={`${styles.navLink} ${styles.home}`} data-testid="home-link">
           <FaHome />
         </NavLink>
       </div>

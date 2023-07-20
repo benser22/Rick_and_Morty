@@ -15,7 +15,7 @@ export default function Card({element, onClose, isFavorite, AddToFavorites, Remo
   };
   
   return (
-    <div className={styles.myDiv}>
+    <div className={styles.myDiv} data-testid="favorite-card">
       <div className={styles.buttonContainer}>
         {/* Botón de favorito */}
         {!isArrayFavorites && (

@@ -15,9 +15,6 @@ import styles from "./Nav.module.css";
 
 // Librería de Modal
 import Modal from "react-modal";
-Modal.setAppElement(
-  "#root"
-); /* Especifica el elemento de la aplicación (App element) al utilizar la biblioteca react-modal. Esta línea es necesaria para garantizar el correcto funcionamiento de react-modal en términos de accesibilidad. */
 
 function Nav(props) {
   const [isHovered, setIsHovered] = useState(false); // Estado para controlar si el mouse está sobre el componente.Lo necesito para mostrar o el mail del usuario o Logout
