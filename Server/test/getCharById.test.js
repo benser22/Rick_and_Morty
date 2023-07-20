@@ -1,11 +1,11 @@
 const axios = require("axios");
-const getCharById = require("../controllers/getCharById"); // Asegúrate de que la ruta al archivo sea correcta
+const getCharById = require("../controllers/getCharById"); 
 
-// Mock de axios.get
+// Mock de axios
 jest.mock("axios");
 
-describe("TEST de getCharById", () => {
-  it("debería devolver los datos del personaje cuando se proporciona un ID válido", async () => {
+describe("TEST of getCharById", () => {
+  it("should return character data when a valid id is provided", async () => {
     const mockCharacterData = {
       id: 1,
       status: "Alive",
@@ -35,8 +35,8 @@ describe("TEST de getCharById", () => {
     expect(jsonMock).toHaveBeenCalledWith(mockCharacterData);
   });
 
-  it("debería devolver un error 500 cuando la API responde con un error", async () => {
-    const errorMessage = "Error en la API";
+  it("should return a 500 error when the API responds with an error", async () => {
+    const errorMessage = "API error";
 
     // Simulamos un error en la API
     axios.get.mockRejectedValueOnce(new Error(errorMessage));

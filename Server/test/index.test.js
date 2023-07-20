@@ -3,13 +3,13 @@ const session = require("supertest");
 const agent = session(app);
 const users = require("../utils/users");
 
-describe("TEST de RUTAS", () => {
+describe("TEST of ROUTES", () => {
   describe("GET /rickandmorty/character/:id", () => {
-    it("Responde con status: 200", async () => {
+    it("Reply with status: 200", async () => {
       await agent.get("/rickandmorty/character/1").expect(200);
     });
 
-    it('Responde un objeto con las propiedades: "id", "name", "species", "gender", "status", "origin" e "image"', async () => {
+    it('Returns an object with properties: "id", "name", "species", "gender", "status", "origin" and "image"', async () => {
       const response = await agent.get("/rickandmorty/character/1").expect(200);
       expect(response.body).toHaveProperty("id");
       expect(response.body).toHaveProperty("name");
@@ -20,12 +20,12 @@ describe("TEST de RUTAS", () => {
       expect(response.body).toHaveProperty("image");
     });
 
-    it("Si hay un error responde con status: 500", async () => {
+    it("If there is an error, reply with the status: 500", async () => {
       await agent.get("/rickandmorty/character/9999").expect(500);
     });
   });
   describe("GET /rickandmorty/login", () => {
-    it("Responde con { access: true } si se envían las credenciales correctas por Query", async () => {
+    it("Respond with { access: true } if Query sends the correct credentials", async () => {
       const user = users[0]; // Obtener el primer usuario del array users
 
       const response = await agent
@@ -37,7 +37,7 @@ describe("TEST de RUTAS", () => {
       expect(response.body).toEqual({ access: true });
     });
 
-    it("Responde con { access: false } si se envían credenciales incorrectas por Query", async () => {
+    it("Respond with {access: false} if Query sends wrong credentials", async () => {
       const response = await agent
         .get(
           "/rickandmorty/login?email=wrong@example.com&password=wrongpassword"
@@ -49,7 +49,7 @@ describe("TEST de RUTAS", () => {
   });
 
   describe("POST /rickandmorty/fav", () => {
-    it("Lo que envíes por body debe ser devuelto en un arreglo", async () => {
+    it("What you send by body should be returned in an array", async () => {
       const character = { id: 1, name: "Rick", species: "Human" };
       const response = await agent
         .post("/rickandmorty/fav")
@@ -58,7 +58,7 @@ describe("TEST de RUTAS", () => {
       expect(response.body).toEqual([character]);
     });
 
-    it("Si vuelves a enviar un nuevo elemento por body, este debe ser devuelto en un arreglo que incluye un elemento enviado previamente", async () => {
+    it("If you resubmit a new item by body, it should be returned in an array that includes a previously submitted item", async () => {
       const character1 = { id: 1, name: "Rick", species: "Human" };
       const character2 = { id: 2, name: "Morty", species: "Human" };
 
@@ -74,7 +74,7 @@ describe("TEST de RUTAS", () => {
 
   describe("DELETE /rickandmorty/fav/:id", () => {
     // Prueba para eliminar un personaje que no existe en los favoritos
-    it("Debe retornar el arreglo sin cambios si se envía un ID que no existe", async () => {
+    it("Should return a array unchanged if non-existent ID is sent", async () => {
       await agent.delete("/rickandmorty/fav").expect(200);
 
       const initialData = [
@@ -99,7 +99,7 @@ describe("TEST de RUTAS", () => {
     });
 
     // Prueba para eliminar correctamente un personaje existente en los favoritos
-    it("Debe eliminar correctamente al personaje con el ID válido", async () => {
+    it("You must successfully remove the character with the valid ID", async () => {
       await agent.delete("/rickandmorty/fav").expect(200);
 
       // Enviar 1
@@ -125,7 +125,7 @@ describe("TEST de RUTAS", () => {
     });
 
     // Prueba para eliminar un personaje que no está en los favoritos
-    it("Debe mantener el arreglo sin cambios si se intenta eliminar un personaje no existente", async () => {
+    it("You should keep the array unchanged if you try to remove a non-existent character", async () => {
       await agent.delete("/rickandmorty/fav").expect(200);
 
       // Enviar 1
