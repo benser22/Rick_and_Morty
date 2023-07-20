@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
-    "test": "react-scripts test --detectOpenHandles --verbose"
+    "test": "react-scripts test --detectOpenHandles --verbose --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
