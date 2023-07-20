@@ -93,6 +93,7 @@ function Nav(props) {
         contentLabel="Confirm Logout"
         className={styles.modalContent}
         overlayClassName={styles.modalOverlay}
+        appElement={document.getElementById("root")}
       >
         <h2 className={styles.myh2}>Confirm Logout</h2>
         <hr
