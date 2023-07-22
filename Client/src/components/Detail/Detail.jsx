@@ -30,6 +30,7 @@ export default function Detail() {
     return <Loader />;
   }
   return (
+    <div data-testid="detail-component">
     <div className={styles.container}>
       <div className={styles.cardContainer}>
         <h2 className={styles.name}>
@@ -62,6 +63,7 @@ export default function Detail() {
       <div className={styles.episodesContainer}>
         {isOver && <Episodes episodes={character.episode}></Episodes>}
       </div>
+    </div>
     </div>
   );
 }

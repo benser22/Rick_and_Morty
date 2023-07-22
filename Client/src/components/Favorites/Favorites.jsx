@@ -56,7 +56,7 @@ export default function Favorites() {
 
   return (
     <>
-      <div className={stylesHeader.container}>
+      <div className={stylesHeader.container} data-testid="favorites-component">
         <FaHome
           className={stylesHeader.home}
           onClick={() => navigate("/home")}

@@ -10,7 +10,7 @@ import { FaHome, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.aboutContainer} data-testid="about-component">
       <div className={styles.background} />
       <div className={styles.content}>
         <h2 className={styles.me}>About me</h2>

@@ -54,7 +54,7 @@ const Home = ({ onClose, characters, handleEraseAll }) => {
 
 
   return (
-    <div>
+    <div data-testid="home-component">
       <h2 className={styles.title}>HOME</h2>
       <button className={styles.myButton} onClick={handleEraseAll}>Delete All</button>
       <hr className={styles.myhr}></hr>

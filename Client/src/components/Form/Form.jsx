@@ -54,7 +54,7 @@ const Form = ({ userData, setUserData }) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="form-component">
       <img src={logo} alt="R&M logo" className={styles.picture} />
       <h2>LOGIN</h2>
 

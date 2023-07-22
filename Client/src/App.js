@@ -71,17 +71,19 @@ export default function App() {
   return (
     <div className="App">
       {location.pathname !== "/" && (
-        <Nav onSearch={onSearch} userData={userData} />
+        <Nav onSearch={onSearch} userData={userData} data-testid="nav-component"/>
       )}
       <Routes>
         <Route
+          data-testid="form-component"
           path="/"
-          element={<Form userData={userData} setUserData={setUserData} />}
+          element={<Form userData={userData} setUserData={setUserData}/>}
         />
         <Route
           path="/home"
           element={
             <Home
+              data-testid="home-component"
               characters={characters}
               onClose={onClose}
               handleEraseAll={handleEraseAll}
@@ -89,6 +91,7 @@ export default function App() {
           }
         />
         <Route
+          data-testid="favorites-component"
           path="/favorites"
           element={
             <Favorites
@@ -99,9 +102,9 @@ export default function App() {
             />
           }
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" element={<Error404 navigate={Navigate} />} />
+        <Route path="/about" element={<About />} data-testid="about-component"/>
+        <Route path="/detail/:id" element={<Detail />} data-testid="detail-component"/>
+        <Route path="*" element={<Error404 navigate={Navigate} />} data-testid="error404-component"/>
       </Routes>
     </div>
   );
