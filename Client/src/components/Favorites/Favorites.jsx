@@ -66,13 +66,13 @@ export default function Favorites() {
         </h2>
       </div>
       <div className={stylesHeader.select_container}>
-        <label>Order by:</label>
-        <select value={order} onChange={handleOrderChange}>
+        <label htmlFor="order-select">Order by:</label>
+        <select id="order-select" value={order} onChange={handleOrderChange}>
           <option value="A">Ascendent</option>
           <option value="D">Descendent</option>
         </select>
-        <label>Filter by:</label>
-        <select value={genderFilter} onChange={handleGenderFilterChange}>
+        <label htmlFor="filter-select">Filter by:</label>
+        <select id="filter-select" value={genderFilter} onChange={handleGenderFilterChange}>
           <option value="">All</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -84,7 +84,7 @@ export default function Favorites() {
         </button>
       </div>
       <hr className={stylesHeader.myhr}></hr>
-      <div className={styles.container}>
+      <div className={styles.container} data-testid="cards-container">
         {favoriteCharacters &&
           favoriteCharacters.map((element, index) => (
             <Card
