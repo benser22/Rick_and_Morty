@@ -37,15 +37,14 @@ export default function App() {
       }
     } else {
       try {
-        await axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-          ({ data }) => {
-            if (characters.find((character) => character.id === data.id)) {
-              window.alert("This character already exists!");
-            } else {
-              setCharacters((oldChars) => [...oldChars, data]);
-            }
-          }
+        const { data } = await axios(
+          `http://localhost:3001/rickandmorty/character/${id}`
         );
+        if (characters.find((character) => character.id === data.id)) {
+          window.alert("This character already exists!");
+        } else {
+          setCharacters((oldChars) => [...oldChars, data]);
+        }
       } catch (error) {
         console.error(error.message);
         if (error.request.status === 404) {
@@ -71,13 +70,17 @@ export default function App() {
   return (
     <div className="App">
       {location.pathname !== "/" && (
-        <Nav onSearch={onSearch} userData={userData} data-testid="nav-component"/>
+        <Nav
+          onSearch={onSearch}
+          userData={userData}
+          data-testid="nav-component"
+        />
       )}
       <Routes>
         <Route
           data-testid="form-component"
           path="/"
-          element={<Form userData={userData} setUserData={setUserData}/>}
+          element={<Form userData={userData} setUserData={setUserData} />}
         />
         <Route
           path="/home"
@@ -102,9 +105,21 @@ export default function App() {
             />
           }
         />
-        <Route path="/about" element={<About />} data-testid="about-component"/>
-        <Route path="/detail/:id" element={<Detail />} data-testid="detail-component"/>
-        <Route path="*" element={<Error404 navigate={Navigate} />} data-testid="error404-component"/>
+        <Route
+          path="/about"
+          element={<About />}
+          data-testid="about-component"
+        />
+        <Route
+          path="/detail/:id"
+          element={<Detail />}
+          data-testid="detail-component"
+        />
+        <Route
+          path="*"
+          element={<Error404 navigate={Navigate} />}
+          data-testid="error404-component"
+        />
       </Routes>
     </div>
   );

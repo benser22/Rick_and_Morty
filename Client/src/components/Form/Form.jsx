@@ -32,20 +32,17 @@ const Form = ({ userData, setUserData }) => {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
     try {
-      const response = await axios.get(URL, { params: { email, password } });
-      const { access } = response.data;
+      const { data } = await axios.get(URL, { params: { email, password } });
+      const { access } = data;
       if (access) {
         window.alert("You have successfully logged in");
         navigate("/home");
-      } else {
-        throw new Error("The email or password is not correct");
-      }
+      } 
     } catch (error) {
       console.log(error.message);
-      window.alert("An error occurred while logging in: " + error.message);
+      window.alert(`${error.message}: The email or password is not correct`);
     }
   };
-  
 
   // Función para manejar el envío del formulario
   function handleSubmit(event) {

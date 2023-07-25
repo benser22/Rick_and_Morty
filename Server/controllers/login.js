@@ -8,7 +8,7 @@ function login(req, res) {
   if (user) {
     res.status(200).json({ access: true });
   } else {
-    res.status(200).json({ access: false });
+    res.status(403).json({ access: false });
   }
 }
 
