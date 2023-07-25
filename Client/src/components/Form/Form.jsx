@@ -32,15 +32,14 @@ const Form = ({ userData, setUserData }) => {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
     try {
-      const { data } = await axios.get(URL, { params: { email, password } });
+      const {data} = await axios.get(URL, { params: { email, password } });
       const { access } = data;
       if (access) {
         window.alert("You have successfully logged in");
         navigate("/home");
       } 
     } catch (error) {
-      console.log(error.message);
-      window.alert(`${error.message}: The email or password is not correct`);
+     (error.request.status === 403) ? window.alert("The email or password is not correct") : window.alert(`${error.message}: The server doesn't respond`);
     }
   };
 
