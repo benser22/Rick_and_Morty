@@ -55,6 +55,7 @@ export default function App() {
       }
     }
   }
+
   // Función para eliminar todos los personajes de home
   function handleEraseAll() {
     setCharacters([]); // Seteo mi array con los personajes a vacío y así eliminar todas las cartas
@@ -62,7 +63,6 @@ export default function App() {
 
   // Función de eliminar un personaje
   function onClose(id) {
-    // dispatch(removeFav(id)); // Me aseguro de que al eliminar una carta también pierda su estado de favorito si es que lo tenía
     setCharacters(characters.filter((character) => character.id !== id));
   }
 

@@ -51,7 +51,7 @@ const reducer = (state = initialState, { type, payload }) => {
       case LOAD_FAVORITES: // Reducer para cargar los favoritos desde el servidor
       return {
         ...state,
-        favorites: payload, // Asegúrate de que la estructura de datos sea correcta
+        favorites: payload,
       };
 
     default:

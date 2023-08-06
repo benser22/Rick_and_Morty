@@ -1,5 +1,4 @@
 import React from "react";
-// Utilizo el hook useParams para obtener los parámetros de la URL
 import { useParams } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
@@ -25,7 +24,7 @@ export default function Detail() {
     isOver,
   } = useAudioPlayer(id);
 
-  // Si no se ha cargado la información del personaje, muestro un mensaje de "Cargando...", con esto evito errores si aún no se ha montado el componente
+  // Si no se ha cargado la información del personaje, muestro un componente Loader, con esto evito errores si aún no se ha montado el componente
   if (!character) {
     return <Loader />;
   }

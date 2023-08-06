@@ -87,7 +87,6 @@ export default function Episodes({ episodes }) {
         }
       }
     };
-
     // Llamo a la función para obtener los detalles de los episodios
     fetchEpisodeDetails();
   }, [episodes]);

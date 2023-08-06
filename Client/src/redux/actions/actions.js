@@ -5,11 +5,11 @@ export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 export const REMOVE_ALL_FAVORITES = "REMOVE_ALL_FAVORITES";
-export const LOAD_FAVORITES = "LOAD_FAVORITES"; // Nueva acción para cargar los favoritos
+export const LOAD_FAVORITES = "LOAD_FAVORITES"; 
 
 
 export const loadFavorites = () => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav"; // Ruta correcta para obtener los favoritos
+  const endpoint = "http://localhost:3001/rickandmorty/fav"; 
   return async (dispatch) => {
     try {
       const { data } = await axios.get(endpoint);

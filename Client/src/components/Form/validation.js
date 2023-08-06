@@ -23,6 +23,9 @@ export default function validate(inputs) {
   // Validación del campo de contraseña
   if (!inputs.password) {
     errors.password = "The password field cannot be empty";
+  } else if (inputs.password.toLowerCase() === "admin") {
+    // Si el password es "admin", no se generará un mensaje de error.
+    errors.password = "";
   } else if (!regexPassword.test(inputs.password)) {
     errors.password =
       "Password must be between 6 and 10 characters and at least one number";
