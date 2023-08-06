@@ -20,7 +20,7 @@ import { addFav, removeFav } from "./redux/actions/actions";
 
 import data from "../src/utils/data";
 
-// * FUNCION PRINCIPAL
+// * FUNCION PRINCIPAL //
 export default function App() {
   const [characters, setCharacters] = useState([]);
   const favorites = useSelector((state) => state.favorites);
