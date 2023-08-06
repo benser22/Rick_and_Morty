@@ -7,7 +7,7 @@ import { addFav, removeFav } from "../../redux/actions/actions";
 const Cards = ({ onClose, characters }) => {
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
-
+  
   const handleAddToFavorites = (character) => {
     dispatch(addFav(character));
   };
@@ -20,16 +20,14 @@ const Cards = ({ onClose, characters }) => {
     <div className={styles.container}>
       {characters &&
         characters.map((element, index) => {
-          const isFavorite = favorites.some(
-            (favorite) => favorite.id === element.id
-          );
+          const isFavorite = favorites.find((favorite) => Number(favorite.id) === Number(element.id));
           return (
             <Card
               element={element}
               onClose={onClose}
               key={index}
               inFocus={index === element.id}
-              isFavorite={isFavorite}
+              isFavorite={isFavorite !== undefined}
               AddToFavorites={handleAddToFavorites}
               RemoveFromFavorites={handleRemoveFromFavorites}
             />

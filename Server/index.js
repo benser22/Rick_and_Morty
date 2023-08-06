@@ -1,5 +1,5 @@
 const server = require("./src/app");
-
+const { conn } = require("./src/DB_connection");
 const PORT = 3001;
 
 // const router = require("./routes/index");
@@ -23,10 +23,23 @@ const PORT = 3001;
 // server.use("/rickandmorty", router);
 
 // Iniciar el servidor
-server.listen(PORT, () => {
-  console.log(`Server raised in port ${PORT}`);
-});
+// server.listen(PORT, () => {
+//   console.log(`Server raised in port ${PORT}`);
+// });
 
+// Sincronizar Sequelize con la base de datos
+conn
+  .sync({ force: false }) // Cambia a 'true' si quieres que las tablas se creen desde cero en cada inicio del servidor
+  .then(() => {
+    console.log("Database synced");
+    // Iniciar el servidor después de sincronizar
+    server.listen(PORT, () => {
+      console.log(`Server raised in port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Error syncing database:", err);
+  });
 // http
 //   .createServer((req, res) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*');

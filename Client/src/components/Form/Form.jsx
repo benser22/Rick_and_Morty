@@ -36,7 +36,7 @@ const Form = ({ userData, setUserData }) => {
       const { access } = data;
       if (access) {
         window.alert("You have successfully logged in");
-        navigate("/home");
+        navigate("/home", { state: { email, password } });
       } 
     } catch (error) {
      (error.request.status === 403) ? window.alert("The email or password is not correct") : window.alert(`${error.message}: The server doesn't respond`);

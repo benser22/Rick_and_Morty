@@ -48,7 +48,7 @@ export const removeFav = (id) => {
 
 // Acción para eliminar todos los favoritos
 export const removeAllFavorites = () => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/";
+  const endpoint = "http://localhost:3001/rickandmorty/fav";
   return (dispatch) => {
     axios.delete(endpoint).then(() => {
       dispatch({

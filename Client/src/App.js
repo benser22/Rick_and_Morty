@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Estilos
 import "./App.css";
@@ -16,7 +16,7 @@ import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
 // Redux
-import { addFav, removeFav, removeAllFavorites } from "./redux/actions/actions";
+import { addFav, removeFav } from "./redux/actions/actions";
 
 import data from "../src/utils/data";
 
@@ -26,7 +26,7 @@ export default function App() {
   const favorites = useSelector((state) => state.favorites);
   const location = useLocation();
   const [userData, setUserData] = useState({ email: "", password: "" });
-  const dispatch = useDispatch();
+
   // Función de agregar un personaje
   async function onSearch(id) {
     if (id === "0") {
@@ -55,15 +55,14 @@ export default function App() {
       }
     }
   }
-  // Función para eliminar todos los personajes
+  // Función para eliminar todos los personajes de home
   function handleEraseAll() {
-    dispatch(removeAllFavorites()); // Me aseguro que cuando se eliminen todas las cartas, también pierdan su estado de favorito si es que lo tuvieran
     setCharacters([]); // Seteo mi array con los personajes a vacío y así eliminar todas las cartas
   }
 
   // Función de eliminar un personaje
   function onClose(id) {
-    dispatch(removeFav(id)); // Me aseguro de que al eliminar una carta también pierda su estado de favorito si es que lo tenía
+    // dispatch(removeFav(id)); // Me aseguro de que al eliminar una carta también pierda su estado de favorito si es que lo tenía
     setCharacters(characters.filter((character) => character.id !== id));
   }
 
