@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import Card from "../Card/Card";
-import { removeFav, removeAllFavorites } from "../../redux/actions/actions";
+import { removeFav, removeAllFavorites, loadFavorites } from "../../redux/actions/actions";
 
 // Estilos
 import styles from "../Cards/Cards.module.css";
@@ -16,6 +16,10 @@ export default function Favorites() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let amount = "";
+
+  useEffect(() => {
+    dispatch(loadFavorites()); // Llama a la acción para cargar los favoritos desde el servidor
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch({ type: "ORDER", payload: "A" }); // Establecer orden ascendente

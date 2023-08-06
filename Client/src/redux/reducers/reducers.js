@@ -4,6 +4,7 @@ import {
   FILTER,
   ORDER,
   REMOVE_ALL_FAVORITES,
+  LOAD_FAVORITES
 } from "../actions/actions";
 
 const initialState = {
@@ -45,6 +46,12 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         favorites: [],
         allCharacters: [],
+      };
+
+      case LOAD_FAVORITES: // Reducer para cargar los favoritos desde el servidor
+      return {
+        ...state,
+        favorites: payload, // Asegúrate de que la estructura de datos sea correcta
       };
 
     default:

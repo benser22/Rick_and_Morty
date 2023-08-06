@@ -5,6 +5,26 @@ export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 export const REMOVE_ALL_FAVORITES = "REMOVE_ALL_FAVORITES";
+export const LOAD_FAVORITES = "LOAD_FAVORITES"; // Nueva acción para cargar los favoritos
+
+
+export const loadFavorites = () => {
+  const endpoint = "http://localhost:3001/rickandmorty/fav"; // Ruta correcta para obtener los favoritos
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(endpoint);
+      if (!data) {
+        throw new Error("An error occurred while loading favorites");
+      }
+      return dispatch({
+        type: LOAD_FAVORITES,
+        payload: data, 
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
 
 // ACTION | addFav
 export const addFav = (character) => {
