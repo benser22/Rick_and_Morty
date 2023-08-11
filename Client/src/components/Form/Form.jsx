@@ -32,7 +32,7 @@ const Form = () => {
 
   const login = async () => {
     const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = "https://rickandmortyserver-production.up.railway.app/rickandmorty/login";
     try {
       const { data } = await axios.get(URL, { params: { email, password } });
       const { access } = data;
@@ -49,7 +49,7 @@ const Form = () => {
 
   const register = async () => {
     const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = "https://rickandmortyserver-production.up.railway.app/rickandmorty/login";
     try {
       const response = await axios.post(URL, { email, password });
       console.log(response.data);
