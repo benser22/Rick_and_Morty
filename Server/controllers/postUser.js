@@ -11,7 +11,7 @@ const postUser = async (req, res) => {
       where: { email },
       defaults: { password }, 
     });
-    console.log("entree", created);
+
     if (!created) {
       return res.status(200).json({ message: "The user already exists", user });
     }
