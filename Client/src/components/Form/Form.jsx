@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 // Estilos
 import styles from "./Form.module.css";
 
@@ -11,49 +10,73 @@ import validate from "./validation";
 // Imagen del logo
 import logo from "../../assets/images/logo_gira.gif";
 
-const Form = ({ userData, setUserData }) => {
+const Form = () => {
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
 
-  // Función para manejar los cambios en los inputs
-  function handleChange(event) {
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
     setErrors(
       validate({ ...userData, [event.target.name]: event.target.value })
     );
-  }
+  };
 
-  const navigate = useNavigate();
-
-  // Función para realizar el login
-  const login = async (userData) => {
+  const login = async () => {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
     try {
-      const {data} = await axios.get(URL, { params: { email, password } });
+      const { data } = await axios.get(URL, { params: { email, password } });
       const { access } = data;
       if (access) {
         window.alert("You have successfully logged in");
         navigate("/home", { state: { email, password } });
-      } 
+      }
     } catch (error) {
-     (error.request.status === 403) ? window.alert("The email or password is not correct") : window.alert(`${error.message}: The server doesn't respond`);
+      error.request.status === 403
+        ? window.alert("The email or password is not correct")
+        : window.alert(`${error.message}: The server doesn't respond`);
     }
   };
 
-  // Función para manejar el envío del formulario
-  function handleSubmit(event) {
+  const register = async () => {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    try {
+      const response = await axios.post(URL, { email, password });
+      console.log(response.data);
+      if (response.status < 400) {
+        window.alert(`${email} fue creado correctamente`);
+      } else {
+        throw new Error("No se pudo crear el usuario");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    login(userData);
-  }
+    login();
+  };
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    register();
+  };
 
   return (
     <div className={styles.container} data-testid="form-component">
       <img src={logo} alt="R&M logo" className={styles.picture} />
       <h2>LOGIN</h2>
-
       <form onSubmit={handleSubmit}>
         <label htmlFor="myMail">E-mail:</label>
         <input
@@ -82,6 +105,7 @@ const Form = ({ userData, setUserData }) => {
           SUBMIT
         </button>
       </form>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };
