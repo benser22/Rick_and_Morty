@@ -18,16 +18,16 @@ import Modal from "react-modal";
 
 function Nav(props) {
   const [isHovered, setIsHovered] = useState(false); // Estado para controlar si el mouse está sobre el componente.Lo necesito para mostrar o el mail del usuario o Logout
+  const location = useLocation();
   const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico del usuario
   const [logout, setLogout] = useState(false); // Estado para controlar si se ha realizado el cierre de sesión
   const [showModal, setShowModal] = useState(false); // Estado para controlar la visibilidad del modal
   const navigate = useNavigate();
-  const location = useLocation(); // Ubicación actual de la ruta
 
   useEffect(() => {
-    setEmail(props.userData.email);
+    setEmail(location.state.email);
     // eslint-disable-next-line
-  }, []);
+  }, [email]);
 
   const handleMouseEnter = () => {
     setIsHovered(true); // Actualizo el estado de 'isHovered' para indicar que el mouse está sobre el componente

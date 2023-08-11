@@ -53,15 +53,23 @@ const Form = () => {
     try {
       const response = await axios.post(URL, { email, password });
       console.log(response.data);
-      if (response.status < 400) {
-        window.alert(`${email} fue creado correctamente`);
+      if (response.status === 201) {
+        setUserData({
+          ...userData,
+          email: email,
+          password: password,
+        });
+        window.alert(`${email} was created successfully`);
+      } else if (response.status === 200) {
+        window.alert(`There is already a user with ${email}, try another email`);
       } else {
-        throw new Error("No se pudo crear el usuario");
+        throw new Error("Failed to create user");
       }
     } catch (error) {
       console.log(error.message);
     }
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -105,7 +113,7 @@ const Form = () => {
           SUBMIT
         </button>
       </form>
-      <button onClick={handleRegister}>Register</button>
+      <button className={styles.myButton} onClick={handleRegister}>Register</button>
     </div>
   );
 };
