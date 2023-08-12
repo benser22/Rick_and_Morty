@@ -13,12 +13,12 @@ const postUser = async (req, res) => {
     });
 
     if (!created) {
-      return res.status(200).json({ message: "The user already exists", user });
+      return res.status(200).send(`${user.email} already exists`);
     }
 
     return res
       .status(201)
-      .json({ message: "User created successfully", user });
+      .send(`${user.email} created successfully`);
   } catch (error) {
     return res
       .status(500)
