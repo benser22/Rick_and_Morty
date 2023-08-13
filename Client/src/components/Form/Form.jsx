@@ -41,7 +41,7 @@ const Form = () => {
         navigate("/home", { state: { email, password } });
       }
     } catch (error) {
-      error.request.status === 403
+      error.request.status === 404
         ? window.alert("The email or password is not correct")
         : window.alert(`${error.message}: The server doesn't respond`);
     }
